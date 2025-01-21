@@ -1,0 +1,19 @@
+@use "../abstracts/" as *;
+//TODO: 폰트 정의
+// @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+	font-family: "Space Mono", sans-serif;
+}
+
+html {
+	@include horizontal-scroll;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1rem;
+  overflow-x: hidden;
+}
