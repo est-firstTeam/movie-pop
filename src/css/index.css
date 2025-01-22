@@ -80,8 +80,114 @@ a {
   color: inherit;
 }
 
-.container {
-  width: 300px;
-  height: 300px;
-  background-color: yellow;
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clear: rect(1px, 1px, 1px, 1px);
+}
+
+.detail__container {
+  height: 100vh;
+  background-color: #141414;
+  padding: 8rem 9.7rem;
+}
+
+.detail__movie-info {
+  display: flex;
+  gap: 5.4rem;
+}
+
+.detail__movie-info-inner h1 {
+  font-size: 80px;
+  font-family: "Bebas Neue", sans-serif;
+  /* margin-bottom: 20px; */
+  background: linear-gradient(90deg, #F85858, #FEE098);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.detail__movie-info-inner h2 {
+  color: #FFFFFF;
+  font-size: 1.9rem;
+  line-height: 100%;
+  margin-bottom: 3.8rem;
+}
+
+.btn-goback {
+  position: absolute;
+  right: 9.7rem;
+  width: 3rem;
+  height: 3rem;
+  top: 3rem;
+  background: url("/src/images/ico_backspace.svg") no-repeat;
+}
+
+.detail__genre-area {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.genre__item {
+  width: -moz-min-content;
+  width: min-content;
+  border: 1px solid #FFFFFF;
+  padding: 4px;
+  border-radius: 5rem;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+.horizontal {
+  height: 0.1rem;
+  background-color: rgba(80, 74, 121, 0.5019607843);
+  margin-bottom: 2.8rem;
+  border: 0;
+}
+
+.info__sub-area {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.35rem;
+}
+
+.detail__movie-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.info__sub-title {
+  display: inline-block;
+  width: 13rem;
+  color: #AAAAAA;
+  font-size: 1.9rem;
+}
+
+.info__sub-desc {
+  color: #FFFFFF;
+  font-size: 1.9rem;
+}
+
+.info__time-area {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.detail_movie-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.img__wrapper img {
+  width: 42.3rem;
+  height: 64rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=index.css.map */
