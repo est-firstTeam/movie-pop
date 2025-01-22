@@ -84,4 +84,67 @@ a {
   width: 300px;
   height: 300px;
   background-color: yellow;
+}
+
+.section-recommend {
+  background-color: #141414;
+}
+
+.section-recommend__title {
+  font-size: 24px;
+  padding: 30px 60px;
+  color: #ffffff;
+}
+
+.section-recommend__content {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.movie-card {
+  padding-left: 50px;
+  padding-bottom: 25px;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.15);
+}
+
+.movie-card__imgcontainer {
+  height: 200px;
+}
+
+.movie-card img {
+  width: 60%;
+  /* object-fit: cover; */
+}
+
+.movie-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.movie-year {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.movie-runtime {
+  position: relative;
+  display: inline-block;
+  min-width: 45px;
+  font-size: 14px;
+  color: #F8F8F8;
+}
+.movie-runtime::before {
+  position: absolute;
+  top: 5px;
+  right: 35px;
+  content: "";
+  background: url("./images/bgDot.svg") no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }/*# sourceMappingURL=index.css.map */
