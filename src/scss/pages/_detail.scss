@@ -4,30 +4,40 @@
   @include a11y-hidden;
 }
 
-.detail__container {
-  height: 100vh;
+body {
   background-color: $bgBlack;
+  height: 100vh;
+}
+
+.detail__container {
+  display: flex;
+  
+  overflow: hidden;
   padding: 8rem 9.7rem;
 }
 
 .detail__movie-info {
   display: flex;
+  flex-wrap: wrap;
   gap: 5.4rem;
 }
 
 .detail__movie-info-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 
   h1 {
     // TODO: mixin이나 공용 컴포넌트로 작성
     font-size: 80px;
     font-family: 'Bebas Neue', sans-serif;
-    /* margin-bottom: 20px; */
     background: linear-gradient(90deg, #F85858, #FEE098);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   h2 {
+    width: 90%;
     color: $white;
     font-size: 1.9rem;
     line-height: 150%;
@@ -111,10 +121,13 @@
 
 .img__wrapper {
 
+  display: flex;
+  width: 30rem;
+  height: 44rem;
 
   img {
-    width: 42.3rem;
-    height: 64rem;
-    object-fit: cover;   // 이미지 비율을 유지하며 부모 크기에 맞게 채움
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

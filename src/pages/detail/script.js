@@ -2,6 +2,11 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 const $movieInfoWrapper = document.querySelector('.detail__movie-info-wrapper');
+const $btnGoBack = document.querySelector('.btn-goback');
+
+$btnGoBack.addEventListener('click',()=>{
+  history.back();
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
   const data = await getMovie(id);
@@ -52,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       <div>
         <span class="info__sub-title">imdbRating:</span>
-        <span class="info__sub-desc">${data.imdbRating}</span>
+        <span class="info__sub-desc">⭐️ ${data.imdbRating}</span>
       </div>
 
       <div>
