@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo-container">
+        <img src="./images/logo.svg" alt="MoviePopLogo" />
+      </div>
+      <div class="header__search">
+        <input
+          class="header__input"
+          type="text"
+          required
+          onkeypress="inputValChange(event)"
+        />
+        <img
+          class="header__search-icon"
+          src="./images/ico_search.svg"
+          alt="searchIcon"
+        />
+        <hr />
+        <img
+          class="header__cancel-icon"
+          src="./images/ico_cancel.svg"
+          alt="cancelIcon"
+        />
+      </div>
+    </header>
+    <script src="./headerScript.js"></script>
+  </body>
+</html>
