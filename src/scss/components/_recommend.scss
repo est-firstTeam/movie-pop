@@ -1,32 +1,32 @@
 @use "../abstracts/variables" as *;
 
-.section-recommend{
+.recommend{
     background-color: $bgBlack;
 }
 
-.section-recommend__title{
-    font-size: 24px;
-    padding: 30px 60px;
-    color: #ffffff;
+.recommend__title{
+    font-size: 2.4rem;
+    padding: 3rem 6rem;
+    color: $white;
 }
 
-.section-recommend__content {
+.recommend__content {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
 }
 
 .movie-card {
-    padding-left: 50px;
-    padding-bottom: 25px;
+    padding-left: 5rem;
+    padding-bottom: 2.5rem;
     transition: transform 0.3s;
 }
 
 .movie-card:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 .movie-card__imgcontainer{
-    height: 200px;
+    height: 25rem;
 }
 
 .movie-card img {
@@ -35,31 +35,36 @@
 }
 
 .movie-title {
-    color: #ffffff;
-    font-size: 18px;
+    color: $white;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
+.post-info{
+    margin-top: 1rem;
+}
+
 .movie-year {
-    font-size: 14px;
-    color: #b3b3b3;
+    font-size: 1.4rem;
+    color: $fontGray10;
 }
 
 .movie-runtime {
     position: relative;
     display: inline-block;
-    min-width: 45px;
-    font-size: 14px;
-    color: #F8F8F8;
+    min-width: 4.5rem;
+    font-size: 1.4rem;
+    color: $fontGray10;
+    padding-left: 3rem;
 
     &::before{
         position: absolute;
-        top: 5px;
-        right: 35px;
+        top: 0.5rem;
+        right: 3.5rem;
         content: "";
-        background: url("./images/bgDot.svg") no-repeat;
+        background: url("../images/bgDot.svg") no-repeat;
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        width: 2rem;
+        height: 2rem;
     }
 }

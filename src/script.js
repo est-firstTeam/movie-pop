@@ -1,4 +1,4 @@
-const articles = document.querySelector(".section-recommend__content");
+const articles = document.querySelector(".recommend__content");
 
 document.addEventListener("DOMContentLoaded", function () {
   async function fetchData() {
