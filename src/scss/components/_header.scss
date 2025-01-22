@@ -1,0 +1,89 @@
+@use "../abstracts/variables" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  justify-content: space-between;
+  height: 15rem;
+  background-color: $bgBlack;
+}
+
+.header__logo-container {
+  width: 11rem;
+  height: 15rem;
+  & img {
+    width: 100%;
+  }
+}
+
+.header__search {
+  display: flex;
+  position: relative;
+  width: 30rem;
+}
+
+.header__search-icon {
+  padding-bottom: 1rem;
+  position: absolute;
+  color: #aaa;
+  right: 1rem;
+  width: 3rem;
+  bottom: 0.8rem;
+  transition: all 0.3s;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.header__cancel-icon {
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: none;
+}
+
+.header__input {
+  font-size: 30px;
+  color: $secondary;
+  width: 25rem;
+  border: none;
+  padding-bottom: 1.5rem;
+  position: relative;
+  background: none;
+  z-index: 5;
+  line-height: 3rem;
+  caret-color: $secondary;
+  text-align: left;
+  text-indent: 15%;
+  &:focus {
+    outline: none;
+  }
+}
+
+hr {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0%; /* right로만 바꿔주면 오 - 왼 */
+  width: 0;
+  height: 3px;
+  transition: 0.3s;
+  border: none;
+  background: linear-gradient(90deg, #f85858, #fee098);
+}
+
+//Transition 부분 (아이콘)
+input:focus ~ img,
+input:valid ~ img {
+  font-size: 1.6rem;
+  right: 32rem;
+  color: #666;
+  font-weight: bold;
+}
+//Transition 부분 (수평선)
+input:focus ~ hr,
+input:valid ~ hr {
+  width: 100%;
+}
