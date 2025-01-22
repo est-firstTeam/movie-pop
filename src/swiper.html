@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+
+        .swiper-container {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .movie-grid-new{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .movie-grid-classic{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .movie-card {
+            padding-left: 50px;
+            padding-bottom: 25px;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.15);
+        }
+
+        .movie-card__imgcontainer{
+            height: 200px;
+        }
+
+        .movie-card img {
+            width: 60%;
+            /* object-fit: cover; */
+        }
+
+        .movie-title {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .movie-year {
+            font-size: 14px;
+            color: #b3b3b3;
+        }
+
+        .movie-runtime {
+            position: relative;
+            display: inline-block;
+            min-width: 45px;
+            font-size: 14px;
+            color: #F8F8F8;
+
+            &::before{
+                position: absolute;
+                top: 5px;
+                right: 35px;
+                content: "";
+                background: url(./images/bgDot.svg) no-repeat;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="section-recommend">
+        <h1 class="section-recommend__title">NEW</h1>
+        <div class="swiper-container">
+            <div class="swiper-wrapper movie-grid-new"></div>
+        </div>
+    </section>
+
+    <section class="section-recommend">
+        <h1 class="section-recommend__title">CLASSIC</h1>
+        <div class="movie-grid-classic"></div>
+    </section>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const newMoviesContainer = document.querySelector(".movie-grid-new");
+        const classicMoviesContainer = document.querySelector(".movie-grid-classic");
+
+        document.addEventListener("DOMContentLoaded", function () {
+        async function fetchData() {
+            try {
+            const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
+            const data = await response.json();
+            renderMovies(data);
+            dataRender(data, articles);
+            } catch (err) { // 디펜시브 코딩 (실패 시 에러메세지 도출)
+            console.error("Error!", err);
+            }
+        }
+
+        function renderMovies(data) {
+                const newMovies = data.filter(movie => parseInt(movie.Year) > '2016');
+                const classicMovies = data.filter(movie => parseInt(movie.Year) <= '2016');
+
+                dataRender(newMovies, newMoviesContainer);
+                dataRender(classicMovies, classicMoviesContainer);
+                initializeSwiper();
+        }            
+
+        function dataRender(data, container) {
+            container.innerHTML = data
+            .map(
+                (movie) => `
+                <article class="movie-card">
+                    <div class="movie-card__imgcontainer">
+                        <a href="/src/pages/detail/detail.html?id=${movie.imdbID}">
+                            <img src="${movie.Poster}" alt="${movie.Title}">
+                        </a>
+                    </div>
+                    <h2 class="movie-title">${movie.Title}</h2>
+                    <div class="post-info">
+                    <span class="movie-year">${movie.Year}</span> • 
+                    <span class="movie-runtime">${movie.Runtime}</span>
+                    </div>
+                </article>
+                `
+            )
+            .join("");
+        }
+
+        function initializeSwiper() {
+                new Swiper('.swiper-container', {
+                    slidesPerView: 10,
+                    spaceBetween: 5,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                });
+            }
+
+        fetchData();
+        });
+    </script>
+</body>
+</html>
