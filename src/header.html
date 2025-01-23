@@ -3,10 +3,14 @@
     <img src="/src/images/logo.svg" alt="MoviePopLogo" />
   </div>
   <div class="header__search">
-    <input class="header__input" type="text" required onkeypress="inputValChange(event)" />
-    <img class="header__search-icon" src="/src/images/ico_search.svg" alt="searchIcon" />
+    <form class="form__search">
+      <input class="header__input" type="text" required />
+      <button>
+        <img class="header__search-icon" src="/src/images/ico_search.svg" alt="searchIcon" />
+      </button>
+    </form>
+
     <hr />
     <img class="header__cancel-icon" src="/src/images/ico_cancel.svg" alt="cancelIcon" />
   </div>
 </header>
-<script src="/src/headerScript.js" type="module"></script>
