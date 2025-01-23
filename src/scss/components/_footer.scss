@@ -1,0 +1,24 @@
+@use "../abstracts/variables" as *;
+
+.footer{
+    display: inline-flex;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.footer__sns ul li{
+    margin-top: 5rem;
+}
+
+.footer__sns img{
+    width: 3rem;
+}
+
+.copy-text{
+    padding: 5rem;
+}
+
+.copy-text-block{
+    color: $white;
+    padding: 0.5rem;
+}
