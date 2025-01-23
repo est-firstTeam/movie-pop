@@ -50,10 +50,11 @@
 
 .header__input {
   display: none;
-  font-size: 30px;
+  font-size: 2rem;
   color: $secondary;
   width: 23rem;
   padding-bottom: 1.5rem;
+  border: none;
   position: relative;
   background: none;
   z-index: 5;
@@ -90,4 +91,68 @@ hr {
 .header__input:focus ~ hr,
 .header__input:valid ~ hr {
   width: 100%;
+}
+//여기까지 Header 영역
+
+//Search 결과 영역 시작
+.search-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem 15rem;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.search-bar__input {
+  line-height: 3rem;
+  width: 100rem;
+  font-size: 2rem;
+  text-indent: 2rem;
+  background: none;
+  border: none;
+  color: $secondary;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-bar__btn {
+  padding-right: 2rem;
+  & svg {
+    fill: white;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.highlight {
+  color: yellow;
+}
+
+.search-result {
+  border-bottom: 1px solid gray;
+  margin: 0rem 3rem;
+  margin-bottom: 5rem;
+}
+
+.search-result__title {
+  font-size: 4rem;
+  color: white;
+  padding: 1rem;
+}
+
+.movie-card-noresult {
+  height: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-noresult__text {
+  color: white;
+  font-size: 3rem;
+  & span {
+    color: tomato;
+  }
 }

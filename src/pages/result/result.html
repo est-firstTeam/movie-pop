@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo-container">
+        <img src="/src/images/logo.svg" alt="MoviePopLogo" />
+      </div>
+      <div class="header__search">
+        <input
+          class="header__input"
+          type="text"
+          required
+          onkeypress="inputValChange(event)"
+        />
+        <img
+          class="header__search-icon"
+          src="/src/images/ico_search.svg"
+          alt="searchIcon"
+        />
+        <hr />
+        <img
+          class="header__cancel-icon"
+          src="/src/images/ico_cancel.svg"
+          alt="cancelIcon"
+        />
+      </div>
+    </header>
+    <section class="section-result">
+      <div class="search-bar-wrapper">
+        <input class="search-bar__input" type="text" />
+        <button class="search-bar__btn" type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="#fee098"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="search-result">
+        <h2 class="search-result__title">result</h2>
+        <div class="search-result__cards"></div>
+      </div>
+    </section>
+    <script src="/src/pages/result/script.js"></script>
+  </body>
+</html>
