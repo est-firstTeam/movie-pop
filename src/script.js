@@ -1,7 +1,6 @@
 const articles = document.querySelector(".recommend__content");
-const swiperContainer = document.querySelector(".mySwiper");
-const swiperContainer2 = document.querySelector(".mySwiper2");
-
+const swiperContainer = document.querySelector(".new-swiper");
+const swiperContainer2 = document.querySelector(".classic-swiper");
 async function fetchData() {
   try {
     const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
@@ -98,7 +97,8 @@ function dataRender2(data, container) {
 
 fetchData();
 
-const swiperEl = document.querySelector("swiper-container");
+const swiperEl = document.querySelector(".new-swiper");
+const swiperEl2 = document.querySelector(".classic-swiper");
 
 const params = {
   centeredSlides: false,
@@ -121,3 +121,9 @@ const params = {
 Object.assign(swiperEl, params);
 
 swiperEl.initialize();
+
+
+
+Object.assign(swiperEl2, params);
+
+swiperEl2.initialize();
