@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        swiper-slide img {
+            display: block;
+            width: 100%;
+        }
+
+        .movie-card {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .movie-card img {
+            width: min-content;
+        }
+
+        .movie-card__navigate-section {
+            width: min-content;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="section-recommend">
+        <h1 class="section-recommend__title">NEW</h1>
+        <swiper-container class="mySwiper" init="false">
+        </swiper-container>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script>
+        const swiperContainer = document.querySelector(".mySwiper");
+
+        async function fetchData() {
+            try {
+                const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
+                const data = await response.json();
+                renderMovies(data);
+                dataRender(data, articles);
+            } catch (err) { // 디펜시브 코딩 (실패 시 에러메세지 도출)
+                console.error("Error!", err);
+            }
+        }
+
+        function renderMovies(data) {
+            const newMovies = data.filter(movie => parseInt(movie.Year) > '2016');
+            const classicMovies = data.filter(movie => parseInt(movie.Year) <= '2016');
+
+            dataRender(newMovies, swiperContainer);
+            // dataRender(classicMovies, classicMoviesContainer);
+        }
+
+        function dataRender(data, container) {
+            container.innerHTML = data
+                .map(
+                    (movie) => `
+                     <swiper-slide>
+                <article class="movie-card">
+                    <div class="movie-card__imgcontainer">
+                        <a 
+                        class="movie-card__navigate-section"
+                        href="/src/pages/detail/detail.html?id=${movie.imdbID}">
+                            <img src="${movie.Poster}" alt="${movie.Title}">
+                        </a>
+                    </div>
+                    <h2 class="movie-title">${movie.Title}</h2>
+                    <div class="post-info">
+                    <span class="movie-year">${movie.Year}</span> • 
+                    <span class="movie-runtime">${movie.Runtime}</span>
+                    </div>
+                </article>
+                   </swiper-slide>
+                `
+                )
+                .join("");
+        }
+        fetchData();
+
+
+        const swiperEl = document.querySelector('swiper-container');
+
+        const params = {
+            centeredSlides: false,
+            slidesPerGroupSkip: 1,
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            keyboard: {
+                enabled: true,
+            },
+            breakpoints: {
+                769: {
+                    slidesPerView: 4,
+                    slidesPerGroup: 2,
+                    spaceBetween: 25
+                },
+            },
+            navigation: true,
+
+        };
+
+        Object.assign(swiperEl, params)
+
+        swiperEl.initialize();
+    </script>
+</body>
+
+</html>

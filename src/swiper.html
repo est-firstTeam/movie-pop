@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
 
-        .swiper-container {
-            width: 100%;
-            padding: 20px;
-        }
+.swiper {
+      width: 100%;
+      height: 100%;
+    }
 
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin: 20px auto;
+    }
 
         .movie-grid-new{
             display: grid;
@@ -81,8 +97,13 @@
 
     <section class="section-recommend">
         <h1 class="section-recommend__title">NEW</h1>
-        <div class="swiper-container">
-            <div class="swiper-wrapper movie-grid-new"></div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </section>
 
@@ -91,9 +112,9 @@
         <div class="movie-grid-classic"></div>
     </section>
     
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const newMoviesContainer = document.querySelector(".movie-grid-new");
+        const newMoviesContainer = document.querySelector(".swiper-slide");
         const classicMoviesContainer = document.querySelector(".movie-grid-classic");
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -139,15 +160,19 @@
         }
 
         function initializeSwiper() {
-                new Swiper('.swiper-container', {
-                    slidesPerView: 10,
-                    spaceBetween: 5,
-                    loop: true,
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    },
-                });
+            var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      centeredSlides: true,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
             }
 
         fetchData();
