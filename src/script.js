@@ -1,4 +1,8 @@
+import { loadHeader } from "./js/loadHeader.js";
+
 const articles = document.querySelector(".recommend__content");
+
+loadHeader();
 
 document.addEventListener("DOMContentLoaded", function () {
   async function fetchData() {
