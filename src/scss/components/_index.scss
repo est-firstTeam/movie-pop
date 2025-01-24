@@ -10,7 +10,20 @@
     grid-template-columns: 1fr 1fr;
     background: url('../images/bg.png') no-repeat center;
     background-size: cover;
+    
+    position: relative;
+    isolation: isolate;
+    &::after {
+        content: '';
+        position: absolute;
+        background: $bgBlack;
+        z-index: -1;
+        inset: 0;
+        opacity: 0.9;
+    }
+
 }
+
 .section-slide__content {
     padding: 100px;
     display: flex;
@@ -46,4 +59,23 @@
     width: 80%;
     max-width: 400px;
     border-radius: 10px;
+}
+
+.topBtn { 
+    display: none; 
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    z-index: 999;
+    background-color: white;
+    border: 0.2rem solid #dbdbdb;
+    outline: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $primary;
 }
