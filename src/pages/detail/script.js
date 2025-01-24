@@ -1,10 +1,14 @@
+import { loadHeader } from "../../js/loadHeader.js";
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 const $movieInfoWrapper = document.querySelector('.detail__movie-info-wrapper');
 const $btnGoBack = document.querySelector('.btn-goback');
 
-$btnGoBack.addEventListener('click',()=>{
+loadHeader();
+
+$btnGoBack.addEventListener('click', () => {
   history.back();
 });
 

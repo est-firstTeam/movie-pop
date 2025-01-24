@@ -1,8 +1,12 @@
+import { loadHeader } from "./js/loadHeader.js";
+
 const articles = document.querySelector(".recommend__content");
 const swiperContainer = document.querySelector(".new-swiper");
 const swiperContainer2 = document.querySelector(".classic-swiper");
 const topBtn = document.querySelector(".topBtn");
 // setTimeout( () => {} , 4000 )
+
+loadHeader();
 
 topBtn.addEventListener("click", () => {
   document.body.scrollTo({
