@@ -17,7 +17,7 @@
             Our recommendation site offers suggestions for both the latest releases and timeless classics.<br> 
             Start exploring and discover your next favorite film!</p>
         <a href="/src/pages/detail/detail.html?id=tt0441773">
-          <button><span>See Detail</span></button>
+          <button class="slide__btn"><span>See Detail</span></button>
         </a>
     </div>
     <div class="section-slide__poster">
@@ -27,13 +27,13 @@
 
   <section class="recommend">
     <h1 class="recommend__title">NEW</h1>
-    <swiper-container class="new-swiper" init="false">
+    <swiper-container class="new-swiper">
     </swiper-container>
   </section>
 
   <section class="recommend">
     <h1 class="recommend__title">CLASSIC</h1>
-    <swiper-container class="classic-swiper" init="false">
+    <swiper-container class="classic-swiper">
     </swiper-container>
   </section>
 
@@ -41,6 +41,8 @@
     <h1 class="recommend__title">RECOMMEND</h1>
     <div class="recommend__content"></div>
   </section>
+
+  <button class="topBtn"> ▲ <br/> TOP </button >
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="./script.js"></script>

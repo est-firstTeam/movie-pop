@@ -34,6 +34,25 @@
     /* object-fit: cover; */
 }
 
+.movie-card__swiper{
+    padding-left: 5rem;
+    padding-bottom: 2.5rem;
+    transition: transform 0.3s;
+}
+
+.movie-card__swiper img {
+    width: 80%;
+}
+
+.swiper-button-next{
+    --swiper-theme-color:#ffffff;
+}
+
+// .swiper-button-next::after,
+// .swiper-button-prev::after {
+//   display: none;
+// }
+
 .movie-title {
     color: $white;
     font-size: 1.8rem;

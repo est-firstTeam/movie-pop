@@ -209,7 +209,7 @@ body {
      object-fit: cover;
 }
 
-button {
+.slide__btn {
   width: 180px;
   background-color: #353534;
   color: #FFFFFF;
@@ -219,13 +219,13 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-button span {
+.slide__btn span {
   display: flex;
   justify-content: center;
   position: relative;
   font-size: 16px;
 }
-button span::after {
+.slide__btn span::after {
   position: absolute;
   left: 12rem;
   top: 0.1rem;
@@ -235,7 +235,7 @@ button span::after {
   height: 2rem;
 }
 
-button:hover {
+.slide__btn:hover {
   background-color: #F85858;
 }
 
@@ -271,6 +271,20 @@ button:hover {
 .movie-card img {
   width: 60%;
   /* object-fit: cover; */
+}
+
+.movie-card__swiper {
+  padding-left: 5rem;
+  padding-bottom: 2.5rem;
+  transition: transform 0.3s;
+}
+
+.movie-card__swiper img {
+  width: 80%;
+}
+
+.swiper-button-next {
+  --swiper-theme-color:#ffffff;
 }
 
 .movie-title {
@@ -441,4 +455,23 @@ input:valid ~ hr {
   width: 80%;
   max-width: 400px;
   border-radius: 10px;
+}
+
+.topBtn {
+  display: none;
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: 999;
+  background-color: white;
+  border: 0.2rem solid #dbdbdb;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #F85858;
 }/*# sourceMappingURL=index.css.map */

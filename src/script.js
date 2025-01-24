@@ -1,6 +1,25 @@
 const articles = document.querySelector(".recommend__content");
 const swiperContainer = document.querySelector(".new-swiper");
 const swiperContainer2 = document.querySelector(".classic-swiper");
+const topBtn = document.querySelector(".topBtn");
+// setTimeout( () => {} , 4000 )
+
+topBtn.addEventListener("click", () => {
+  document.body.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+  console.log("click");
+});
+
+document.body.addEventListener("scroll", () => {
+  if (document.body.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});
+
 async function fetchData() {
   try {
     const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
@@ -48,8 +67,8 @@ function dataRender2(data, container) {
   container.innerHTML = data
     .map(
       (movie) => `
-           <swiper-slide>
-      <article class="movie-card">
+      <swiper-slide>
+        <article class="movie-card__swiper">
           <div class="movie-card__imgcontainer">
               <a 
               class="movie-card__navigate-section"
@@ -62,38 +81,12 @@ function dataRender2(data, container) {
           <span class="movie-year">${movie.Year}</span> • 
           <span class="movie-runtime">${movie.Runtime}</span>
           </div>
-      </article>
-         </swiper-slide>
+        </article>
+      </swiper-slide>
       `
     )
     .join("");
 }
-
-// function dataRender3(data, container) {
-//   console.log(data);
-//   container.innerHTML = data
-//     .map(
-//       (movie) => `
-//            <swiper-slide>
-//       <article class="movie-card">
-//           <div class="movie-card__imgcontainer">
-//               <a
-//               class="movie-card__navigate-section"
-//               href="/src/pages/detail/detail.html?id=${movie.imdbID}">
-//                   <img src="${movie.Poster}" alt="${movie.Title}">
-//               </a>
-//           </div>
-//           <h2 class="movie-title">${movie.Title}</h2>
-//           <div class="post-info">
-//           <span class="movie-year">${movie.Year}</span> •
-//           <span class="movie-runtime">${movie.Runtime}</span>
-//           </div>
-//       </article>
-//          </swiper-slide>
-//       `
-//     )
-//     .join("");
-// }
 
 fetchData();
 
@@ -110,8 +103,8 @@ const params = {
   },
   breakpoints: {
     769: {
-      slidesPerView: 5,
-      slidesPerGroup: 2,
+      slidesPerView: 6,
+      slidesPerGroup: 1,
       spaceBetween: 20,
     },
   },
@@ -122,8 +115,4 @@ Object.assign(swiperEl, params);
 
 swiperEl.initialize();
 
-
-
 Object.assign(swiperEl2, params);
-
-swiperEl2.initialize();
