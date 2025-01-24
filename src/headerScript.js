@@ -1,13 +1,26 @@
-const btnX = document.querySelector(".header__cancel-icon");
-const btnSearch = document.querySelector(".header__search-icon");
-const headerInput = document.querySelector(".header__input");
-const NOIMG_URL = "/src/images/img_noImg.png";
+window.NOIMG_URL = "/src/images/img_noImg.png";
 
-const getSearchValue = () => {
-  return headerInput.value;
+export const getStorage = (key = "movie") => {
+  let movieObj;
+  if (key === "movie") {
+    movieObj = JSON.parse(sessionStorage.getItem(key));
+  } else {
+    movieObj = sessionStorage.getItem(key);
+  }
+  return movieObj;
 };
 
-const getDataFromApi = async (title) => {
+export const saveStorage = (jsonObj, movieTitle) => {
+  console.log("jsonObj ->", jsonObj);
+  if (jsonObj.Response === "False") {
+    console.log("title ->", movieTitle);
+    sessionStorage.setItem("inputVal", movieTitle);
+  } else {
+    sessionStorage.setItem("movie", JSON.stringify(jsonObj));
+  }
+};
+
+export const getDataFromApi = async (title) => {
   const response = await fetch(
     `https://www.omdbapi.com/?apikey=524002e8&t=${title}`
   );
@@ -15,70 +28,73 @@ const getDataFromApi = async (title) => {
   return jsonData;
 };
 
-const saveStorage = (param) => {
-  sessionStorage.setItem("movie", JSON.stringify(param));
-};
+export const headerScript = () => {
+  const btnX = document.querySelector(".header__cancel-icon");
+  const searchIcon = document.querySelector(".header__search-icon");
+  const btnSearch = document.querySelector(".header__search-btn");
+  const headerInput = document.querySelector(".header__input");
+  const inputForm = document.querySelector(".header__search");
 
-const getStorage = (key = "movie") => {
-  const movieObj = JSON.parse(sessionStorage.getItem(key));
-  return movieObj;
-};
+  inputForm.addEventListener("submit", async (event) => {
+    //실행순서 바꾸지 말기.
+    event.preventDefault();
+    let jsonObj = await getDataFromApi(headerInput.value);
+    console.log("submit.. title ->", headerInput.value);
+    saveStorage(jsonObj, headerInput.value);
+    // sessionStorage.setItem("movie", JSON.stringify(temp));
+    setTimeout(() => {
+      headerInput.style.display = "none";
+      headerInput.value = "";
+      btnX.style.display = "none";
+      btnSearch.style.visibility = "hidden";
+      searchIcon.style.display = "block";
+    }, 10);
+    location.href = "http://localhost:5500/src/pages/result/result.html";
+  });
 
-const searchByTitle = async (title) => {
-  // 조건을 더 달아줄 수 없을까?
-  if (title.length) {
-    const temp = await getDataFromApi(title);
-    saveStorage(temp);
-  }
-};
+  searchIcon.addEventListener("click", () => {
+    headerInput.style.display = "block";
 
-async function inputValChange(e) {
-  const title = headerInput.value;
-  //Enter Key Down코드
-  if (e.keyCode === 13) {
-    temp = await getDataFromApi(title);
-    console.log("movieData ->", temp);
-    sessionStorage.setItem("movie", JSON.stringify(temp));
-  }
-}
+    //toggle
+    if (btnX.style.display === "block") {
+      btnX.style.display = "none";
+      headerInput.value = "";
+    } else {
+      btnX.style.display = "block";
+    }
+  });
 
-btnSearch.addEventListener("click", () => {
-  headerInput.style.display = "block";
-
-  //toggle
-  if (btnX.style.display === "block") {
-    btnX.style.display = "none";
-    headerInput.value = "";
-  } else {
+  headerInput.addEventListener("focus", () => {
+    headerInput.style.display = "block";
     btnX.style.display = "block";
-  }
-});
+    btnSearch.style.visibility = "visible";
+    searchIcon.style.display = "none";
+  });
 
-headerInput.addEventListener("focus", () => {
-  btnX.style.display = "block";
-});
+  headerInput.addEventListener("focusout", () => {
+    setTimeout(() => {
+      headerInput.style.display = "none";
+      headerInput.value = "";
+      btnX.style.display = "none";
+      btnSearch.style.visibility = "hidden";
+    }, 100);
+    setTimeout(() => {
+      searchIcon.style.display = "block";
+    }, 300);
+  });
 
-headerInput.addEventListener("focusout", async () => {
-  console.log("focus out!!!");
-  const movieTitle = headerInput.value;
+  btnSearch.addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+    console.log(e);
+  });
 
-  //FocusOut 될때마다 데이터 요청. (좋은 방법이 아닌데...)
-  searchByTitle(movieTitle);
+  searchIcon.addEventListener("click", () => {
+    headerInput.style.display = "block";
+    headerInput.focus();
+  });
 
-  headerInput.value = "";
-  btnX.style.display = "none";
-  headerInput.style.display = "none";
-});
-
-btnX.addEventListener("click", () => {
-  headerInput.value = "";
-  headerInput.blur();
-  btnX.style.display = "none";
-  headerInput.style.display = "none";
-});
-
-btnSearch.addEventListener("click", () => {
-  headerInput.style.display = "block";
-  headerInput.focus();
-});
-//여기까지 Header 영역 코드
+  btnX.addEventListener("click", (e) => {
+    console.log("btn X!!");
+    e.stopImmediatePropagation();
+  });
+};

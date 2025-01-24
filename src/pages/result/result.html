@@ -7,34 +7,11 @@
     <link rel="stylesheet" href="../../css/index.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="header__logo-container">
-        <img src="/src/images/logo.svg" alt="MoviePopLogo" />
-      </div>
-      <div class="header__search">
-        <input
-          class="header__input"
-          type="text"
-          required
-          onkeypress="inputValChange(event)"
-        />
-        <img
-          class="header__search-icon"
-          src="/src/images/ico_search.svg"
-          alt="searchIcon"
-        />
-        <hr />
-        <img
-          class="header__cancel-icon"
-          src="/src/images/ico_cancel.svg"
-          alt="cancelIcon"
-        />
-      </div>
-    </header>
+    <header class="header__wrapper"></header>
     <section class="section-result">
-      <div class="search-bar-wrapper">
-        <input class="search-bar__input" type="text" />
-        <button class="search-bar__btn" type="button">
+      <form class="search-bar-wrapper">
+        <input class="search-bar__input" type="text" required />
+        <button class="search-bar__btn" type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -48,12 +25,13 @@
             />
           </svg>
         </button>
-      </div>
+      </form>
       <div class="search-result">
         <h2 class="search-result__title">result</h2>
+        <hr />
         <div class="search-result__cards"></div>
       </div>
     </section>
-    <script src="/src/pages/result/script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
