@@ -2,7 +2,7 @@
 // TODO: 공용 버튼
 @use "../abstracts/variables" as *;
 
-button {
+.slide__btn {
     width: 180px;
     background-color: $btnGray;
     color: $white;
@@ -30,6 +30,6 @@ button {
 
     
 }
-button:hover {
+.slide__btn:hover {
     background-color: $primary;
 }

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="./css/index.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
 
 <body>
   <header class="header__wrapper"></header>
@@ -18,19 +17,47 @@
             Our recommendation site offers suggestions for both the latest releases and timeless classics.<br> 
             Start exploring and discover your next favorite film!</p>
         <a href="/src/pages/detail/detail.html?id=tt0441773">
-          <button><span>See Detail</span></button>
+          <button class="slide__btn"><span>See Detail</span></button>
         </a>
     </div>
     <div class="section-slide__poster">
         <img src="./images/@poster.png" alt="Dungeons & Dragons: Honor Among Thieves Poster">
     </div>
   </section>
-  <section class="recommend">
-    <h1 class="recommend__title">RECOMMEND</h1>
-    <div class="recommend__content"></div>
-  </section>
 
-  <script src="./script.js" type="module"></script>
+    <section class="recommend">
+      <h1 class="recommend__title">NEW</h1>
+      <div class="swiper-wrapper">
+        <swiper-container class="new-swiper" init="false"> </swiper-container>
+        <button class="swiper-button-prev"></button>
+        <button class="swiper-button-next"></button>
+      </div>
+    </section>
+
+    <section class="recommend">
+      <h1 class="recommend__title">CLASSIC</h1>
+      <div class="swiper-wrapper">
+        <swiper-container class="classic-swiper" init="false">
+        </swiper-container>
+        <button class="swiper-button-prev2"></button>
+        <button class="swiper-button-next2"></button>
+      </div>
+    </section>
+
+    <section class="recommend">
+      <h1 class="recommend__title">RECOMMEND</h1>
+      <div class="recommend__content"></div>
+    </section>
+
+    <button class="topBtn">
+      ▲ <br />
+      TOP
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+  
 </body>
 
 </html>
