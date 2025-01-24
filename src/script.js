@@ -108,11 +108,35 @@ const params = {
       spaceBetween: 20,
     },
   },
-  navigation: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+};
+
+const params2 = {
+  centeredSlides: false,
+  slidesPerGroupSkip: 1,
+  slidesPerView: "auto",
+  spaceBetween: 30,
+  keyboard: {
+    enabled: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 6,
+      slidesPerGroup: 1,
+      spaceBetween: 20,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-button-next2",
+    prevEl: ".swiper-button-prev2",
+  },
 };
 
 Object.assign(swiperEl, params);
 
 swiperEl.initialize();
 
-Object.assign(swiperEl2, params);
+Object.assign(swiperEl2, params2);

@@ -1,10 +1,10 @@
 @use "../abstracts/variables" as *;
 
-.recommend{
+.recommend {
     background-color: $bgBlack;
 }
 
-.recommend__title{
+.recommend__title {
     font-size: 2.4rem;
     padding: 3rem 6rem;
     color: $white;
@@ -21,11 +21,40 @@
     transition: transform 0.3s;
 }
 
+.swiper-wrapper {
+    position: relative;
+}
+
+.swiper-button-prev::after {
+    display: block;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+.swiper-button-next::after {
+    display: block;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
 .movie-card:hover {
     transform: scale(1.1);
 }
 
-.movie-card__imgcontainer{
+.movie-card__imgcontainer {
     height: 25rem;
 }
 
@@ -34,24 +63,6 @@
     /* object-fit: cover; */
 }
 
-.movie-card__swiper{
-    padding-left: 5rem;
-    padding-bottom: 2.5rem;
-    transition: transform 0.3s;
-}
-
-.movie-card__swiper img {
-    width: 80%;
-}
-
-.swiper-button-next{
-    --swiper-theme-color:#ffffff;
-}
-
-// .swiper-button-next::after,
-// .swiper-button-prev::after {
-//   display: none;
-// }
 
 .movie-title {
     color: $white;
@@ -59,7 +70,7 @@
     font-weight: bold;
 }
 
-.post-info{
+.post-info {
     margin-top: 1rem;
 }
 
@@ -76,7 +87,7 @@
     color: $fontGray10;
     padding-left: 3rem;
 
-    &::before{
+    &::before {
         position: absolute;
         top: 0.5rem;
         right: 3.5rem;
