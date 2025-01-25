@@ -17,16 +17,6 @@
   }
 }
 
-.header__search {
-  display: flex;
-  position: relative;
-  width: 0;
-  height: 5rem;
-  background: linear-gradient(90deg, #f85858, #fee098) no-repeat 0 bottom / 100%
-    0.2rem;
-  // transition: width 0.3s;
-}
-
 .header__search-icon {
   padding-bottom: 1rem;
   position: absolute;
@@ -46,7 +36,7 @@
   height: 3rem;
   display: none;
   z-index: 100;
-  margin-left: 5rem;
+
   &:hover {
     cursor: pointer;
   }
@@ -56,14 +46,14 @@
   display: none;
   font-size: 30px;
   color: $secondary;
-  width: 20rem;
+  width: 25rem;
   position: relative;
   background: none;
   z-index: 5;
   line-height: 3rem;
   caret-color: $secondary;
   text-align: left;
-  margin-left: 4rem;
+  margin-left: 5rem;
   border: none;
   &:focus {
     outline: none;
@@ -78,23 +68,49 @@
   color: #666;
   font-weight: bold;
 }
-// Transition 부분 (수평선)
-.header__search:focus-within {
+
+.header__search {
+  display: flex;
+  position: relative;
+  width: 31rem;
+  height: 5.1rem;
+}
+
+.header__search-form {
+  clip-path: inset(0 0 0 100%);
   width: 30rem;
+  background: linear-gradient(90deg, #f85858, #fee098) no-repeat 0 bottom / 100%
+    0.2rem;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+// Transition 부분 (수평선)
+.header__search-form:focus-within {
+  clip-path: inset(0 0 0 0);
 }
 
 .header__search-btn {
   visibility: hidden;
+  position: absolute;
   width: 4rem;
   height: 4rem;
   color: white;
   padding: 2rem;
   background-image: url("/src/images/ico_search.svg");
   background-size: cover;
-  position: absolute;
   color: #aaa;
   right: 1rem;
   width: 4rem;
-  bottom: 1.15rem;
+  bottom: 1.1rem;
   transition: all 0.3s;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
