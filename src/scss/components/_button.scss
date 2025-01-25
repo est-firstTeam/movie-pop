@@ -3,33 +3,31 @@
 @use "../abstracts/variables" as *;
 
 .slide__btn {
-    width: 180px;
-    background-color: $btnGray;
-    color: $white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  width: 18rem;
+  background-color: $btnGray;
+  color: $white;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
-    span{
-        display: flex;
-        justify-content: center;
-        position: relative;
-        font-size: 16px;
-        &::after {
-            position: absolute;
-            left: 12rem;
-            top: 0.1rem;
-            content: "";
-            background: url('../images/btn-arrow.svg') no-repeat;
-            width: 3rem;
-            height: 2rem;
-        }
+  span {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 1.6rem;
+    &::after {
+      position: absolute;
+      left: 12rem;
+      top: 0.1rem;
+      content: "";
+      background: url("../images/btn-arrow.svg") no-repeat;
+      width: 3rem;
+      height: 2rem;
     }
-
-    
+  }
 }
 .slide__btn:hover {
-    background-color: $primary;
+  background-color: $primary;
 }
