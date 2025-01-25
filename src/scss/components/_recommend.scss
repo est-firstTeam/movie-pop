@@ -1,100 +1,169 @@
 @use "../abstracts/variables" as *;
 
 .recommend {
-    background-color: $bgBlack;
+  background-color: $bgBlack;
 }
 
 .recommend__title {
-    font-size: 2.4rem;
-    padding: 3rem 6rem;
-    color: $white;
+  font-size: 2.4rem;
+  padding: 3rem 6rem;
+  color: $white;
 }
 
 .recommend__content {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  // justify-content: space-evenly;
 }
 
 .movie-card {
-    padding-left: 5rem;
-    padding-bottom: 2.5rem;
-    transition: transform 0.3s;
+  padding-left: 5rem;
+  padding-bottom: 2.5rem;
+  transition: transform 0.3s;
 }
 
 .swiper-wrapper {
-    position: relative;
+  position: relative;
 }
 
-.swiper-button-prev::after {
-    display: block;
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
+.swiper-button-prev {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  background-color: #8d8d8d33;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
-.swiper-button-next::after {
-    display: block;
-    top: 0;
-    right: 0;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
+.swiper-button-next {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  background-color: #8d8d8d33;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.swiper-button-prev2 {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  background-color: #8d8d8d33;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.swiper-button-next2 {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  background-color: #8d8d8d33;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.swiper-wrapper:hover .swiper-button-prev,
+.swiper-wrapper:hover .swiper-button-next {
+  opacity: 1;
+}
+
+.swiper-wrapper:hover .swiper-button-prev2,
+.swiper-wrapper:hover .swiper-button-next2 {
+  opacity: 1;
 }
 
 .swiper-slide img {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .movie-card:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .movie-card__imgcontainer {
-    height: 25rem;
+  height: 30rem;
 }
 
 .movie-card img {
-    width: 60%;
-    /* object-fit: cover; */
+  height: 25rem;
 }
 
-
 .movie-title {
-    color: $white;
-    font-size: 1.8rem;
-    font-weight: bold;
+  color: $white;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .post-info {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .movie-year {
-    font-size: 1.4rem;
-    color: $fontGray10;
+  font-size: 1.4rem;
+  color: $fontGray10;
 }
 
 .movie-runtime {
-    position: relative;
-    display: inline-block;
-    min-width: 4.5rem;
-    font-size: 1.4rem;
-    color: $fontGray10;
-    padding-left: 3rem;
+  position: relative;
+  display: inline-block;
+  min-width: 4.5rem;
+  font-size: 1.4rem;
+  color: $fontGray10;
+  padding-left: 3rem;
 
-    &::before {
-        position: absolute;
-        top: 0.5rem;
-        right: 3.5rem;
-        content: "";
-        background: url("../images/bgDot.svg") no-repeat;
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-    }
+  &::before {
+    position: absolute;
+    top: 0.5rem;
+    right: 3.5rem;
+    content: "";
+    background: url("../images/bgDot.svg") no-repeat;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+  }
 }

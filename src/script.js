@@ -4,7 +4,6 @@ const articles = document.querySelector(".recommend__content");
 const swiperContainer = document.querySelector(".new-swiper");
 const swiperContainer2 = document.querySelector(".classic-swiper");
 const topBtn = document.querySelector(".topBtn");
-// setTimeout( () => {} , 4000 )
 
 loadHeader();
 
@@ -29,12 +28,31 @@ async function fetchData() {
     const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
     const data = await response.json();
 
+    const randomMovie = getRandomMovie(data);
+
+    renderRandomMovie(randomMovie);
+
     renderMovies(data);
     dataRender(data, articles);
   } catch (err) {
     // 디펜시브 코딩 (실패 시 에러메세지 도출)
     console.error("Error!", err);
   }
+}
+
+function getRandomMovie(data) {
+  const randomIndex = Math.floor(Math.random() * data.length);
+  return data[randomIndex];
+}
+
+function renderRandomMovie(movie) {
+  const posterImg = document.querySelector(".section-slide__poster img");
+  const detailLink = document.querySelector(".section-slide__content a");
+
+  // DOM 업데이트
+  posterImg.src = movie.Poster;
+  posterImg.alt = `${movie.Title} Poster`;
+  detailLink.href = `/src/pages/detail/detail.html?id=${movie.imdbID}`;
 }
 
 function renderMovies(data) {
@@ -72,7 +90,7 @@ function dataRender2(data, container) {
     .map(
       (movie) => `
       <swiper-slide>
-        <article class="movie-card__swiper">
+        <article class="movie-card">
           <div class="movie-card__imgcontainer">
               <a 
               class="movie-card__navigate-section"
@@ -112,6 +130,7 @@ const params = {
       spaceBetween: 20,
     },
   },
+  loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -144,3 +163,5 @@ Object.assign(swiperEl, params);
 swiperEl.initialize();
 
 Object.assign(swiperEl2, params2);
+
+swiperEl2.initialize();
