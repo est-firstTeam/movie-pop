@@ -36,7 +36,6 @@
 }
 
 .search-result {
-  margin: 0rem 3rem;
   margin-bottom: 5rem;
 }
 
@@ -64,9 +63,13 @@
   }
 }
 
+.search-result__cards {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(22rem, 1fr));
+}
+
 .movie-card {
-  // height: 40rem;
-  width: 27rem;
+  // width: 20rem;
 }
 
 .movie-cardimgcontainer {
