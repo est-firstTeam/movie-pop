@@ -35,18 +35,26 @@ export const headerScript = () => {
   const headerInput = document.querySelector(".header__input");
   const inputForm = document.querySelector(".header__search");
 
+  const showElements = () => {
+    headerInput.style.display = "block";
+    btnX.style.display = "block";
+    btnSearch.style.visibility = "visible";
+    searchIcon.style.display = "none";
+  };
+  const hideElements = () => {
+    headerInput.value = "";
+    headerInput.style.display = "none";
+    btnX.style.display = "none";
+    btnSearch.style.visibility = "hidden";
+  };
+
   inputForm.addEventListener("submit", async (event) => {
     //실행순서 바꾸지 말기.
     event.preventDefault();
     let jsonObj = await getDataFromApi(headerInput.value);
-    console.log("submit.. title ->", headerInput.value);
     saveStorage(jsonObj, headerInput.value);
-    // sessionStorage.setItem("movie", JSON.stringify(temp));
     setTimeout(() => {
-      headerInput.style.display = "none";
-      headerInput.value = "";
-      btnX.style.display = "none";
-      btnSearch.style.visibility = "hidden";
+      hideElements();
       searchIcon.style.display = "block";
     }, 10);
     location.href = "http://localhost:5500/src/pages/result/result.html";
@@ -65,18 +73,12 @@ export const headerScript = () => {
   });
 
   headerInput.addEventListener("focus", () => {
-    headerInput.style.display = "block";
-    btnX.style.display = "block";
-    btnSearch.style.visibility = "visible";
-    searchIcon.style.display = "none";
+    showElements();
   });
 
   headerInput.addEventListener("focusout", () => {
     setTimeout(() => {
-      headerInput.style.display = "none";
-      headerInput.value = "";
-      btnX.style.display = "none";
-      btnSearch.style.visibility = "hidden";
+      hideElements();
     }, 100);
     setTimeout(() => {
       searchIcon.style.display = "block";
