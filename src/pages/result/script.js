@@ -22,7 +22,7 @@ loadHeader().then(() => {
 const resultPageInit = () => {
   const headerInputVal = getStorage("inputVal");
   const headerIcon = document.querySelector(".header__search-icon");
-  // headerIcon.style.visibility = "hidden";
+  headerIcon.style.display = "none";
 
   let movie;
   if (headerInputVal) {
@@ -50,11 +50,13 @@ function resultRender(movie) {
     const movieCard = Object.assign(document.createElement("div"), {
       className: "movie-card",
       innerHTML: `
-      <div class="movie-cardimgcontainer">
+      <a class="movie-cardimgcontainer" href="http://localhost:5500/src/pages/detail/detail.html?id=${
+        movie.imdbID
+      }">
         <img src="${
           movie.Poster === "N/A" ? window.NOIMG_URL : movie.Poster
         }" alt="${movie.Title}">
-      </div>
+      </a>
       <h2 class="movie-title">${movie.Title}</h2>
       <div class="post-info">
         <span class="movie-year">${movie.Year}</span> • 

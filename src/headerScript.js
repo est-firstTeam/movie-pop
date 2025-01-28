@@ -11,6 +11,7 @@ export const getStorage = (key = "movie") => {
 };
 
 export const saveStorage = (jsonObj, movieTitle) => {
+  console.log("jsonObj ->", jsonObj);
   if (jsonObj.Response === "False") {
     console.log("title ->", movieTitle);
     sessionStorage.setItem("inputVal", movieTitle);
@@ -19,9 +20,9 @@ export const saveStorage = (jsonObj, movieTitle) => {
   }
 };
 
-export const getDataFromApi = async (movieTitle) => {
+export const getDataFromApi = async (title) => {
   const response = await fetch(
-    `https://www.omdbapi.com/?apikey=524002e8&t=${movieTitle}`
+    `https://www.omdbapi.com/?apikey=524002e8&t=${title}`
   );
   const jsonData = await response.json();
   return jsonData;
@@ -32,31 +33,28 @@ export const headerScript = () => {
   const searchIcon = document.querySelector(".header__search-icon");
   const btnSearch = document.querySelector(".header__search-btn");
   const headerInput = document.querySelector(".header__input");
-  const inputForm = document.querySelector(".header__search-form");
+  const inputForm = document.querySelector(".header__search");
 
-  const elementsHide = () => {
+  const showElements = () => {
+    headerInput.style.display = "block";
+    btnX.style.display = "block";
+    btnSearch.style.visibility = "visible";
+    searchIcon.style.display = "none";
+  };
+  const hideElements = () => {
     headerInput.value = "";
     headerInput.style.display = "none";
     btnX.style.display = "none";
     btnSearch.style.visibility = "hidden";
   };
 
-  const elementsShow = () => {
-    headerInput.style.display = "block";
-    btnX.style.display = "block";
-    btnSearch.style.visibility = "visible";
-    searchIcon.style.display = "none";
-  };
-
   inputForm.addEventListener("submit", async (event) => {
     //실행순서 바꾸지 말기.
     event.preventDefault();
     let jsonObj = await getDataFromApi(headerInput.value);
-    console.log("submit.. title ->", headerInput.value);
     saveStorage(jsonObj, headerInput.value);
-    // sessionStorage.setItem("movie", JSON.stringify(temp));
     setTimeout(() => {
-      elementsHide();
+      hideElements();
       searchIcon.style.display = "block";
     }, 10);
     location.href = "http://localhost:5500/src/pages/result/result.html";
@@ -75,11 +73,13 @@ export const headerScript = () => {
   });
 
   headerInput.addEventListener("focus", () => {
-    elementsShow();
+    showElements();
   });
 
   headerInput.addEventListener("focusout", () => {
-    elementsHide();
+    setTimeout(() => {
+      hideElements();
+    }, 100);
     setTimeout(() => {
       searchIcon.style.display = "block";
     }, 300);
@@ -93,5 +93,10 @@ export const headerScript = () => {
   searchIcon.addEventListener("click", () => {
     headerInput.style.display = "block";
     headerInput.focus();
+  });
+
+  btnX.addEventListener("click", (e) => {
+    console.log("btn X!!");
+    e.stopImmediatePropagation();
   });
 };

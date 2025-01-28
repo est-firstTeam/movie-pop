@@ -250,7 +250,8 @@ body {
 }
 
 .search-result__title {
-  font-size: 4rem;
+  font-size: 2.4rem;
+  text-transform: uppercase;
   color: white;
   padding: 1rem;
   margin-left: 3rem;
@@ -270,6 +271,15 @@ body {
 }
 .card-noresult__text span {
   color: tomato;
+}
+
+.movie-card {
+  width: 27rem;
+}
+
+.movie-cardimgcontainer img {
+  width: 100%;
+  height: auto;
 }
 
 hr {
@@ -420,6 +430,14 @@ hr {
   width: 100%;
 }
 
+.header__search {
+  display: flex;
+  position: relative;
+  width: 0;
+  height: 5rem;
+  background: linear-gradient(90deg, #f85858, #fee098) no-repeat 0 bottom/100% 0.2rem;
+}
+
 .header__search-icon {
   padding-bottom: 1rem;
   position: absolute;
@@ -439,6 +457,7 @@ hr {
   height: 3rem;
   display: none;
   z-index: 100;
+  margin-left: 5rem;
 }
 .header__cancel-icon:hover {
   cursor: pointer;
@@ -448,14 +467,14 @@ hr {
   display: none;
   font-size: 30px;
   color: #FEE098;
-  width: 25rem;
+  width: 20rem;
   position: relative;
   background: none;
   z-index: 5;
   line-height: 3rem;
   caret-color: #FEE098;
   text-align: left;
-  margin-left: 5rem;
+  margin-left: 4rem;
   border: none;
 }
 .header__input:focus {
@@ -470,53 +489,26 @@ hr {
   font-weight: bold;
 }
 
-.header__search {
-  display: flex;
-  position: relative;
-  width: 31rem;
-  height: 5.1rem;
-}
-
-.header__search-form {
-  -webkit-clip-path: inset(0 0 0 100%);
-          clip-path: inset(0 0 0 100%);
+.header__search:focus-within {
   width: 30rem;
-  background: linear-gradient(90deg, #f85858, #fee098) no-repeat 0 bottom/100% 0.2rem;
-  transition: all 0.3s;
-  z-index: 1;
-}
-
-.header__search-form:focus-within {
-  -webkit-clip-path: inset(0 0 0 0);
-          clip-path: inset(0 0 0 0);
 }
 
 .header__search-btn {
   visibility: hidden;
-  position: absolute;
   width: 4rem;
   height: 4rem;
   color: white;
   padding: 2rem;
   background-image: url("/src/images/ico_search.svg");
   background-size: cover;
+  position: absolute;
   color: #aaa;
   right: 1rem;
   width: 4rem;
-  bottom: 1.1rem;
+  bottom: 1.15rem;
   transition: all 0.3s;
 }
 
-@keyframes reveal {
-  from {
-    -webkit-clip-path: inset(0 0 0 100%);
-            clip-path: inset(0 0 0 100%);
-  }
-  to {
-    -webkit-clip-path: inset(0 0 0 0);
-            clip-path: inset(0 0 0 0);
-  }
-}
 .section-slide {
   height: 100vh;
   display: grid;

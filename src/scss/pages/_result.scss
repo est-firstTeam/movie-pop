@@ -41,7 +41,8 @@
 }
 
 .search-result__title {
-  font-size: 4rem;
+  font-size: 2.4rem;
+  text-transform: uppercase;
   color: white;
   padding: 1rem;
   margin-left: 3rem;
@@ -60,6 +61,19 @@
   font-size: 3rem;
   & span {
     color: tomato;
+  }
+}
+
+.movie-card {
+  // height: 40rem;
+  width: 27rem;
+}
+
+.movie-cardimgcontainer {
+  // display: block;
+  & img {
+    width: 100%;
+    height: auto;
   }
 }
 
