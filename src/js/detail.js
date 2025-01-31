@@ -1,5 +1,5 @@
-import { loadHeader } from "../../js/loadHeader.js";
-import { headerScript } from "../../headerScript.js";
+import { loadHeader } from "./loadHeader.js";
+import { headerScript } from "./header.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");

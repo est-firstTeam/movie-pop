@@ -1,4 +1,4 @@
-import { loadHeader } from "./js/loadHeader.js";
+import { loadHeader } from "./loadHeader.js";
 
 const articles = document.querySelector(".recommend__content");
 const swiperContainer = document.querySelector(".new-swiper");

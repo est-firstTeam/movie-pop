@@ -1,5 +1,5 @@
 //아래부터 result 영역 코드
-import { loadHeader } from "../../js/loadHeader.js";
+import { loadHeader } from "./loadHeader.js";
 import {
   headerScript,
   getStorage,
