@@ -57,7 +57,7 @@ export const headerScript = () => {
       hideElements();
       searchIcon.style.display = "block";
     }, 10);
-    location.href = "http://localhost:5500/src/pages/result/result.html";
+    location.href = "http://localhost:5500/src/pages/searchResult.html";
   });
 
   searchIcon.addEventListener("click", () => {
