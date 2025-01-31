@@ -1,22 +1,21 @@
 import { loadHeader } from "./loadHeader.js";
 import { headerScript } from "./header.js";
+import { $ } from "./helper.js";
+import { fetchMoviesById } from "./api.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-
-const $movieInfoWrapper = document.querySelector('.detail__movie-info-wrapper');
-const $btnGoBack = document.querySelector('.btn-goback');
 
 loadHeader().then(() => {
   headerScript();
 });
 
-$btnGoBack.addEventListener('click', () => {
+$('.btn-goback').addEventListener('click', () => {
   history.back();
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const data = await getMovie(id);
+  const data = await fetchMoviesById(id);
   console.log(id);
   console.log(data);
   const geners =
@@ -96,14 +95,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     </section>
 
 `;
-  $movieInfoWrapper.innerHTML = detailElement;
+  $('.detail__movie-info-wrapper').innerHTML = detailElement;
 });
-
-const getMovie = async (id) => {
-  const res = await fetch(`https://omdbapi.com/?apikey=524002e8&i=${id}&plot=full`);
-  const json = await res.json();
-  if (json.Response === 'True') {
-    return json;
-  }
-  return json.Error;
-}
