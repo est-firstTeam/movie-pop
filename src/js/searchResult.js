@@ -1,11 +1,11 @@
 //아래부터 result 영역 코드
-import { loadHeader } from "../../js/loadHeader.js";
+import { loadHeader } from "./loadHeader.js";
 import {
   headerScript,
   getStorage,
   getDataFromApi,
   saveStorage,
-} from "../../headerScript.js";
+} from "./header.js";
 
 const resultInput = document.querySelector(".search-bar__input");
 const resultCard = document.querySelector(".search-result__cards");
@@ -51,7 +51,7 @@ function resultRender(movie) {
       className: "movie-card",
       innerHTML: `
       <div class="movie-cardimgcontainer">
-        <a href="http://localhost:5500/src/pages/detail/detail.html?id=${
+        <a href="http://localhost:5500/src/pages/detail.html?id=${
           movie.imdbID
         }">
           <img src="${
@@ -77,7 +77,7 @@ function dataRender(data, container) {
       (movie) => `
               <article class="movie-card">
                   <div class="movie-card__imgcontainer">
-                      <a href="/src/pages/detail/detail.html?id=${movie.imdbID}">
+                      <a href="/src/pages/detail.html?id=${movie.imdbID}">
                           <img src="${movie.Poster}" alt="${movie.Title}">
                       </a>
                   </div>
@@ -113,7 +113,7 @@ searchbarForm.addEventListener("submit", async (e) => {
   console.log("submit.. title ->", resultInput.value);
   saveStorage(jsonObj, resultInput.value);
   // sessionStorage.setItem("movie", JSON.stringify(temp));
-  location.href = "http://localhost:5500/src/pages/result/result.html";
+  location.href = "http://localhost:5500/src/pages/searchResult.html";
 });
 
 resultInput.addEventListener("focus", () => {

@@ -1,11 +1,14 @@
-import { loadHeader } from "./js/loadHeader.js";
+import { headerScript } from "./header.js";
+import { loadHeader } from "./loadHeader.js";
 
 const articles = document.querySelector(".recommend__content");
 const swiperContainer = document.querySelector(".new-swiper");
 const swiperContainer2 = document.querySelector(".classic-swiper");
 const topBtn = document.querySelector(".topBtn");
 
-loadHeader();
+loadHeader().then(() => {
+  headerScript();
+});
 
 topBtn.addEventListener("click", () => {
   document.body.scrollTo({
@@ -52,7 +55,7 @@ function renderRandomMovie(movie) {
   // DOM 업데이트
   posterImg.src = movie.Poster;
   posterImg.alt = `${movie.Title} Poster`;
-  detailLink.href = `/src/pages/detail/detail.html?id=${movie.imdbID}`;
+  detailLink.href = `/src/pages/detail.html?id=${movie.imdbID}`;
 }
 
 function renderMovies(data) {
@@ -71,7 +74,7 @@ function dataRender(data, container) {
       (movie) => `
               <article class="movie-card">
                   <div class="movie-card__imgcontainer">
-                      <a href="/src/pages/detail/detail.html?id=${movie.imdbID}">
+                      <a href="/src/pages/detail.html?id=${movie.imdbID}">
                           <img src="${movie.Poster}" alt="${movie.Title}">
                       </a>
                   </div>
@@ -94,7 +97,7 @@ function dataRender2(data, container) {
           <div class="movie-card__imgcontainer">
               <a 
               class="movie-card__navigate-section"
-              href="/src/pages/detail/detail.html?id=${movie.imdbID}">
+              href="/src/pages/detail.html?id=${movie.imdbID}">
                   <img src="${movie.Poster}" alt="${movie.Title}">
               </a>
           </div>
