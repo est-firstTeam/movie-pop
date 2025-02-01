@@ -1,4 +1,5 @@
 import { loadHeader } from "./loadHeader.js";
+import { loadFooter } from "./loadFooter.js";
 import { headerScript } from "./header.js";
 import { $ } from "./helper.js";
 import { fetchMoviesById } from "./api.js";
@@ -10,28 +11,26 @@ loadHeader().then(() => {
   headerScript();
 });
 
-$('.btn-goback').addEventListener('click', () => {
+loadFooter();
+
+$(".btn-goback").addEventListener("click", () => {
   history.back();
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const data = await fetchMoviesById(id);
   console.log(id);
   console.log(data);
-  const geners =
-    data.Genre.split(', ').map((genre) => {
-      return (
-        `
+  const geners = data.Genre.split(", ")
+    .map((genre) => {
+      return `
       <div class="genre__item">
       ${genre}
       </div>
-      `
-      );
-    }).join('');
-  ;
-
-  const detailElement =
-    `
+      `;
+    })
+    .join("");
+  const detailElement = `
     <section class="detail__movie-info">
     <div class="img__wrapper">
       <img src=${data.Poster} />
@@ -95,5 +94,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     </section>
 
 `;
-  $('.detail__movie-info-wrapper').innerHTML = detailElement;
+  $(".detail__movie-info-wrapper").innerHTML = detailElement;
 });
