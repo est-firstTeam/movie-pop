@@ -1,5 +1,6 @@
 import { headerScript } from "./header.js";
 import { loadHeader } from "./loadHeader.js";
+import { loadFooter } from "./loadFooter.js";
 
 const articles = document.querySelector(".recommend__content");
 const swiperContainer = document.querySelector(".new-swiper");
@@ -9,6 +10,8 @@ const topBtn = document.querySelector(".topBtn");
 loadHeader().then(() => {
   headerScript();
 });
+
+loadFooter();
 
 topBtn.addEventListener("click", () => {
   document.body.scrollTo({
