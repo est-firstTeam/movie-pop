@@ -1,4 +1,5 @@
 window.NOIMG_URL = "/src/images/img_noImg.png";
+import { $ } from "./helper.js";
 
 export const getStorage = (key = "movie") => {
   let movieObj;
@@ -11,9 +12,7 @@ export const getStorage = (key = "movie") => {
 };
 
 export const saveStorage = (jsonObj, movieTitle) => {
-  console.log("jsonObj ->", jsonObj);
   if (jsonObj.Response === "False") {
-    console.log("title ->", movieTitle);
     sessionStorage.setItem("inputVal", movieTitle);
   } else {
     sessionStorage.setItem("movie", JSON.stringify(jsonObj));
@@ -29,11 +28,11 @@ export const getDataFromApi = async (title) => {
 };
 
 export const headerScript = () => {
-  const btnX = document.querySelector(".header__cancel-icon");
-  const searchIcon = document.querySelector(".header__search-icon");
-  const btnSearch = document.querySelector(".header__search-btn");
-  const headerInput = document.querySelector(".header__input");
-  const inputForm = document.querySelector(".header__search");
+  const btnX = $(".header__cancel-icon");
+  const searchIcon = $(".header__search-icon");
+  const btnSearch = $(".header__search-btn");
+  const headerInput = $(".header__input");
+  const inputForm = $(".header__search");
 
   const showElements = () => {
     headerInput.style.display = "block";

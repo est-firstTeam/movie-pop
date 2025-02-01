@@ -6,22 +6,22 @@ import {
   getDataFromApi,
   saveStorage,
 } from "./header.js";
+import { $ } from "./helper.js";
 
-const resultInput = document.querySelector(".search-bar__input");
-const resultCard = document.querySelector(".search-result__cards");
-const searchbarForm = document.querySelector(".search-bar-wrapper");
-const rcmdContent = document.querySelector(".recommend__content");
+const resultInput = $(".search-bar__input");
+const resultCard = $(".search-result__cards");
+const searchbarForm = $(".search-bar-wrapper");
+const rcmdContent = $(".recommend__content");
 
 loadHeader().then(() => {
   headerScript();
   resultPageInit();
   fetchData();
-  console.log("loadheader.....");
 });
 
 const resultPageInit = () => {
+  const headerIcon = $(".header__search-icon");
   const headerInputVal = getStorage("inputVal");
-  const headerIcon = document.querySelector(".header__search-icon");
   headerIcon.style.display = "none";
 
   let movie;
@@ -71,7 +71,6 @@ function resultRender(movie) {
 }
 
 function dataRender(data, container) {
-  console.log("DataRender.......");
   container.innerHTML = data
     .map(
       (movie) => `
@@ -93,7 +92,6 @@ function dataRender(data, container) {
 }
 
 async function fetchData() {
-  console.log("fetchData......");
   try {
     const response = await fetch("/src/data/movieData.json"); // 미리 저장한 json 파일 fetch
     const data = await response.json();
@@ -108,11 +106,8 @@ async function fetchData() {
 //Result 페이지 서치바 버튼 영역
 searchbarForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log("here is submit......");
   let jsonObj = await getDataFromApi(resultInput.value);
-  console.log("submit.. title ->", resultInput.value);
   saveStorage(jsonObj, resultInput.value);
-  // sessionStorage.setItem("movie", JSON.stringify(temp));
   location.href = "http://localhost:5500/src/pages/searchResult.html";
 });
 

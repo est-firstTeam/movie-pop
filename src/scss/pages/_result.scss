@@ -65,11 +65,8 @@
 
 .search-result__cards {
   display: grid;
-  grid-template-columns: repeat(6, minmax(22rem, 1fr));
-}
-
-.movie-card {
-  // width: 20rem;
+  grid-template-columns: repeat(6, minmax(22rem, 22rem));
+  // grid-template-columns: repeat(6, 1fr);
 }
 
 .movie-cardimgcontainer {
