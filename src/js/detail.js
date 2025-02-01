@@ -1,6 +1,6 @@
 import { loadHeader } from "./loadHeader.js";
 import { headerScript } from "./header.js";
-import { $ } from "./helper.js";
+import { $, setLoading } from "./helper.js";
 import { fetchMoviesById } from "./api.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -15,6 +15,7 @@ $('.btn-goback').addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
+  setLoading.play();
   const data = await fetchMoviesById(id);
   console.log(id);
   console.log(data);
@@ -95,5 +96,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     </section>
 
 `;
+  setLoading.destroy();
   $('.detail__movie-info-wrapper').innerHTML = detailElement;
 });
