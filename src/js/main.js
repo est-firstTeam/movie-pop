@@ -1,33 +1,17 @@
 import { headerScript } from "./header.js";
 import { loadHeader } from "./loadHeader.js";
 import { loadFooter } from "./loadFooter.js";
+import { $ } from "./helper.js";
 
-const articles = document.querySelector(".recommend__content");
-const swiperContainer = document.querySelector(".new-swiper");
-const swiperContainer2 = document.querySelector(".classic-swiper");
-const topBtn = document.querySelector(".topBtn");
+const articles = $(".recommend__content");
+const swiperContainer = $(".new-swiper");
+const swiperContainer2 = $(".classic-swiper");
 
 loadHeader().then(() => {
   headerScript();
 });
 
 loadFooter();
-
-topBtn.addEventListener("click", () => {
-  document.body.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-  console.log("click");
-});
-
-document.body.addEventListener("scroll", () => {
-  if (document.body.scrollTop > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
-});
 
 async function fetchData() {
   try {
@@ -52,8 +36,8 @@ function getRandomMovie(data) {
 }
 
 function renderRandomMovie(movie) {
-  const posterImg = document.querySelector(".section-slide__poster img");
-  const detailLink = document.querySelector(".section-slide__content a");
+  const posterImg = $(".section-slide__poster img");
+  const detailLink = $(".section-slide__content a");
 
   // DOM 업데이트
   posterImg.src = movie.Poster;
@@ -96,7 +80,7 @@ function dataRender2(data, container) {
     .map(
       (movie) => `
       <swiper-slide>
-        <article class="movie-card">
+        <article class="movie-card__swipe">
           <div class="movie-card__imgcontainer">
               <a 
               class="movie-card__navigate-section"
@@ -118,8 +102,8 @@ function dataRender2(data, container) {
 
 fetchData();
 
-const swiperEl = document.querySelector(".new-swiper");
-const swiperEl2 = document.querySelector(".classic-swiper");
+const swiperEl = $(".new-swiper");
+const swiperEl2 = $(".classic-swiper");
 
 const params = {
   centeredSlides: false,
