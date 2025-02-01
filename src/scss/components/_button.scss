@@ -31,3 +31,26 @@
 .slide__btn:hover {
   background-color: $primary;
 }
+
+.topBtn {
+  display: none;
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: 999;
+  background-color: $white;
+  border: 0.2rem solid #dbdbdb;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: $bgBlack;
+  &:hover {
+    color: $white;
+    background-color: $bgBlack;
+  }
+}
