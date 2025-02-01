@@ -52,6 +52,10 @@ body {
   width: 3rem;
   height: 3rem;
   background: url("/src/images/ico_backspace.svg") no-repeat;
+
+  &:hover {
+    background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+  }
 }
 
 .detail__genre-area {

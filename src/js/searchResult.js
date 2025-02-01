@@ -7,6 +7,7 @@ import {
   saveStorage,
 } from "./header.js";
 import { $ } from "./helper.js";
+import { loadFooter } from "./loadFooter.js";
 
 const resultInput = $(".search-bar__input");
 const resultCard = $(".search-result__cards");
@@ -18,6 +19,8 @@ loadHeader().then(() => {
   resultPageInit();
   fetchData();
 });
+
+loadFooter();
 
 const resultPageInit = () => {
   const headerIcon = $(".header__search-icon");
