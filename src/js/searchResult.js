@@ -6,6 +6,7 @@ import {
   getDataFromApi,
   saveStorage,
 } from "./header.js";
+import { loadFooter } from "./loadFooter.js";
 
 const resultInput = document.querySelector(".search-bar__input");
 const resultCard = document.querySelector(".search-result__cards");
@@ -18,6 +19,8 @@ loadHeader().then(() => {
   fetchData();
   console.log("loadheader.....");
 });
+
+loadFooter();
 
 const resultPageInit = () => {
   const headerInputVal = getStorage("inputVal");
