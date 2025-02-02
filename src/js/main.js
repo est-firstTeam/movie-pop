@@ -15,7 +15,7 @@ loadFooter();
 
 async function fetchData() {
   try {
-    const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
+    const response = await fetch("./data/movieData.json");
     const data = await response.json();
 
     const randomMovie = getRandomMovie(data);
@@ -36,8 +36,8 @@ function getRandomMovie(data) {
 }
 
 function renderRandomMovie(movie) {
-  const posterImg = $(".section-slide__poster img");
-  const detailLink = $(".section-slide__content a");
+  const posterImg = $(".slide__img");
+  const detailLink = $(".slide__detailBtn");
 
   // DOM 업데이트
   posterImg.src = movie.Poster;
@@ -110,20 +110,16 @@ const params = {
   slidesPerGroupSkip: 1,
   slidesPerView: "auto",
   spaceBetween: 30,
-  keyboard: {
-    enabled: true,
-  },
   breakpoints: {
     769: {
-      slidesPerView: 6,
+      slidesPerView: 5,
       slidesPerGroup: 1,
-      spaceBetween: 20,
+      spaceBetween: 30,
     },
   },
-  loop: true,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".new__swiper-btn-next",
+    prevEl: ".new__swiper-btn-prev",
   },
 };
 
@@ -132,19 +128,18 @@ const params2 = {
   slidesPerGroupSkip: 1,
   slidesPerView: "auto",
   spaceBetween: 30,
-  keyboard: {
-    enabled: true,
-  },
+
   breakpoints: {
     769: {
-      slidesPerView: 6,
+      centeredSlides: false,
+      slidesPerView: 5,
       slidesPerGroup: 1,
-      spaceBetween: 20,
+      spaceBetween: 40,
     },
   },
   navigation: {
-    nextEl: ".swiper-button-next2",
-    prevEl: ".swiper-button-prev2",
+    nextEl: ".classic__swiper-btn-next",
+    prevEl: ".classic__swiper-btn-prev",
   },
 };
 

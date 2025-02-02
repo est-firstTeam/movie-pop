@@ -1,9 +1,7 @@
-// TODO: 공용 버튼
-// TODO: 공용 버튼
-@use "../abstracts/variables" as *;
+@use "../abstracts/" as *;
 
 .slide__btn {
-  width: 18rem;
+  width: 16rem;
   background-color: $btnGray;
   color: $white;
   border: none;
@@ -27,9 +25,10 @@
       height: 2rem;
     }
   }
-}
-.slide__btn:hover {
-  background-color: $primary;
+
+  &:hover {
+    background-color: $primary;
+  }
 }
 
 .topBtn {
@@ -37,9 +36,9 @@
   position: fixed;
   bottom: 4rem;
   right: 4rem;
-  z-index: 999;
+  z-index: 10;
   background-color: $white;
-  border: 0.2rem solid #dbdbdb;
+  border: 0.2rem solid $fontGray10;
   outline: none;
   cursor: pointer;
   padding: 1rem;
@@ -49,6 +48,7 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: $bgBlack;
+
   &:hover {
     color: $white;
     background-color: $bgBlack;
