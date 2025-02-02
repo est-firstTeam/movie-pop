@@ -54,3 +54,29 @@
     background-color: $bgBlack;
   }
 }
+
+.lightBtn {
+  position: fixed;
+  bottom: 9rem;
+  right: 4rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: $white;
+  border-radius: 50%;
+  z-index: 10;
+
+  &:hover {
+    color: $white;
+    background-color: $bgBlack;
+  }
+}
+
+.dark {
+  background-color: $bgBlack;
+  color: $white;
+}
+
+.light {
+  background-color: $white;
+  // color: $bgBlack;
+}
