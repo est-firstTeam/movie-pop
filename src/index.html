@@ -3,63 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Movie POP</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <link rel="icon" href="/src/images/favicon.png">
     <link rel="stylesheet" href="/src/css/index.css" />
   </head>
 
   <body>
   <header class="header__wrapper"></header>
-    <section class="section-slide">
-      <div class="section-slide__content">
-        <h3 class="section-slide__subtitle">Today’s Pop Movies</h3>
-        <h2 class="section-slide__title">TRENDING CONTENTS</h2>
-        <p class="section-slide__show">
+    <section class="slide__container">
+      <div class="slide__content">
+        <h3 class="slide__subtitle">Today’s Pop Movies</h3>
+        <h2 class="slide__title">TRENDING CONTENTS</h2>
+        <p class="slide__show">
           Looking for the perfect movie to watch today?<br />
           Our recommendation site offers suggestions for both the latest
           releases and timeless classics.<br />
           Start exploring and discover your next favorite film!
         </p>
-        <a><button class="slide__btn"><span>See Detail</span></button></a>
+        <a class="slide__detailBtn">
+            <button class="slide__btn">
+                <span>See Detail</span>
+            </button>
+        </a>
       </div>
-      <div class="section-slide__poster">
-        <img
-          src="./images/@poster.png"
-          alt="Dungeons & Dragons: Honor Among Thieves Poster"
-        />
+      <div class="slide__poster">
+        <img class="slide__img" alt="poster image"/>
       </div>
     </section>
   
-    <section class="recommend">
-      <h2 class="recommend__title">NEW</h2>
+    <section class="new__container">
+      <h2 class="new__title">NEW</h2>
       <div class="swiper-wrapper">
-        <button class="swiper-button-prev">
-          <img src="./images/ico-leftarrow.svg" alt="">
+        <button class="new__swiper-btn-prev">
+          <img src="./images/ico-leftarrow.svg" alt="previous button">
         </button>
-        <button class="swiper-button-next">
-          <img src="./images/ico-rightarrow.svg" alt="">
+        <button class="new__swiper-btn-next">
+          <img src="./images/ico-rightarrow.svg" alt="next button">
         </button>
-        <swiper-container class="new-swiper" init="false"> </swiper-container>
+        <swiper-container class="new-swiper" init="false"></swiper-container>
         
       </div>
     </section>
 
-    <section class="recommend">
-      <h2 class="recommend__title">CLASSIC</h2>
+    <section class="classic__container">
+      <h2 class="classic__title">CLASSIC</h2>
       <div class="swiper-wrapper">
-        <button class="swiper-button-prev2">
-          <img src="./images/ico-leftarrow.svg" alt="">
+        <button class="classic__swiper-btn-prev">
+          <img src="./images/ico-leftarrow.svg" alt="previous button">
         </button>
-        <button class="swiper-button-next2">
-          <img src="./images/ico-rightarrow.svg" alt="">
+        <button class="classic__swiper-btn-next">
+          <img src="./images/ico-rightarrow.svg" alt="next button">
         </button>
-        <swiper-container class="classic-swiper" init="false">
-        </swiper-container>
+        <swiper-container class="classic-swiper" init="false"></swiper-container>
         
       </div>
     </section>
 
-    <section class="recommend">
+    <section class="recommend__container">
         <h2 class="recommend__title">RECOMMEND</h2>
         <div class="recommend__content"></div>
       </section>

@@ -1,9 +1,7 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/" as *;
 
-.recommend {
-  background-color: $bgBlack;
-}
-
+.new__title,
+.classic__title,
 .recommend__title {
   font-size: 2.4rem;
   padding: 3rem 6rem;
@@ -16,91 +14,34 @@
 }
 
 .movie-card {
-  padding-left: 5rem;
+  margin-left: 5rem;
   padding-bottom: 2.5rem;
   transition: transform 0.3s;
-}
 
-.swiper-wrapper {
-  position: relative;
-}
-
-.swiper-button-prev,
-.swiper-button-prev2 {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 1rem;
-  transform: translate(0, -50%);
-  width: 5rem;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  background-color: #8d8d8d33;
   img {
-    width: 5rem;
-    &:hover {
-      transform: scale(1.2);
-    }
+    height: 25rem;
   }
-}
 
-.swiper-button-next,
-.swiper-button-next2 {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  right: 1rem;
-  transform: translate(0, -50%);
-  width: 5rem;
-  height: 100%;
-  background-color: #8d8d8d33;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  img {
-    width: 5rem;
-    &:hover {
-      transform: scale(1.2);
-    }
+  &:hover {
+    transform: scale(1.1);
   }
-}
-
-.swiper-wrapper:hover .swiper-button-prev,
-.swiper-wrapper:hover .swiper-button-next {
-  opacity: 1;
-}
-
-.swiper-wrapper:hover .swiper-button-prev2,
-.swiper-wrapper:hover .swiper-button-next2 {
-  opacity: 1;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-}
-
-.movie-card:hover {
-  transform: scale(1.1);
 }
 
 .movie-card__imgcontainer {
   height: 30rem;
 }
 
-.movie-card img {
-  height: 25rem;
-}
+.movie-card__swipe {
+  margin-left: 5rem;
 
-.movie-card__swipe img {
-  height: 25rem;
-  &:hover {
-    border-top: 1px solid $primary;
-    border-left: 2px solid $primary;
-    border-bottom: 1px solid $secondary;
-    border-right: 2px solid $secondary;
+  img {
+    height: 25rem;
+    &:hover {
+      @include border(top, $primary);
+      @include border(left, $primary);
+      @include border(bottom, $secondary);
+      @include border(right, $secondary);
+    }
   }
 }
 
