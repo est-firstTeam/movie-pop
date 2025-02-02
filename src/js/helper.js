@@ -21,6 +21,7 @@ export const finishLoading = () => {
   setLoading.destroy();
   $(".loading").style.display = "none";
 };
+
 export function dataRender(data, container) {
   container.innerHTML = data
     .map(
