@@ -2,6 +2,7 @@ import { headerScript } from "./header.js";
 import { loadHeader } from "./loadHeader.js";
 import { loadFooter } from "./loadFooter.js";
 import { $ } from "./helper.js";
+import { dataRender } from "./helper.js";
 
 const articles = $(".recommend__content");
 const swiperContainer = $(".new-swiper");
@@ -55,26 +56,6 @@ function renderMovies(data) {
   dataRender2(classicMovies, swiperContainer2);
 }
 
-function dataRender(data, container) {
-  container.innerHTML = data
-    .map(
-      (movie) => `
-              <article class="movie-card">
-                  <div class="movie-card__imgcontainer">
-                      <a href="/src/pages/detail.html?id=${movie.imdbID}">
-                          <img src="${movie.Poster}" alt="${movie.Title}">
-                      </a>
-                  </div>
-                  <h2 class="movie-title">${movie.Title}</h2>
-                  <div class="post-info">
-                  <span class="movie-year">${movie.Year}</span> • 
-                  <span class="movie-runtime">${movie.Runtime}</span>
-                  </div>
-              </article>
-              `
-    )
-    .join("");
-}
 function dataRender2(data, container) {
   container.innerHTML = data
     .map(
@@ -150,3 +131,20 @@ swiperEl.initialize();
 Object.assign(swiperEl2, params2);
 
 swiperEl2.initialize();
+
+const change = $(".change");
+const body = $("body");
+
+function changeHandle() {
+  if (change.value === "night") {
+    body.classList.add("night");
+    body.classList.remove("day");
+    change.value = "day";
+  } else {
+    body.classList.remove("night");
+    body.classList.add("day");
+    change.value = "night";
+  }
+}
+
+change.addEventListener("click", changeHandle);
