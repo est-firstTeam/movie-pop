@@ -17,7 +17,7 @@ $(".btn-goback").addEventListener("click", () => {
   history.back();
 });
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   setLoading.play();
   const data = await fetchMoviesById(id);
   console.log(id);
@@ -96,5 +96,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 `;
   setLoading.destroy();
-  $('.detail__movie-info-wrapper').innerHTML = detailElement;
+  $(".detail__movie-info-wrapper").innerHTML = detailElement;
 });

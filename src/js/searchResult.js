@@ -6,7 +6,7 @@ import {
   getDataFromApi,
   saveStorage,
 } from "./header.js";
-import { $ } from "./helper.js";
+import { $, setLoading } from "./helper.js";
 import { loadFooter } from "./loadFooter.js";
 
 const resultInput = $(".search-bar__input");
@@ -15,9 +15,11 @@ const searchbarForm = $(".search-bar-wrapper");
 const rcmdContent = $(".recommend__content");
 
 loadHeader().then(() => {
+  setLoading.play();
   headerScript();
   resultPageInit();
   fetchData();
+  setLoading.destroy();
 });
 
 loadFooter();
