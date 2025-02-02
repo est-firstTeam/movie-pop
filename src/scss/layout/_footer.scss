@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 .footer {
   display: inline-flex;
   margin-left: 10rem;
@@ -17,6 +19,6 @@
 }
 
 .footer-content__text {
-  color: #ffffff;
+  color: $white;
   padding: 0.5rem;
 }

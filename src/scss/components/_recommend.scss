@@ -13,7 +13,6 @@
 .recommend__content {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  // justify-content: space-evenly;
 }
 
 .movie-card {
@@ -26,46 +25,7 @@
   position: relative;
 }
 
-.swiper-button-prev {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 1rem;
-  transform: translate(0, -50%);
-  width: 5rem;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  background-color: #8d8d8d33;
-  img {
-    width: 5rem;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-}
-
-.swiper-button-next {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  right: 1rem;
-  transform: translate(0, -50%);
-  width: 5rem;
-  height: 100%;
-  background-color: #8d8d8d33;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  img {
-    width: 5rem;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-}
-
+.swiper-button-prev,
 .swiper-button-prev2 {
   position: absolute;
   z-index: 2;
@@ -74,10 +34,10 @@
   transform: translate(0, -50%);
   width: 5rem;
   height: 100%;
-  background-color: #8d8d8d33;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 10;
+  background-color: #8d8d8d33;
   img {
     width: 5rem;
     &:hover {
@@ -86,6 +46,7 @@
   }
 }
 
+.swiper-button-next,
 .swiper-button-next2 {
   position: absolute;
   z-index: 2;
@@ -131,6 +92,16 @@
 
 .movie-card img {
   height: 25rem;
+}
+
+.movie-card__swipe img {
+  height: 25rem;
+  &:hover {
+    border-top: 1px solid $primary;
+    border-left: 2px solid $primary;
+    border-bottom: 1px solid $secondary;
+    border-right: 2px solid $secondary;
+  }
 }
 
 .movie-title {
