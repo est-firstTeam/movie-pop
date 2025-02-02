@@ -8,6 +8,7 @@ import {
 } from "./header.js";
 import { $ } from "./helper.js";
 import { loadFooter } from "./loadFooter.js";
+import renderMoviePoster from "./moviePoster.js";
 
 const resultInput = $(".search-bar__input");
 const resultCard = $(".search-result__cards");
@@ -57,9 +58,7 @@ function resultRender(movie) {
         <a href="http://localhost:5500/src/pages/detail.html?id=${
           movie.imdbID
         }">
-          <img src="${
-            movie.Poster === "N/A" ? window.NOIMG_URL : movie.Poster
-          }" alt="${movie.Title}">
+        ${renderMoviePoster(movie.Title, movie.Poster)}
         </a>
       </div>
       <h2 class="movie-title">${movie.Title}</h2>
@@ -80,7 +79,7 @@ function dataRender(data, container) {
               <article class="movie-card">
                   <div class="movie-card__imgcontainer">
                       <a href="/src/pages/detail.html?id=${movie.imdbID}">
-                          <img src="${movie.Poster}" alt="${movie.Title}">
+                         ${renderMoviePoster(movie.Title, movie.Poster)}
                       </a>
                   </div>
                   <h2 class="movie-title">${movie.Title}</h2>

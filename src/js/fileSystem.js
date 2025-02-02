@@ -1,13 +1,16 @@
+/*
+    ****INFO****
+    FileSystem.js 파일은 MovieTitleFile.txt  파일에 담긴 영화 제목들을 api를 사용해 movieData.json파일로 변환시켜주는 역할입니다.
+    init() 함수를 실행하여 movieData.json 파일을 만들 수 있습니다. (movieData.json에 파일 내용이 있다면 init()함수를 호출하지 마세요.)
+    buildMovieData 함수와 titleConverter가 핵심 함수입니다. (나머지 함수들은 json작업과 file작업을 위해 모듈화된 함수.)
+*/
+
 import { getDataFromApi } from "../js/api";
 
 const fs = require("fs");
 const path = require("path");
 const JSON_FILE_PATH = path.join(__dirname, "data", "movieData.json");
 const TXT_FILE_PATH = path.join(__dirname, "data", "movieTitleFile.txt");
-
-//FileSystem.js 파일은 MovieTitleFile.txt  파일에 담긴 영화 제목들을 api를 사용해 movieData.json파일로 변환시켜주는 역할입니다.
-//init() 함수를 실행하여 movieData.json 파일을 만들 수 있습니다. (movieData.json에 파일 내용이 있다면 init()함수를 호출하지 마세요.)
-//buildMovieData 함수와 titleConverter가 핵심 함수입니다. (나머지 함수들은 json작업과 file작업을 위해 모듈화된 함수.)
 
 //movieData.json파일을 읽어오는 함수.
 const readJsonFile = (cb) => {
