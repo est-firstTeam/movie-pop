@@ -1,4 +1,3 @@
-window.NOIMG_URL = "/src/images/img_noImg.png";
 import { $ } from "./helper.js";
 
 export const getStorage = (key = "movie") => {

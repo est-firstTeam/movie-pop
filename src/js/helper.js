@@ -1,3 +1,5 @@
+import renderMoviePoster from "./moviePoster.js";
+
 export const $ = (selector) => {
   return document.querySelector(selector);
 };
@@ -11,6 +13,14 @@ export const setLoading = bodymovin.loadAnimation({
   autoplay: false, // 자동재생
 });
 
+// 로딩 시작
+export const showLoading = () => setLoading.play();
+
+// 로딩 끝
+export const finishLoading = () => {
+  setLoading.destroy();
+  $(".loading").style.display = "none";
+};
 export function dataRender(data, container) {
   container.innerHTML = data
     .map(
@@ -18,7 +28,7 @@ export function dataRender(data, container) {
               <article class="movie-card">
                   <div class="movie-card__imgcontainer">
                       <a href="/src/pages/detail.html?id=${movie.imdbID}">
-                          <img src="${movie.Poster}" alt="${movie.Title}">
+                          ${renderMoviePoster(movie.Title, movie.Poster)}
                       </a>
                   </div>
                   <h2 class="movie-title">${movie.Title}</h2>

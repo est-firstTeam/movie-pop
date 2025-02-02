@@ -2,6 +2,7 @@ import { headerScript } from "./header.js";
 import { loadHeader } from "./loadHeader.js";
 import { loadFooter } from "./loadFooter.js";
 import { $ } from "./helper.js";
+import renderMoviePoster from "./moviePoster.js";
 import { dataRender } from "./helper.js";
 
 const articles = $(".recommend__content");
@@ -66,7 +67,7 @@ function dataRender2(data, container) {
               <a 
               class="movie-card__navigate-section"
               href="/src/pages/detail.html?id=${movie.imdbID}">
-                  <img src="${movie.Poster}" alt="${movie.Title}">
+                  ${renderMoviePoster(movie.Title, movie.Poster)}
               </a>
           </div>
           <h2 class="movie-title">${movie.Title}</h2>
