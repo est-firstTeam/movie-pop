@@ -9,6 +9,7 @@ import {
 import { $ } from "./helper.js";
 import { loadFooter } from "./loadFooter.js";
 import renderMoviePoster from "./moviePoster.js";
+import { dataRender } from "./helper.js";
 
 const resultInput = $(".search-bar__input");
 const resultCard = $(".search-result__cards");
@@ -70,27 +71,6 @@ function resultRender(movie) {
     resultCard.appendChild(movieCard);
     sessionStorage.removeItem("movie");
   }
-}
-
-function dataRender(data, container) {
-  container.innerHTML = data
-    .map(
-      (movie) => `
-              <article class="movie-card">
-                  <div class="movie-card__imgcontainer">
-                      <a href="/src/pages/detail.html?id=${movie.imdbID}">
-                         ${renderMoviePoster(movie.Title, movie.Poster)}
-                      </a>
-                  </div>
-                  <h2 class="movie-title">${movie.Title}</h2>
-                  <div class="post-info">
-                  <span class="movie-year">${movie.Year}</span> • 
-                  <span class="movie-runtime">${movie.Runtime}</span>
-                  </div>
-              </article>
-              `
-    )
-    .join("");
 }
 
 async function fetchData() {
