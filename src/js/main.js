@@ -62,7 +62,7 @@ function dataRender2(data, container) {
     .map(
       (movie) => `
       <swiper-slide>
-        <article class="movie-card__swipe">
+        <article class="movie-card">
           <div class="movie-card__imgcontainer">
               <a 
               class="movie-card__navigate-section"

@@ -20,6 +20,7 @@
 
   img {
     height: 25rem;
+    margin-top: 3rem;
   }
 
   &:hover {
@@ -29,20 +30,6 @@
 
 .movie-card__imgcontainer {
   height: 30rem;
-}
-
-.movie-card__swipe {
-  margin-left: 5rem;
-
-  img {
-    height: 25rem;
-    &:hover {
-      @include border(top, $primary);
-      @include border(left, $primary);
-      @include border(bottom, $secondary);
-      @include border(right, $secondary);
-    }
-  }
 }
 
 .movie-title {
