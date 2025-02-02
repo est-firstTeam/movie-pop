@@ -1,3 +1,5 @@
+import renderMoviePoster from "./moviePoster.js";
+
 export const $ = (selector) => {
   return document.querySelector(selector);
 };
