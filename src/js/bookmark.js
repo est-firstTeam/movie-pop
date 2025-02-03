@@ -17,13 +17,26 @@ const getBookmarkedMovies = (movieData, ids) => {
 };
 
 const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
-if (bookMarkedMovieIds) {
-  const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
-  console.log(lstBookMarkedIds);
+const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
 
+console.log("bookmarked", lstBookMarkedIds);
+console.log(lstBookMarkedIds.length);
+if (!lstBookMarkedIds) {
   const response = await fetch("/src/data/movieData.json");
   const data = await response.json();
-  console.log(data);
   const bookMarkedMovies = getBookmarkedMovies(data, lstBookMarkedIds);
   dataRender(bookMarkedMovies, $(".bookmark__content"));
+} else {
+  const noResultCard = Object.assign(document.createElement("div"), {
+    className: "movie-card-noresult",
+    innerHTML: `
+    <p class="card-noresult__text">
+      There's no bookmarked movies!
+    </p>`,
+  });
+  $(".bookmark__content").style = `
+  display: flex;
+  justify-content: center;
+  `;
+  $(".bookmark__content").appendChild(noResultCard);
 }
