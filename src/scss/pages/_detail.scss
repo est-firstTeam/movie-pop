@@ -57,6 +57,14 @@ body {
   &:hover {
     background: url("/src/images/ico_backspace_primary.svg") no-repeat;
   }
+
+  .light & {
+    background: url("/src/images/ico_backspace_black.svg") no-repeat;
+
+    &:hover {
+      background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+    }
+  }
 }
 
 .btn-bookmark {
@@ -72,11 +80,22 @@ body {
 }
 
 .bookmarked {
+  width: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_bookmark_filled.svg") no-repeat center;
 }
 
 .not-bookmarked {
+  width: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_bookmark.svg") no-repeat center;
+  .light & {
+    background: url("/src/images/ico_bookmark_black.svg") no-repeat;
+
+    &:hover {
+      background: url("/src/images/ico_bookmark_primary.svg") no-repeat;
+    }
+  }
 }
 .btn-share {
   position: absolute;
@@ -88,6 +107,14 @@ body {
 
   &:hover {
     background: url("/src/images/ico_share_primary.svg") no-repeat;
+  }
+
+  .light & {
+    background: url("/src/images/ico_share_black.svg") no-repeat;
+
+    &:hover {
+      background: url("/src/images/ico_share_primary.svg") no-repeat;
+    }
   }
 }
 
