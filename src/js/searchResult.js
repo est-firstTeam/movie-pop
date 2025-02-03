@@ -9,7 +9,7 @@ import {
 import { $, showLoading } from "./helper.js";
 import { loadFooter } from "./loadFooter.js";
 import renderMoviePoster from "./moviePoster.js";
-import { dataRender } from "./helper.js";
+import { renderMovieGrid } from "./helper.js";
 import { showMask, hideMask } from "./helper.js";
 
 const resultInput = $(".search-bar__input");
@@ -80,7 +80,10 @@ async function fetchData() {
     const response = await fetch("/src/data/movieData.json"); // 미리 저장한 json 파일 fetch
     const data = await response.json();
 
-    dataRender(data, rcmdContent);
+    const recommendMovies = data.filter(
+      (movie) => parseFloat(movie.imdbRating) >= 8.0
+    );
+    renderMovieGrid(recommendMovies, rcmdContent);
   } catch (err) {
     // 디펜시브 코딩 (실패 시 에러메세지 도출)
     console.error("Error!", err);
