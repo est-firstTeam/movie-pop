@@ -1,5 +1,5 @@
 window.NOIMG_URL = "/src/images/img_noImg.png";
-import { $, setLoading } from "./helper.js";
+import { $ } from "./helper.js";
 
 export const getStorage = (key = "movie") => {
   let movieObj;
@@ -50,14 +50,12 @@ export const headerScript = () => {
   inputForm.addEventListener("submit", async (event) => {
     //실행순서 바꾸지 말기.
     event.preventDefault();
-    setLoading.play();
     let jsonObj = await getDataFromApi(headerInput.value);
     saveStorage(jsonObj, headerInput.value);
     setTimeout(() => {
       hideElements();
       searchIcon.style.display = "block";
     }, 10);
-    setLoading.destroy();
     location.href = "http://localhost:5500/src/pages/searchResult.html";
   });
 

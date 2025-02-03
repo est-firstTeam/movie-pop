@@ -6,7 +6,7 @@ import {
   getDataFromApi,
   saveStorage,
 } from "./header.js";
-import { $, setLoading } from "./helper.js";
+import { $ } from "./helper.js";
 import { loadFooter } from "./loadFooter.js";
 
 const resultInput = $(".search-bar__input");
@@ -15,11 +15,10 @@ const searchbarForm = $(".search-bar-wrapper");
 const rcmdContent = $(".recommend__content");
 
 loadHeader().then(() => {
-  setLoading.play();
+  console.log("load Search Result...");
   headerScript();
   resultPageInit();
   fetchData();
-  setLoading.destroy();
 });
 
 loadFooter();
@@ -71,7 +70,7 @@ function resultRender(movie) {
       </div>`,
     });
     resultCard.appendChild(movieCard);
-    sessionStorage.removeItem("movie");
+    // sessionStorage.removeItem("movie");
   }
 }
 
