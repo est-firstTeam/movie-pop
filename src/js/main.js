@@ -48,7 +48,7 @@ function renderRandomMovie(movie) {
 }
 
 function renderMovies(data) {
-  const newMovies = data.filter((movie) => parseInt(movie.Year) >= "2017");
+  const newMovies = data.filter((movie) => parseInt(movie.Year) >= "2024");
   const classicMovies = data.filter((movie) => parseInt(movie.Year) < "2017");
   console.log("new", newMovies);
   console.log("classic", classicMovies);
