@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -221,6 +222,12 @@ body {
 .btn-goback:hover {
   background: url("/src/images/ico_backspace_primary.svg") no-repeat;
 }
+.light .btn-goback {
+  background: url("/src/images/ico_backspace_black.svg") no-repeat;
+}
+.light .btn-goback:hover {
+  background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+}
 
 .btn-bookmark {
   position: absolute;
@@ -230,15 +237,36 @@ body {
   aspect-ratio: 1;
 }
 .btn-bookmark:hover {
+  width: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+  background-size: cover;
 }
 
 .bookmarked {
+  width: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_bookmark_filled.svg") no-repeat center;
+  background-size: cover;
 }
 
 .not-bookmarked {
+  width: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_bookmark.svg") no-repeat center;
+  background-size: cover;
+}
+.light .not-bookmarked {
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/src/images/ico_bookmark_black.svg") no-repeat center;
+  background-size: cover;
+}
+.light .not-bookmarked:hover {
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+  background-size: cover;
 }
 
 .btn-share {
@@ -250,6 +278,12 @@ body {
   background: url("/src/images/ico_share.svg") no-repeat;
 }
 .btn-share:hover {
+  background: url("/src/images/ico_share_primary.svg") no-repeat;
+}
+.light .btn-share {
+  background: url("/src/images/ico_share_black.svg") no-repeat;
+}
+.light .btn-share:hover {
   background: url("/src/images/ico_share_primary.svg") no-repeat;
 }
 
@@ -331,6 +365,9 @@ body {
   padding: 0.5rem;
   border-radius: 1rem;
 }
+.light .search-bar-wrapper {
+  border: 1px solid #141414;
+}
 
 .search-bar__input {
   line-height: 3rem;
@@ -344,6 +381,9 @@ body {
 .search-bar__input:focus {
   outline: none;
 }
+.light .search-bar__input {
+  color: #f85858;
+}
 
 .search-bar__btn {
   padding-right: 2rem;
@@ -352,6 +392,9 @@ body {
   fill: #ffffff;
   width: 2rem;
   height: 2rem;
+}
+.light .search-bar__btn svg {
+  fill: #141414;
 }
 
 .highlight {
@@ -369,10 +412,13 @@ body {
   padding: 1rem;
   margin-left: 3rem;
 }
+.light .search-result__title {
+  color: #141414;
+}
 
 .movie-card-noresult {
   grid-column: 1/-1;
-  height: 50rem;
+  height: 25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,6 +428,9 @@ body {
 .card-noresult__text {
   color: #ffffff;
   font-size: 3rem;
+}
+.light .card-noresult__text {
+  color: #141414;
 }
 .card-noresult__text span {
   color: #f85858;
@@ -502,6 +551,11 @@ hr {
   padding: 3rem 3rem;
   color: #ffffff;
 }
+.light .new__title,
+.light .classic__title,
+.light .recommend__title {
+  color: #141414;
+}
 
 .light .new__container *,
 .light .classic__container *,
@@ -531,6 +585,9 @@ hr {
 }
 .movie-card:hover {
   transform: scale(1.1);
+}
+.light .movie-card * {
+  color: #141414;
 }
 
 .movie-card__imgcontainer {
@@ -569,6 +626,19 @@ hr {
   display: inline-block;
   width: 2rem;
   height: 2rem;
+}
+
+.movie-rating {
+  position: relative;
+  font-size: 1.4rem;
+  color: #f8f8f8;
+  padding-left: 3rem;
+}
+.movie-rating::before {
+  position: absolute;
+  top: 0.1rem;
+  right: 2.5rem;
+  content: "⭐️";
 }
 
 .loading {
