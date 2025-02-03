@@ -2,4 +2,16 @@
   margin: 10rem auto;
   width: 10rem;
   height: 10rem;
+  z-index: 999;
+}
+
+.loading__wrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #00000080;
+  left: 0;
+  top: 0;
+  z-index: 10;
 }

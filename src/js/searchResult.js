@@ -6,15 +6,17 @@ import {
   getDataFromApi,
   saveStorage,
 } from "./header.js";
-import { $ } from "./helper.js";
+import { $, showLoading } from "./helper.js";
 import { loadFooter } from "./loadFooter.js";
 import renderMoviePoster from "./moviePoster.js";
 import { dataRender } from "./helper.js";
+import { showMask, hideMask } from "./helper.js";
 
 const resultInput = $(".search-bar__input");
 const resultCard = $(".search-result__cards");
 const searchbarForm = $(".search-bar-wrapper");
 const rcmdContent = $(".recommend__content");
+const loadingWrapper = $(".loading__wrapper");
 
 loadHeader().then(() => {
   headerScript();
@@ -88,8 +90,10 @@ async function fetchData() {
 //Result 페이지 서치바 버튼 영역
 searchbarForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  showMask(loadingWrapper);
   let jsonObj = await getDataFromApi(resultInput.value);
   saveStorage(jsonObj, resultInput.value);
+  hideMask(loadingWrapper);
   location.href = "http://localhost:5500/src/pages/searchResult.html";
 });
 

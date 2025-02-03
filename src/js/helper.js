@@ -42,3 +42,19 @@ export function dataRender(data, container) {
     )
     .join("");
 }
+
+export const showMask = (ele) => {
+  const windowWidth = window.document.body.clientWidth;
+  const windowHeight = window.document.body.clientHeight;
+
+  ele.style.width = `${windowWidth}px`;
+  ele.style.height = `${windowHeight}px`;
+  ele.style.display = "flex";
+
+  showLoading();
+};
+
+export const hideMask = (ele) => {
+  finishLoading();
+  ele.style.display = "none";
+};
