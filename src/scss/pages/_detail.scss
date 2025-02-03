@@ -40,6 +40,10 @@ body {
     line-height: 150%;
     margin-bottom: 3.8rem;
   }
+
+  .light & * {
+    color: $bgBlack;
+  }
 }
 
 .btn-goback {
@@ -97,6 +101,10 @@ body {
   font-size: 1.4rem;
   font-weight: 300;
   white-space: nowrap;
+
+  .light & {
+    @include border(all, $bgBlack);
+  }
 }
 
 //TODO: 공용 컴포넌트화 예정
