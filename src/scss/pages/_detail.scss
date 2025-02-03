@@ -61,13 +61,19 @@ body {
   right: 16rem;
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/src/images/ico_bookmark.svg") no-repeat center;
 
   &:hover {
     background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
   }
 }
 
+.bookmarked {
+  background: url("/src/images/ico_bookmark_filled.svg") no-repeat center;
+}
+
+.not-bookmarked {
+  background: url("/src/images/ico_bookmark.svg") no-repeat center;
+}
 .btn-share {
   position: absolute;
   top: 0rem;
