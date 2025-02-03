@@ -1,4 +1,5 @@
 import { $ } from "./helper.js";
+import { showMask, hideMask } from "./helper.js";
 
 export const getStorage = (key = "movie") => {
   let movieObj;
@@ -32,6 +33,7 @@ export const headerScript = () => {
   const btnSearch = $(".header__search-btn");
   const headerInput = $(".header__input");
   const inputForm = $(".header__search");
+  const loadingWrapper = $(".loading__wrapper");
 
   const showElements = () => {
     headerInput.style.display = "block";
@@ -49,12 +51,16 @@ export const headerScript = () => {
   inputForm.addEventListener("submit", async (event) => {
     //실행순서 바꾸지 말기.
     event.preventDefault();
+    console.log("start...");
+    showMask(loadingWrapper);
     let jsonObj = await getDataFromApi(headerInput.value);
     saveStorage(jsonObj, headerInput.value);
     setTimeout(() => {
       hideElements();
       searchIcon.style.display = "block";
     }, 10);
+    hideMask(loadingWrapper);
+    console.log("End...");
     location.href = "http://localhost:5500/src/pages/searchResult.html";
   });
 
@@ -85,7 +91,6 @@ export const headerScript = () => {
 
   btnSearch.addEventListener("click", (e) => {
     e.stopImmediatePropagation();
-    console.log(e);
   });
 
   searchIcon.addEventListener("click", () => {

@@ -1,6 +1,7 @@
 @use "../abstracts/" as *;
 
 .header {
+  position: relative;
   display: grid;
   grid-template-columns: min-content 1fr min-content;
   align-items: center;
