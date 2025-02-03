@@ -68,6 +68,19 @@ body {
   }
 }
 
+.btn-share {
+  position: absolute;
+  top: 0rem;
+  right: 22rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/src/images/ico_share.svg") no-repeat;
+
+  &:hover {
+    background: url("/src/images/ico_share_primary.svg") no-repeat;
+  }
+}
+
 .detail__genre-area {
   display: flex;
   gap: 1rem;
