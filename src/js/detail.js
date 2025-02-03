@@ -74,15 +74,13 @@ const renderBookmarkStatus = async () => {
   if (bookMarkedMovieIds) {
     const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
     const isBookMarked = lstBookMarkedIds.includes(id);
-
+    console.log(isBookMarked);
     if (isBookMarked) {
-      $(
-        ".btn-bookmark"
-      ).style.background = `url("/src/images/ico_bookmark_filled.svg") no-repeat center`;
+      $(".btn-bookmark").classList.remove("not-bookmarked");
+      $(".btn-bookmark").classList.add("bookmarked");
     } else {
-      $(
-        ".btn-bookmark"
-      ).style.background = `url("/src/images/ico_bookmark.svg") no-repeat center`;
+      $(".btn-bookmark").classList.remove("bookmarked");
+      $(".btn-bookmark").classList.add("not-bookmarked");
     }
   }
 };
