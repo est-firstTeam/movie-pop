@@ -99,14 +99,6 @@ body {
   white-space: nowrap;
 }
 
-//TODO: 공용 컴포넌트화 예정
-.horizontal {
-  height: 0.1rem;
-  background-color: $horizontalLine;
-  margin-bottom: 2.8rem;
-  border: 0;
-}
-
 .info__sub-area {
   display: flex;
   justify-content: space-between;
