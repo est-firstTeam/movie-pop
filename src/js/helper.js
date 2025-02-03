@@ -24,6 +24,7 @@ export const finishLoading = () => {
 
 export function dataRender(data, container) {
   container.innerHTML = data
+    .filter((movie) => parseFloat(movie.imdbRating) >= 8.0)
     .map(
       (movie) => `
               <article class="movie-card">
@@ -34,8 +35,9 @@ export function dataRender(data, container) {
                   </div>
                   <h2 class="movie-title">${movie.Title}</h2>
                   <div class="post-info">
-                  <span class="movie-year">${movie.Year}</span> • 
+                  <span class="movie-year">${movie.Year}</span>
                   <span class="movie-runtime">${movie.Runtime}</span>
+                  <span class="movie-rating">${movie.imdbRating}</span>
                   </div>
               </article>
               `

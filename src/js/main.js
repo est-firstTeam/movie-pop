@@ -72,7 +72,7 @@ function dataRender2(data, container) {
           </div>
           <h2 class="movie-title">${movie.Title}</h2>
           <div class="post-info">
-          <span class="movie-year">${movie.Year}</span> • 
+          <span class="movie-year">${movie.Year}</span>
           <span class="movie-runtime">${movie.Runtime}</span>
           </div>
         </article>

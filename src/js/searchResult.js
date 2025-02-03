@@ -57,7 +57,7 @@ function resultRender(movie) {
     const movieCard = Object.assign(document.createElement("div"), {
       className: "movie-card",
       innerHTML: `
-      <div class="movie-cardimgcontainer">
+      <div class="movie-card__imgcontainer">
         <a href="http://localhost:5500/src/pages/detail.html?id=${
           movie.imdbID
         }">
