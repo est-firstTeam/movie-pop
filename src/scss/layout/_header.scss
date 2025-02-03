@@ -102,6 +102,10 @@
 }
 
 .header__btn-bookmark {
+  display: inline-block;
+  width: min-content;
+  white-space: nowrap;
+
   span {
     color: $fontGray20;
     font-size: 2rem;
