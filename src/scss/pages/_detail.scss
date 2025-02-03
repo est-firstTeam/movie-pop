@@ -75,7 +75,10 @@ body {
   aspect-ratio: 1;
 
   &:hover {
+    width: 3rem;
+    aspect-ratio: 1;
     background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+    background-size: cover;
   }
 }
 
@@ -83,17 +86,24 @@ body {
   width: 3rem;
   aspect-ratio: 1;
   background: url("/src/images/ico_bookmark_filled.svg") no-repeat center;
+  background-size: cover;
 }
 
 .not-bookmarked {
   width: 3rem;
   aspect-ratio: 1;
   background: url("/src/images/ico_bookmark.svg") no-repeat center;
+  background-size: cover;
   .light & {
-    background: url("/src/images/ico_bookmark_black.svg") no-repeat;
-
+    width: 3rem;
+    aspect-ratio: 1;
+    background: url("/src/images/ico_bookmark_black.svg") no-repeat center;
+    background-size: cover;
     &:hover {
-      background: url("/src/images/ico_bookmark_primary.svg") no-repeat;
+      width: 3rem;
+      aspect-ratio: 1;
+      background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+      background-size: cover;
     }
   }
 }
