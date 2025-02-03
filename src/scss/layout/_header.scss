@@ -100,5 +100,9 @@
   span {
     color: $fontGray20;
     font-size: 2rem;
+
+    &:hover {
+      color: $fontGray30;
+    }
   }
 }

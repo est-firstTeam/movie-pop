@@ -23,3 +23,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@mixin gridList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
