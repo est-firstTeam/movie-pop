@@ -58,9 +58,7 @@ function resultRender(movie) {
       className: "movie-card",
       innerHTML: `
       <div class="movie-card__imgcontainer">
-        <a href="http://localhost:5500/src/pages/detail.html?id=${
-          movie.imdbID
-        }">
+        <a href="/pages/detail.html?id=${movie.imdbID}">
         ${renderMoviePoster(movie.Title, movie.Poster)}
         </a>
       </div>
@@ -77,7 +75,7 @@ function resultRender(movie) {
 
 async function fetchData() {
   try {
-    const response = await fetch("/src/data/movieData.json"); // 미리 저장한 json 파일 fetch
+    const response = await fetch("/data/movieData.json"); // 미리 저장한 json 파일 fetch
     const data = await response.json();
 
     const recommendMovies = data.filter(
@@ -97,7 +95,7 @@ searchbarForm.addEventListener("submit", async (e) => {
   let jsonObj = await getDataFromApi(resultInput.value);
   saveStorage(jsonObj, resultInput.value);
   hideMask(loadingWrapper);
-  location.href = "http://localhost:5500/src/pages/searchResult.html";
+  location.href = "/pages/searchResult.html";
 });
 
 resultInput.addEventListener("focus", () => {

@@ -37,7 +37,7 @@
   transition: all 0.2s;
   z-index: 10;
 
-  background: url("/src/images/ico_search.svg") no-repeat;
+  background: url("/images/ico_search.svg") no-repeat;
   background-size: cover;
 }
 
@@ -49,7 +49,7 @@
   display: block;
   z-index: 100;
 
-  background: url("/src/images/ico_cancel.svg") no-repeat;
+  background: url("/images/ico_cancel.svg") no-repeat;
   background-size: cover;
 }
 
@@ -90,7 +90,7 @@
   height: 3rem;
   color: $white;
   padding-bottom: 2rem;
-  background-image: url("/src/images/ico_search.svg");
+  background-image: url("/images/ico_search.svg");
   background-size: cover;
   position: absolute;
   color: $carouselGray10;

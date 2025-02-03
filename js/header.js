@@ -61,7 +61,7 @@ export const headerScript = () => {
     }, 10);
     hideMask(loadingWrapper);
     console.log("End...");
-    location.href = "http://localhost:5500/src/pages/searchResult.html";
+    location.href = "/pages/searchResult.html";
   });
 
   searchIcon.addEventListener("click", () => {

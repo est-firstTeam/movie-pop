@@ -48,7 +48,7 @@ function renderRandomMovie(movie) {
   // DOM 업데이트
   posterImg.src = movie.Poster;
   posterImg.alt = `${movie.Title} Poster`;
-  detailLink.href = `/src/pages/detail.html?id=${movie.imdbID}`;
+  detailLink.href = `/pages/detail.html?id=${movie.imdbID}`;
 }
 
 function renderMovies(data) {
@@ -70,7 +70,7 @@ function dataRender2(data, container) {
           <div class="movie-card__imgcontainer">
               <a 
               class="movie-card__navigate-section"
-              href="/src/pages/detail.html?id=${movie.imdbID}">
+              href="/pages/detail.html?id=${movie.imdbID}">
                   ${renderMoviePoster(movie.Title, movie.Poster)}
               </a>
           </div>

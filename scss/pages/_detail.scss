@@ -52,17 +52,17 @@ body {
   right: 9.7rem;
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/src/images/ico_backspace.svg") no-repeat;
+  background: url("/images/ico_backspace.svg") no-repeat;
 
   &:hover {
-    background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+    background: url("/images/ico_backspace_primary.svg") no-repeat;
   }
 
   .light & {
-    background: url("/src/images/ico_backspace_black.svg") no-repeat;
+    background: url("/images/ico_backspace_black.svg") no-repeat;
 
     &:hover {
-      background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+      background: url("/images/ico_backspace_primary.svg") no-repeat;
     }
   }
 }
@@ -77,7 +77,7 @@ body {
   &:hover {
     width: 3rem;
     aspect-ratio: 1;
-    background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+    background: url("/images/ico_bookmark_primary.svg") no-repeat center;
     background-size: cover;
   }
 }
@@ -85,24 +85,24 @@ body {
 .bookmarked {
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/src/images/ico_bookmark_filled.svg") no-repeat center;
+  background: url("/images/ico_bookmark_filled.svg") no-repeat center;
   background-size: cover;
 }
 
 .not-bookmarked {
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/src/images/ico_bookmark.svg") no-repeat center;
+  background: url("/images/ico_bookmark.svg") no-repeat center;
   background-size: cover;
   .light & {
     width: 3rem;
     aspect-ratio: 1;
-    background: url("/src/images/ico_bookmark_black.svg") no-repeat center;
+    background: url("/images/ico_bookmark_black.svg") no-repeat center;
     background-size: cover;
     &:hover {
       width: 3rem;
       aspect-ratio: 1;
-      background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+      background: url("/images/ico_bookmark_primary.svg") no-repeat center;
       background-size: cover;
     }
   }
@@ -113,17 +113,17 @@ body {
   right: 22rem;
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/src/images/ico_share.svg") no-repeat;
+  background: url("/images/ico_share.svg") no-repeat;
 
   &:hover {
-    background: url("/src/images/ico_share_primary.svg") no-repeat;
+    background: url("/images/ico_share_primary.svg") no-repeat;
   }
 
   .light & {
-    background: url("/src/images/ico_share_black.svg") no-repeat;
+    background: url("/images/ico_share_black.svg") no-repeat;
 
     &:hover {
-      background: url("/src/images/ico_share_primary.svg") no-repeat;
+      background: url("/images/ico_share_primary.svg") no-repeat;
     }
   }
 }

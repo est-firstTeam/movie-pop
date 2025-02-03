@@ -14,11 +14,11 @@
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  background-image: url("/src/images/ico_youtube.svg");
+  background-image: url("/images/ico_youtube.svg");
   background-size: cover;
   background-position: center;
   .light & {
-    background-image: url("/src/images/ico_youtube_lightmode.svg");
+    background-image: url("/images/ico_youtube_lightmode.svg");
     width: 3rem;
   }
 }
@@ -27,10 +27,10 @@
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  background-image: url("/src/images/ico_github.svg");
+  background-image: url("/images/ico_github.svg");
   background-size: cover;
   .light & {
-    background-image: url("/src/images/ico_github_lightmode.svg");
+    background-image: url("/images/ico_github_lightmode.svg");
     width: 3rem;
   }
 }
