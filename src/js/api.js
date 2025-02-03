@@ -1,4 +1,5 @@
-const API_URL = "https://omdbapi.com/?apikey=524002e8";
+import config from "../config/config.js";
+const API_URL = `https://omdbapi.com/?apikey=${config.OMDB_API_KEY}`;
 const JSON_URL = "/src/data/movieData.json";
 
 export const fetchMoviesById = async (imdbId) => {

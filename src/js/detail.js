@@ -7,9 +7,40 @@ import renderMoviePoster from "./moviePoster.js";
 import { NO_DATA_SIGN } from "../constant/constant.js";
 import localApi from "./localApi.js";
 import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
+import config from "../config/config.js";
+
+Kakao.init(config.KAKAO_API_KEY);
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+let movie; // 영화 전역 데이터
+
+$(".btn-share").addEventListener("click", () => {
+  var currentURL = window.location.href;
+
+  Kakao.Share.sendDefault({
+    objectType: "feed",
+    content: {
+      title: `I recommend you "${movie.Title}"`,
+      description: movie.Plot.slice(0, 200) + "...",
+      imageUrl: movie.Poster,
+      link: {
+        mobileWebUrl: currentURL,
+        webUrl: currentURL,
+      },
+    },
+    buttons: [
+      {
+        title: "웹으로 보기",
+        link: {
+          mobileWebUrl: currentURL,
+          webUrl: currentURL,
+        },
+      },
+    ],
+    installTalk: true, // 카카오톡 미설치 시 설치 경로이동
+  });
+});
 
 loadHeader().then(() => {
   headerScript();
@@ -92,7 +123,7 @@ const renderGeners = (genres) => {
 
 try {
   showLoading();
-  const movie = await fetchMoviesById(id);
+  movie = await fetchMoviesById(id);
   if (!movie) {
     throw new Error(
       "유효하지 않은 영화 ID이거나 데이터를 불러오지 못했습니다."
