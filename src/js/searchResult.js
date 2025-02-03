@@ -27,7 +27,7 @@ loadHeader().then(() => {
 loadFooter();
 
 const resultPageInit = () => {
-  const headerIcon = $(".header__search-icon");
+  const headerIcon = $(".header__search-btn");
   const headerInputVal = getStorage("inputVal");
   headerIcon.style.display = "none";
 
