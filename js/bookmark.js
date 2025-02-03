@@ -19,7 +19,7 @@ const getBookmarkedMovies = (movieData, ids) => {
 const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
 const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
 
-if (lstBookMarkedIds.length !== 0) {
+if (lstBookMarkedIds && lstBookMarkedIds.length !== 0) {
   const response = await fetch("/data/movieData.json");
   const data = await response.json();
   const bookMarkedMovies = getBookmarkedMovies(data, lstBookMarkedIds);
