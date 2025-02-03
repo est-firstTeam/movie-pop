@@ -17,7 +17,6 @@ const searchbarForm = $(".search-bar-wrapper");
 const rcmdContent = $(".recommend__content");
 
 loadHeader().then(() => {
-  console.log("load Search Result...");
   headerScript();
   resultPageInit();
   fetchData();

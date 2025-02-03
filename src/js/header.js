@@ -1,4 +1,5 @@
 import { $ } from "./helper.js";
+import { showLoading, finishLoading } from "./helper.js";
 
 export const getStorage = (key = "movie") => {
   let movieObj;
@@ -32,6 +33,7 @@ export const headerScript = () => {
   const btnSearch = $(".header__search-btn");
   const headerInput = $(".header__input");
   const inputForm = $(".header__search");
+  const loading = $(".loading");
 
   const showElements = () => {
     headerInput.style.display = "block";
@@ -46,15 +48,41 @@ export const headerScript = () => {
     btnSearch.style.visibility = "hidden";
   };
 
+  const showMask = () => {
+    const windowWidth = window.document.body.clientWidth;
+    const windowHeight = window.document.body.clientHeight;
+
+    const blackMask = Object.assign(document.createElement("div"), {
+      className: "loading-mask",
+      style: `display: flex; align-items: center; justify-content: center; position:absolute; z-index:100; background-color:#000000; left:0; top:0; width:${windowWidth}px; height:${windowHeight}px; opacity:0.5`,
+    });
+    const lottie = Object.assign(document.createElement("div"), {
+      className: "loading",
+      style: "z-index:110",
+    });
+    document.body.append(blackMask);
+    blackMask.append(lottie);
+    showLoading();
+  };
+
+  const hideMask = () => {
+    $(".loading-mask").remove();
+    $(".loading").remove();
+  };
+
   inputForm.addEventListener("submit", async (event) => {
     //실행순서 바꾸지 말기.
     event.preventDefault();
+    console.log("start...");
+    showMask();
     let jsonObj = await getDataFromApi(headerInput.value);
     saveStorage(jsonObj, headerInput.value);
     setTimeout(() => {
       hideElements();
       searchIcon.style.display = "block";
     }, 10);
+    hideMask();
+    console.log("End...");
     location.href = "http://localhost:5500/src/pages/searchResult.html";
   });
 
@@ -89,6 +117,8 @@ export const headerScript = () => {
   });
 
   searchIcon.addEventListener("click", () => {
+    // showMask();
+    // showLoading();
     headerInput.style.display = "block";
     headerInput.focus();
   });
