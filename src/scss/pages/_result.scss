@@ -7,6 +7,9 @@
   @include border(all, $white);
   padding: 0.5rem;
   border-radius: 1rem;
+  .light & {
+    @include border(all, $bgBlack);
+  }
 }
 
 .search-bar__input {
@@ -20,6 +23,9 @@
   &:focus {
     outline: none;
   }
+  .light & {
+    color: $primary;
+  }
 }
 
 .search-bar__btn {
@@ -28,6 +34,9 @@
     fill: $white;
     width: 2rem;
     height: 2rem;
+    .light & {
+      fill: $bgBlack;
+    }
   }
 }
 
@@ -45,6 +54,9 @@
   color: $white;
   padding: 1rem;
   margin-left: 3rem;
+  .light & {
+    color: $bgBlack;
+  }
 }
 
 .movie-card-noresult {
@@ -59,6 +71,9 @@
 .card-noresult__text {
   color: $white;
   font-size: 3rem;
+  .light & {
+    color: $bgBlack;
+  }
   & span {
     color: $primary;
   }

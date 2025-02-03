@@ -3,7 +3,7 @@ import { loadHeader } from "./loadHeader.js";
 import { loadFooter } from "./loadFooter.js";
 import { $ } from "./helper.js";
 import renderMoviePoster from "./moviePoster.js";
-import { dataRender } from "./helper.js";
+import { renderMovieGrid } from "./helper.js";
 
 const articles = $(".recommend__content");
 const swiperContainer = $(".new-swiper");
@@ -25,7 +25,11 @@ async function fetchData() {
     renderRandomMovie(randomMovie);
 
     renderMovies(data);
-    dataRender(data, articles);
+
+    const recommendMovies = data.filter(
+      (movie) => parseFloat(movie.imdbRating) >= 8.0
+    );
+    renderMovieGrid(recommendMovies, articles);
   } catch (err) {
     // 디펜시브 코딩 (실패 시 에러메세지 도출)
     console.error("Error!", err);
@@ -72,7 +76,7 @@ function dataRender2(data, container) {
           </div>
           <h2 class="movie-title">${movie.Title}</h2>
           <div class="post-info">
-          <span class="movie-year">${movie.Year}</span> • 
+          <span class="movie-year">${movie.Year}</span>
           <span class="movie-runtime">${movie.Runtime}</span>
           </div>
         </article>

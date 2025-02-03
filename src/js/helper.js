@@ -22,7 +22,7 @@ export const finishLoading = () => {
   $(".loading").style.display = "none";
 };
 
-export function dataRender(data, container) {
+export function renderMovieGrid(data, container) {
   container.innerHTML = data
     .map(
       (movie) => `
@@ -34,8 +34,9 @@ export function dataRender(data, container) {
                   </div>
                   <h2 class="movie-title">${movie.Title}</h2>
                   <div class="post-info">
-                  <span class="movie-year">${movie.Year}</span> • 
+                  <span class="movie-year">${movie.Year}</span>
                   <span class="movie-runtime">${movie.Runtime}</span>
+                  <span class="movie-rating">${movie.imdbRating}</span>
                   </div>
               </article>
               `
