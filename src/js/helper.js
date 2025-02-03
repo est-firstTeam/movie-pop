@@ -22,9 +22,8 @@ export const finishLoading = () => {
   $(".loading").style.display = "none";
 };
 
-export function dataRender(data, container) {
+export function renderMovieGrid(data, container) {
   container.innerHTML = data
-    .filter((movie) => parseFloat(movie.imdbRating) >= 8.0)
     .map(
       (movie) => `
               <article class="movie-card">

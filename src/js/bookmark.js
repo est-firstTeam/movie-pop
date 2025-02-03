@@ -3,7 +3,7 @@ import { loadFooter } from "./loadFooter.js";
 import { headerScript } from "./header.js";
 import localApi from "./localApi.js";
 import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
-import { dataRender } from "./helper.js";
+import { renderMovieGrid } from "./helper.js";
 import { $ } from "./helper.js";
 
 loadHeader().then(() => {
@@ -23,7 +23,7 @@ if (lstBookMarkedIds.length !== 0) {
   const response = await fetch("/src/data/movieData.json");
   const data = await response.json();
   const bookMarkedMovies = getBookmarkedMovies(data, lstBookMarkedIds);
-  dataRender(bookMarkedMovies, $(".bookmark__content"));
+  renderMovieGrid(bookMarkedMovies, $(".bookmark__content"));
 } else {
   const noResultCard = Object.assign(document.createElement("div"), {
     className: "movie-card-noresult",
