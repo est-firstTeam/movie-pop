@@ -8,7 +8,6 @@
   padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s;
 
   span {
     display: flex;
@@ -24,10 +23,21 @@
       width: 3rem;
       height: 2rem;
     }
+    .light & {
+      color: $white;
+    }
   }
 
   &:hover {
     background-color: $primary;
+  }
+
+  .light & {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $btnGray;
+    }
   }
 }
 
@@ -53,4 +63,27 @@
     color: $white;
     background-color: $bgBlack;
   }
+  .light & {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.lightBtn {
+  position: fixed;
+  bottom: 9rem;
+  right: 4rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: $white;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.dark {
+  background-color: $bgBlack;
+}
+
+.light {
+  background-color: $white;
 }

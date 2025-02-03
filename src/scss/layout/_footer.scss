@@ -11,11 +11,36 @@
 }
 
 .footer-link__icon {
+  display: inline-block;
   width: 3rem;
+  height: 3rem;
+  background-image: url("/src/images/ico_youtube.svg");
+  background-size: cover;
+  background-position: center;
+  .light & {
+    background-image: url("/src/images/ico_youtube_lightmode.svg");
+    width: 3rem;
+  }
+}
+
+.footer-link__icon2 {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  background-image: url("/src/images/ico_github.svg");
+  background-size: cover;
+  .light & {
+    background-image: url("/src/images/ico_github_lightmode.svg");
+    width: 3rem;
+  }
 }
 
 .footer-content-wrapper {
   padding: 5rem;
+
+  .light & * {
+    color: $bgBlack;
+  }
 }
 
 .footer-content__text {
