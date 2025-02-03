@@ -28,9 +28,9 @@ export const getDataFromApi = async (title) => {
 };
 
 export const headerScript = () => {
-  const btnX = $(".header__cancel-icon");
-  const searchIcon = $(".header__search-icon");
-  const btnSearch = $(".header__search-btn");
+  const btnX = $(".header__cancel-btn");
+  const searchIcon = $(".header__search-btn");
+  const btnSearch = $(".header__search-submit");
   const headerInput = $(".header__input");
   const inputForm = $(".header__search");
   const loadingWrapper = $(".loading__wrapper");

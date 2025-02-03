@@ -1,27 +1,39 @@
 <header class="header">
-  <div class="header__logo-container">
+  <h1 class="header__logo-container">
     <a href="http://localhost:5500/src/index.html">
-      <img src="/src/images/logo.svg" alt="MoviePopLogo" />
+      <img src="/src/images/logo.svg" alt="Movie Pop" />
     </a>
-  </div>
+  </h1>
   <a href="/src/pages/bookmark.html" class="header__btn-bookmark">
     <span>bookmarked movies</span>
   </a>
   <div class="header__search">
-    <form>
-      <input class="header__input" type="text" required />
-      <button class="header__search-btn"></button>
-      <img
-        class="header__search-icon"
-        src="/src/images/ico_search.svg"
-        alt="searchIcon"
+    <button
+      type="button"
+      class="header__search-btn"
+      aria-label="open search"
+    ></button>
+    <label class="a11y-hidden" for="header__search_input">
+      Search for movies by title
+    </label>
+    <form role="search">
+      <input
+        id="header__search_input"
+        class="header__input"
+        type="text"
+        required
       />
+      <button
+        type="submit"
+        class="header__search-submit"
+        aria-label="search"
+      ></button>
     </form>
-    <img
-      class="header__cancel-icon"
-      src="/src/images/ico_cancel.svg"
-      alt="cancelIcon"
-    />
+    <button
+      type="button"
+      class="header__cancel-btn"
+      aria-label="cancel search"
+    ></button>
   </div>
 </header>
 <script src="/src/js/header.js" type="module"></script>
