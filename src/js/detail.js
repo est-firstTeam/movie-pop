@@ -5,6 +5,8 @@ import { $, finishLoading, showLoading } from "./helper.js";
 import { fetchMoviesById } from "./api.js";
 import renderMoviePoster from "./moviePoster.js";
 import { NO_DATA_SIGN } from "../constant/constant.js";
+import localApi from "./localApi.js";
+import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -18,6 +20,51 @@ loadFooter();
 $(".btn-goback").addEventListener("click", () => {
   history.back();
 });
+
+$(".btn-bookmark").addEventListener("click", async () => {
+  const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
+
+  if (bookMarkedMovieIds) {
+    const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
+    const isBookMarked = lstBookMarkedIds.includes(id);
+    isBookMarked
+      ? removeBookmark(lstBookMarkedIds)
+      : setBookmark([...lstBookMarkedIds, id]);
+  } else {
+    setBookmark([id]);
+  }
+
+  renderBookmarkStatus();
+});
+
+const renderBookmarkStatus = async () => {
+  const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
+
+  if (bookMarkedMovieIds) {
+    const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
+    const isBookMarked = lstBookMarkedIds.includes(id);
+
+    if (isBookMarked) {
+      $(
+        ".btn-bookmark"
+      ).style.background = `url("/src/images/ico_bookmark_filled.svg") no-repeat center`;
+    } else {
+      $(
+        ".btn-bookmark"
+      ).style.background = `url("/src/images/ico_bookmark.svg") no-repeat center`;
+    }
+  }
+};
+renderBookmarkStatus();
+
+const removeBookmark = (ids) => {
+  const deletedBookMarkedIds = ids.filter((movieId) => movieId !== id);
+  setBookmark([...deletedBookMarkedIds]);
+};
+
+const setBookmark = (ids) => {
+  localApi.setItem(STORE_KEY_BOOKMARK, JSON.stringify(ids));
+};
 
 const renderMovieInfo = (title, value) => {
   return `
@@ -52,13 +99,13 @@ try {
     );
   }
   const detailElement = `
-      <section class="detail__movie-info">
+      <article class="detail__movie-info">
       <div class="img__wrapper">
       ${renderMoviePoster(movie.Title, movie.Poster)}
        </div>
         <div class="detail__movie-info-inner">
-        <h1>${movie.Title}</h1>
-        <h2>${movie.Plot}</h2>
+        <h2>${movie.Title}</h2>
+        <p>${movie.Plot}</p>
         <div class="info__sub-area">
           <span class="detail__genre-area">${renderGeners(movie.Genre)}
           </span>
@@ -85,7 +132,7 @@ try {
         ${renderMovieInfo("Awards", movie.Awards)}
         </div>
   </div>
-      </section>
+      </article>
   `;
   $(".detail__movie-info-wrapper").innerHTML = detailElement;
 } catch (error) {

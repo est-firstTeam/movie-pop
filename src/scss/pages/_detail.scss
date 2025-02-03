@@ -26,14 +26,14 @@ body {
   flex-direction: column;
   flex: 1;
 
-  h1 {
+  h2 {
     font-size: 8rem;
     font-family: "Bebas Neue", sans-serif;
     background: $mainGradientcolor;
     @include titleText;
   }
 
-  h2 {
+  p {
     width: 90%;
     color: $white;
     font-size: 1.9rem;
@@ -47,11 +47,24 @@ body {
   top: 0rem;
   right: 9.7rem;
   width: 3rem;
-  height: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_backspace.svg") no-repeat;
 
   &:hover {
     background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+  }
+}
+
+.btn-bookmark {
+  position: absolute;
+  top: 0rem;
+  right: 16rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/src/images/ico_bookmark.svg") no-repeat center;
+
+  &:hover {
+    background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
   }
 }
 
