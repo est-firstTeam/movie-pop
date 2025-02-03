@@ -1,18 +1,23 @@
-// const body = document.body;
 const lightBtn = document.createElement("button");
-const title = document.querySelector(".classic__title");
 
 lightBtn.className = "lightBtn";
-lightBtn.innerHTML = "light";
+// lightBtn.innerHTML = "Light mode";
 document.body.appendChild(lightBtn);
+lightBtn.style.width = "50px";
+lightBtn.style.height = "50px";
+lightBtn.style.backgroundImage = "url('/src/images/ico-darkmode.svg')";
+lightBtn.style.backgroundPosition = "center";
+lightBtn.style.backgroundRepeat = "no-repeat";
+lightBtn.style.border = "1px solid #141414";
+lightBtn.style.cursor = "pointer";
 
 lightBtn.addEventListener("click", function (event) {
   var body = document.querySelector("body");
   if (body.classList.contains("light")) {
     body.classList.remove("light");
-    event.target.innerHTML = "Dark mode";
+    lightBtn.style.backgroundImage = "url('/src/images/ico-lightmode.svg')";
   } else {
     body.classList.add("light");
-    event.target.innerHTML = "Light mode";
+    lightBtn.style.backgroundImage = "url('/src/images/ico-darkmode.svg')";
   }
 });

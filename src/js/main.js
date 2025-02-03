@@ -132,20 +132,3 @@ swiperEl.initialize();
 Object.assign(swiperEl2, params2);
 
 swiperEl2.initialize();
-
-const change = $(".change");
-const body = $("body");
-
-function changeHandle() {
-  if (change.value === "night") {
-    body.classList.add("night");
-    body.classList.remove("day");
-    change.value = "day";
-  } else {
-    body.classList.remove("night");
-    body.classList.add("day");
-    change.value = "night";
-  }
-}
-
-change.addEventListener("click", changeHandle);
