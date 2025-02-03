@@ -1,10 +1,10 @@
 @use "../abstracts/" as *;
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
   align-items: center;
   padding: 0 5rem;
-  justify-content: space-between;
   height: 15rem;
   background-color: $bgBlack;
 }
@@ -97,15 +97,8 @@
 }
 
 .header__btn-bookmark {
-  // TODO: mixin으로 만들기
-  position: absolute;
-  top: 5rem;
-  right: 14rem;
-  width: 3rem;
-  aspect-ratio: 1;
-  background: url("/src/images/ico_bookmark.svg") no-repeat center;
-
-  &:hover {
-    background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
+  span {
+    color: $fontGray20;
+    font-size: 2rem;
   }
 }

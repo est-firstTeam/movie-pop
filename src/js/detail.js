@@ -10,7 +10,6 @@ import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
 
 loadHeader().then(() => {
   headerScript();
@@ -23,6 +22,8 @@ $(".btn-goback").addEventListener("click", () => {
 });
 
 $(".btn-bookmark").addEventListener("click", async () => {
+  const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
+
   if (bookMarkedMovieIds) {
     const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
     const isBookMarked = lstBookMarkedIds.includes(id);
@@ -37,6 +38,8 @@ $(".btn-bookmark").addEventListener("click", async () => {
 });
 
 const renderBookmarkStatus = async () => {
+  const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
+
   if (bookMarkedMovieIds) {
     const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
     const isBookMarked = lstBookMarkedIds.includes(id);
