@@ -1,12 +1,11 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/" as *;
 
-.section-slide {
+.slide__container {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: url("../images/bg.png") no-repeat center;
   background-size: cover;
-
   position: relative;
   isolation: isolate;
   &::after {
@@ -19,39 +18,98 @@
   }
 }
 
-.section-slide__content {
-  padding: 100px;
+.slide__content {
+  padding: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.section-slide__subtitle {
+.slide__subtitle {
   color: $white;
-  font-size: 48px;
-  font-family: "Bebas Neue", sans-serif;
+  font-size: 4.8rem;
+  font-family: $titleFont;
 }
-.section-slide__title {
-  font-size: 80px;
-  font-family: "Bebas Neue", sans-serif;
-  /* margin-bottom: 20px; */
-  background: linear-gradient(90deg, #f85858, #fee098);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.slide__title {
+  font-size: 8rem;
+  font-family: $titleFont;
+  background: $mainGradientcolor;
+  @include titleText;
 }
-.section-slide__show {
+.slide__show {
   color: $white;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 1.5;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 }
 
-.section-slide__poster {
+.slide__poster {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  img {
+    width: 80%;
+    max-width: 40rem;
+    border-radius: 1rem;
+  }
 }
-.section-slide__poster img {
-  width: 80%;
-  max-width: 400px;
-  border-radius: 10px;
+
+.swiper-wrapper {
+  position: relative;
+}
+
+.new__swiper-btn-prev,
+.classic__swiper-btn-prev {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  background-color: $swiperBtn;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.new__swiper-btn-next,
+.classic__swiper-btn-next {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  background-color: $swiperBtn;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.swiper-wrapper:hover .new__swiper-btn-prev,
+.swiper-wrapper:hover .new__swiper-btn-next {
+  opacity: 1;
+}
+
+.swiper-wrapper:hover .classic__swiper-btn-prev,
+.swiper-wrapper:hover .classic__swiper-btn-next {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }

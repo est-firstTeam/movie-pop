@@ -5,7 +5,6 @@
 }
 
 body {
-  background-color: $bgBlack;
   height: 100vh;
 }
 
@@ -27,16 +26,14 @@ body {
   flex-direction: column;
   flex: 1;
 
-  h1 {
-    // TODO: mixin이나 공용 컴포넌트로 작성
-    font-size: 80px;
+  h2 {
+    font-size: 8rem;
     font-family: "Bebas Neue", sans-serif;
-    background: linear-gradient(90deg, #f85858, #fee098);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: $mainGradientcolor;
+    @include titleText;
   }
 
-  h2 {
+  p {
     width: 90%;
     color: $white;
     font-size: 1.9rem;
@@ -50,11 +47,24 @@ body {
   top: 0rem;
   right: 9.7rem;
   width: 3rem;
-  height: 3rem;
+  aspect-ratio: 1;
   background: url("/src/images/ico_backspace.svg") no-repeat;
 
   &:hover {
     background: url("/src/images/ico_backspace_primary.svg") no-repeat;
+  }
+}
+
+.btn-bookmark {
+  position: absolute;
+  top: 0rem;
+  right: 16rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/src/images/ico_bookmark.svg") no-repeat center;
+
+  &:hover {
+    background: url("/src/images/ico_bookmark_primary.svg") no-repeat center;
   }
 }
 
@@ -66,8 +76,8 @@ body {
 
 .genre__item {
   width: min-content;
-  border: 1px solid $white;
-  padding: 4px;
+  @include border(all, $white);
+  padding: 0.4rem;
   border-radius: 5rem;
   color: $white;
   text-align: center;
@@ -79,7 +89,7 @@ body {
 //TODO: 공용 컴포넌트화 예정
 .horizontal {
   height: 0.1rem;
-  background-color: #504a7980;
+  background-color: $horizontalLine;
   margin-bottom: 2.8rem;
   border: 0;
 }

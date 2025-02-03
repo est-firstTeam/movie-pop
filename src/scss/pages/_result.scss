@@ -1,10 +1,10 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/" as *;
 
 .search-bar-wrapper {
   display: flex;
   justify-content: space-between;
   margin: 5rem 15rem;
-  border: 1px solid white;
+  @include border(all, $white);
   padding: 0.5rem;
   border-radius: 1rem;
 }
@@ -25,14 +25,14 @@
 .search-bar__btn {
   padding-right: 2rem;
   & svg {
-    fill: white;
+    fill: $white;
     width: 2rem;
     height: 2rem;
   }
 }
 
 .highlight {
-  color: yellow;
+  color: $secondary;
 }
 
 .search-result {
@@ -42,7 +42,7 @@
 .search-result__title {
   font-size: 2.4rem;
   text-transform: uppercase;
-  color: white;
+  color: $white;
   padding: 1rem;
   margin-left: 3rem;
 }
@@ -57,21 +57,19 @@
 }
 
 .card-noresult__text {
-  color: white;
+  color: $white;
   font-size: 3rem;
   & span {
-    color: tomato;
+    color: $primary;
   }
 }
 
 .search-result__cards {
   display: grid;
-  grid-template-columns: repeat(6, 22rem);
-  // grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(22rem, 22rem));
 }
 
 .movie-cardimgcontainer {
-  // display: block;
   & img {
     width: 100%;
     height: auto;

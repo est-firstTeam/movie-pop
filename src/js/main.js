@@ -2,6 +2,8 @@ import { headerScript } from "./header.js";
 import { loadHeader } from "./loadHeader.js";
 import { loadFooter } from "./loadFooter.js";
 import { $ } from "./helper.js";
+import renderMoviePoster from "./moviePoster.js";
+import { dataRender } from "./helper.js";
 
 const articles = $(".recommend__content");
 const swiperContainer = $(".new-swiper");
@@ -15,7 +17,7 @@ loadFooter();
 
 async function fetchData() {
   try {
-    const response = await fetch("./data/movieData.json"); // 미리 저장한 json 파일 fetch
+    const response = await fetch("./data/movieData.json");
     const data = await response.json();
 
     const randomMovie = getRandomMovie(data);
@@ -36,8 +38,8 @@ function getRandomMovie(data) {
 }
 
 function renderRandomMovie(movie) {
-  const posterImg = $(".section-slide__poster img");
-  const detailLink = $(".section-slide__content a");
+  const posterImg = $(".slide__img");
+  const detailLink = $(".slide__detailBtn");
 
   // DOM 업데이트
   posterImg.src = movie.Poster;
@@ -55,26 +57,6 @@ function renderMovies(data) {
   dataRender2(classicMovies, swiperContainer2);
 }
 
-function dataRender(data, container) {
-  container.innerHTML = data
-    .map(
-      (movie) => `
-              <article class="movie-card">
-                  <div class="movie-card__imgcontainer">
-                      <a href="/src/pages/detail.html?id=${movie.imdbID}">
-                          <img src="${movie.Poster}" alt="${movie.Title}">
-                      </a>
-                  </div>
-                  <h2 class="movie-title">${movie.Title}</h2>
-                  <div class="post-info">
-                  <span class="movie-year">${movie.Year}</span> • 
-                  <span class="movie-runtime">${movie.Runtime}</span>
-                  </div>
-              </article>
-              `
-    )
-    .join("");
-}
 function dataRender2(data, container) {
   container.innerHTML = data
     .map(
@@ -85,7 +67,7 @@ function dataRender2(data, container) {
               <a 
               class="movie-card__navigate-section"
               href="/src/pages/detail.html?id=${movie.imdbID}">
-                  <img src="${movie.Poster}" alt="${movie.Title}">
+                  ${renderMoviePoster(movie.Title, movie.Poster)}
               </a>
           </div>
           <h2 class="movie-title">${movie.Title}</h2>
@@ -110,20 +92,16 @@ const params = {
   slidesPerGroupSkip: 1,
   slidesPerView: "auto",
   spaceBetween: 30,
-  keyboard: {
-    enabled: true,
-  },
   breakpoints: {
     769: {
-      slidesPerView: 6,
+      slidesPerView: 5,
       slidesPerGroup: 1,
-      spaceBetween: 20,
+      spaceBetween: 30,
     },
   },
-  loop: true,
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".new__swiper-btn-next",
+    prevEl: ".new__swiper-btn-prev",
   },
 };
 
@@ -132,19 +110,18 @@ const params2 = {
   slidesPerGroupSkip: 1,
   slidesPerView: "auto",
   spaceBetween: 30,
-  keyboard: {
-    enabled: true,
-  },
+
   breakpoints: {
     769: {
-      slidesPerView: 6,
+      centeredSlides: false,
+      slidesPerView: 5,
       slidesPerGroup: 1,
-      spaceBetween: 20,
+      spaceBetween: 40,
     },
   },
   navigation: {
-    nextEl: ".swiper-button-next2",
-    prevEl: ".swiper-button-prev2",
+    nextEl: ".classic__swiper-btn-next",
+    prevEl: ".classic__swiper-btn-prev",
   },
 };
 
@@ -155,3 +132,20 @@ swiperEl.initialize();
 Object.assign(swiperEl2, params2);
 
 swiperEl2.initialize();
+
+const change = $(".change");
+const body = $("body");
+
+function changeHandle() {
+  if (change.value === "night") {
+    body.classList.add("night");
+    body.classList.remove("day");
+    change.value = "day";
+  } else {
+    body.classList.remove("night");
+    body.classList.add("day");
+    change.value = "night";
+  }
+}
+
+change.addEventListener("click", changeHandle);

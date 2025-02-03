@@ -1,17 +1,17 @@
-@use "../abstracts/variables" as *;
+@use "../abstracts/" as *;
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
   align-items: center;
   padding: 0 5rem;
-  justify-content: space-between;
   height: 15rem;
   background-color: $bgBlack;
 }
 
 .header__logo-container {
-  width: 11rem;
-  height: 15rem;
+  width: 8rem;
+  height: 12rem;
   & img {
     width: 100%;
   }
@@ -22,17 +22,15 @@
   position: relative;
   width: 0;
   height: 5rem;
-  background: linear-gradient(90deg, #f85858, #fee098) no-repeat 0 bottom / 100%
-    0.2rem;
-  // transition: width 0.3s;
+  background: $mainGradientcolor no-repeat 0 bottom / 100% 0.2rem;
 }
 
 .header__search-icon {
   padding-bottom: 1rem;
   position: absolute;
-  color: #aaa;
+  color: $carouselGray10;
   right: 1rem;
-  width: 4rem;
+  width: 3rem;
   transition: all 0.3s;
   z-index: 10;
   &:hover {
@@ -54,7 +52,7 @@
 
 .header__input {
   display: none;
-  font-size: 30px;
+  font-size: 3rem;
   color: $secondary;
   width: 20rem;
   position: relative;
@@ -75,7 +73,7 @@
 .header__input:valid + .header__search-btn {
   font-size: 1.6rem;
   right: 27rem;
-  color: #666;
+  color: $carouselGray10;
   font-weight: bold;
 }
 // Transition 부분 (수평선)
@@ -85,16 +83,22 @@
 
 .header__search-btn {
   visibility: hidden;
-  width: 4rem;
-  height: 4rem;
-  color: white;
-  padding: 2rem;
+  width: 3rem;
+  height: 3rem;
+  color: $white;
+  padding-bottom: 2rem;
   background-image: url("/src/images/ico_search.svg");
   background-size: cover;
   position: absolute;
-  color: #aaa;
+  color: $carouselGray10;
   right: 1rem;
-  width: 4rem;
-  bottom: 1.15rem;
+  bottom: 2rem;
   transition: all 0.3s;
+}
+
+.header__btn-bookmark {
+  span {
+    color: $fontGray20;
+    font-size: 2rem;
+  }
 }
