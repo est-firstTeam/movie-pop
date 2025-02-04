@@ -1,16 +1,20 @@
-import { loadHeader } from "./loadHeader.js";
-import { loadFooter } from "./loadFooter.js";
 import { headerScript } from "./header.js";
 import localApi from "./localApi.js";
 import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
 import { renderMovieGrid } from "./helper.js";
 import { $ } from "./helper.js";
+import { loadHtml } from "./loadHtml.js";
 
-loadHeader().then(() => {
+const $header = ".header__wrapper";
+const headerUrl = "/pages/header.html";
+const $footer = ".footer__wrapper";
+const footerUrl = "/pages/footer.html";
+
+loadHtml($header, headerUrl).then(() => {
   headerScript();
 });
 
-loadFooter();
+loadHtml($footer, footerUrl);
 
 const getBookmarkedMovies = (movieData, ids) => {
   return movieData.filter((movie) => ids.includes(movie.imdbID));

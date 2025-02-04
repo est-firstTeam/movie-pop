@@ -1,6 +1,5 @@
 import { headerScript } from "./header.js";
-import { loadHeader } from "./loadHeader.js";
-import { loadFooter } from "./loadFooter.js";
+import { loadHtml } from "./loadHtml.js";
 import { $ } from "./helper.js";
 import renderMoviePoster from "./moviePoster.js";
 import { renderMovieGrid } from "./helper.js";
@@ -8,12 +7,16 @@ import { renderMovieGrid } from "./helper.js";
 const articles = $(".recommend__content");
 const swiperContainer = $(".new-swiper");
 const swiperContainer2 = $(".classic-swiper");
+const $header = ".header__wrapper";
+const headerUrl = "/pages/header.html";
+const $footer = ".footer__wrapper";
+const footerUrl = "/pages/footer.html";
 
-loadHeader().then(() => {
+loadHtml($header, headerUrl).then(() => {
   headerScript();
 });
 
-loadFooter();
+loadHtml($footer, footerUrl);
 
 async function fetchData() {
   try {
@@ -45,7 +48,6 @@ function renderRandomMovie(movie) {
   const posterImg = $(".slide__img");
   const detailLink = $(".slide__detailBtn");
 
-  // DOM 업데이트
   posterImg.src = movie.Poster;
   posterImg.alt = `${movie.Title} Poster`;
   detailLink.href = `/pages/detail.html?id=${movie.imdbID}`;
@@ -57,11 +59,11 @@ function renderMovies(data) {
   console.log("new", newMovies);
   console.log("classic", classicMovies);
 
-  dataRender2(newMovies, swiperContainer);
-  dataRender2(classicMovies, swiperContainer2);
+  dataRenderSlider(newMovies, swiperContainer);
+  dataRenderSlider(classicMovies, swiperContainer2);
 }
 
-function dataRender2(data, container) {
+function dataRenderSlider(data, container) {
   container.innerHTML = data
     .map(
       (movie) => `
