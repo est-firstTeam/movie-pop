@@ -1,5 +1,4 @@
 //아래부터 result 영역 코드
-import { loadHeader } from "./loadHeader.js";
 import {
   headerScript,
   getStorage,
@@ -7,7 +6,7 @@ import {
   saveStorage,
 } from "./header.js";
 import { $, showLoading } from "./helper.js";
-import { loadFooter } from "./loadFooter.js";
+import { loadHtml } from "./loadHtml.js";
 import renderMoviePoster from "./moviePoster.js";
 import { renderMovieGrid } from "./helper.js";
 import { showMask, hideMask } from "./helper.js";
@@ -17,14 +16,18 @@ const resultCard = $(".search-result__cards");
 const searchbarForm = $(".search-bar-wrapper");
 const rcmdContent = $(".recommend__content");
 const loadingWrapper = $(".loading__wrapper");
+const $header = ".header__wrapper";
+const headerUrl = "/pages/header.html";
+const $footer = ".footer__wrapper";
+const footerUrl = "/pages/footer.html";
 
-loadHeader().then(() => {
+loadHtml($header, headerUrl).then(() => {
   headerScript();
   resultPageInit();
   fetchData();
 });
 
-loadFooter();
+loadHtml($footer, footerUrl);
 
 const resultPageInit = () => {
   const headerIcon = $(".header__search-btn");
@@ -69,7 +72,6 @@ function resultRender(movie) {
       </div>`,
     });
     resultCard.appendChild(movieCard);
-    // sessionStorage.removeItem("movie");
   }
 }
 

@@ -1,5 +1,4 @@
-import { loadHeader } from "./loadHeader.js";
-import { loadFooter } from "./loadFooter.js";
+import { loadHtml } from "./loadHtml.js";
 import { headerScript } from "./header.js";
 import { $, finishLoading, showLoading } from "./helper.js";
 import { fetchMoviesById } from "./api.js";
@@ -14,6 +13,10 @@ Kakao.init(config.KAKAO_API_KEY);
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 let movie; // 영화 전역 데이터
+const $header = ".header__wrapper";
+const headerUrl = "/pages/header.html";
+const $footer = ".footer__wrapper";
+const footerUrl = "/pages/footer.html";
 
 $(".btn-share").addEventListener("click", () => {
   var currentURL = window.location.href;
@@ -42,11 +45,11 @@ $(".btn-share").addEventListener("click", () => {
   });
 });
 
-loadHeader().then(() => {
+loadHtml($header, headerUrl).then(() => {
   headerScript();
 });
 
-loadFooter();
+loadHtml($footer, footerUrl);
 
 $(".btn-goback").addEventListener("click", () => {
   history.back();
