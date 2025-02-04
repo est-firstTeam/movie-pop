@@ -69,7 +69,6 @@ function resultRender(movie) {
       </div>`,
     });
     resultCard.appendChild(movieCard);
-    // sessionStorage.removeItem("movie");
   }
 }
 
