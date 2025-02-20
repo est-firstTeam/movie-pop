@@ -4,6 +4,7 @@ import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
 import { renderMovieGrid } from "./helper.js";
 import { $ } from "./helper.js";
 import { loadHtml } from "./loadHtml.js";
+import { LightMode } from "./lightMode.js";
 
 const $header = ".header__wrapper";
 const headerUrl = "/pages/header.html";
@@ -15,6 +16,7 @@ loadHtml($header, headerUrl).then(() => {
 });
 
 loadHtml($footer, footerUrl);
+LightMode();
 
 const getBookmarkedMovies = (movieData, ids) => {
   return movieData.filter((movie) => ids.includes(movie.imdbID));

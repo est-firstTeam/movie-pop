@@ -3,6 +3,9 @@ import { loadHtml } from "./loadHtml.js";
 import { $ } from "./helper.js";
 import renderMoviePoster from "./moviePoster.js";
 import { renderMovieGrid } from "./helper.js";
+import { TopBtn } from './topBtn.js';
+import { LightMode } from "./lightMode.js";
+// import 'swiper/swiper-bundle.min.css';
 
 const articles = $(".recommend__content");
 const swiperContainer = $(".new-swiper");
@@ -17,6 +20,10 @@ loadHtml($header, headerUrl).then(() => {
 });
 
 loadHtml($footer, footerUrl);
+
+TopBtn();
+
+LightMode();
 
 async function fetchData() {
   try {

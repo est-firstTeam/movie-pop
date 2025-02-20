@@ -10,6 +10,8 @@ import { loadHtml } from "./loadHtml.js";
 import renderMoviePoster from "./moviePoster.js";
 import { renderMovieGrid } from "./helper.js";
 import { showMask, hideMask } from "./helper.js";
+import { TopBtn } from "./topBtn.js";
+import { LightMode } from "./lightMode.js";
 
 const resultInput = $(".search-bar__input");
 const resultCard = $(".search-result__cards");
@@ -28,6 +30,8 @@ loadHtml($header, headerUrl).then(() => {
 });
 
 loadHtml($footer, footerUrl);
+TopBtn();
+LightMode();
 
 const resultPageInit = () => {
   const headerIcon = $(".header__search-btn");
