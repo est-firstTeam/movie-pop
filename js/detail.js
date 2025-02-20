@@ -100,10 +100,10 @@ const setBookmark = (ids) => {
 
 const renderMovieInfo = (title, value) => {
   return `
-    <div>
+    <li>
       <span class="info__sub-title">${title}:</span>
       <span class="info__sub-desc">${value || NO_DATA_SIGN}</span>
-    </div>
+    </li>
   `;
 };
 
@@ -154,7 +154,7 @@ try {
         </div>
   
         <hr class="horizontal"/>
-        <div class="detail_movie-info-container">
+        <ul class="detail_movie-info-container">
         ${renderMovieInfo("Rated", movie.Rated)}
         ${renderMovieInfo("imdbRating", `⭐️ ${movie.imdbRating}`)}
         ${renderMovieInfo("Director", movie.Director)}
@@ -162,7 +162,7 @@ try {
         ${renderMovieInfo("Actors", movie.Actors)}
         ${renderMovieInfo("BoxOffice", movie.BoxOffice)}
         ${renderMovieInfo("Awards", movie.Awards)}
-        </div>
+        </ul>
   </div>
       </article>
   `;
