@@ -1,89 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie POP</title>
-    <link rel="icon" href="/images/favicon.png" />
-    <link rel="stylesheet" href="/css/index.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
-  </head>
 
-  <body>
-    <div class="header__wrapper"></div>
-    <main>
-      <div class="loading__wrapper">
-        <div class="loading"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie POP</title>
+  <link rel="icon" href="/images/favicon.png" />
+  <link rel="stylesheet" href="/css/index.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="header__wrapper"></div>
+  <main>
+    <div class="loading__wrapper">
+      <div class="loading"></div>
+    </div>
+    <section class="slide__container">
+      <div class="slide__content">
+        <h2 class="slide__subtitle">Today’s Pop Movies</h2>
+        <h3 class="slide__title">TRENDING CONTENTS</h3>
+        <p class="slide__show">
+          Looking for the perfect movie to watch today?<br />
+          Our recommendation site offers suggestions for both the latest
+          releases and timeless classics.<br />
+          Start exploring and discover your next favorite film!
+        </p>
+        <a class="slide__detailBtn">
+          <button class="slide__btn">
+            <span>See Detail</span>
+          </button>
+        </a>
       </div>
-      <section class="slide__container">
-        <div class="slide__content">
-          <h2 class="slide__subtitle">Today’s Pop Movies</h2>
-          <h3 class="slide__title">TRENDING CONTENTS</h3>
-          <p class="slide__show">
-            Looking for the perfect movie to watch today?<br />
-            Our recommendation site offers suggestions for both the latest
-            releases and timeless classics.<br />
-            Start exploring and discover your next favorite film!
-          </p>
-          <a class="slide__detailBtn">
-            <button class="slide__btn">
-              <span>See Detail</span>
-            </button>
-          </a>
-        </div>
-        <div class="slide__poster">
-          <img class="slide__img" alt="Today's trending movie poster" />
-        </div>
-      </section>
-      <section class="new__container">
-        <h2 class="new__title">NEW</h2>
-        <div class="swiper-wrapper">
-          <button class="new__swiper-btn-prev">
-            <img
-              src="./images/ico-leftarrow.svg"
-              alt="Previous movie slide by one"
-            />
-          </button>
-          <button class="new__swiper-btn-next">
-            <img
-              src="./images/ico-rightarrow.svg"
-              alt="Next movie slide by one"
-            />
-          </button>
-          <swiper-container
-            class="new-swiper"
-            init="false"
-            aria-label="New movie poster slider"
-          ></swiper-container>
-        </div>
-      </section>
+      <div class="slide__poster">
+        <img class="slide__img" alt="Today's trending movie poster" />
+      </div>
+    </section>
+    <section class="new__container">
+      <h2 class="new__title">NEW</h2>
+      <div class="swiper-wrapper">
+        <button class="new__swiper-btn-prev">
+          <img src="./images/ico-leftarrow.svg" alt="Previous movie slide by one" />
+        </button>
+        <button class="new__swiper-btn-next">
+          <img src="./images/ico-rightarrow.svg" alt="Next movie slide by one" />
+        </button>
+        <swiper-container class="new-swiper" init="false" aria-label="New movie poster slider"></swiper-container>
+      </div>
+    </section>
 
-      <section class="classic__container">
-        <h2 class="classic__title">CLASSIC</h2>
-        <div class="swiper-wrapper">
-          <button class="classic__swiper-btn-prev">
-            <img src="./images/ico-leftarrow.svg" alt="previous button" />
-          </button>
-          <button class="classic__swiper-btn-next">
-            <img src="./images/ico-rightarrow.svg" alt="next button" />
-          </button>
-          <swiper-container
-            class="classic-swiper"
-            init="false"
-            aria-label="Classic movie poster slider"
-          ></swiper-container>
-        </div>
-      </section>
+    <section class="classic__container">
+      <h2 class="classic__title">CLASSIC</h2>
+      <div class="swiper-wrapper">
+        <button class="classic__swiper-btn-prev">
+          <img src="./images/ico-leftarrow.svg" alt="previous button" />
+        </button>
+        <button class="classic__swiper-btn-next">
+          <img src="./images/ico-rightarrow.svg" alt="next button" />
+        </button>
+        <swiper-container class="classic-swiper" init="false"
+          aria-label="Classic movie poster slider"></swiper-container>
+      </div>
+    </section>
 
-      <section class="recommend__container">
-        <h2 class="recommend__title">RECOMMEND</h2>
-        <div class="recommend__content"></div>
-      </section>
-    </main>
-    <footer class="footer__wrapper"></footer>
-    <script src="/js/lightMode.js"></script>
-    <script src="/js/topBtn.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script src="/js/main.js" type="module"></script>
-  </body>
+    <section class="recommend__container">
+      <h2 class="recommend__title">RECOMMEND</h2>
+      <div class="recommend__content"></div>
+    </section>
+  </main>
+  <footer class="footer__wrapper"></footer>
+  <script src="/js/main.js" type="module"></script>
+</body>
+
 </html>

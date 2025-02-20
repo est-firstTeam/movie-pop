@@ -7,6 +7,7 @@ import { NO_DATA_SIGN } from "../constant/constant.js";
 import localApi from "./localApi.js";
 import { STORE_KEY_BOOKMARK } from "../constant/constant.js";
 import config from "../config/config.js";
+import { LightMode } from "./lightMode.js";
 
 Kakao.init(config.KAKAO_API_KEY);
 
@@ -50,6 +51,8 @@ loadHtml($header, headerUrl).then(() => {
 });
 
 loadHtml($footer, footerUrl);
+
+LightMode();
 
 $(".btn-goback").addEventListener("click", () => {
   history.back();
