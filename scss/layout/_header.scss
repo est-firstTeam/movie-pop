@@ -24,6 +24,10 @@
   width: 0;
   height: 5rem;
   background: $mainGradientcolor no-repeat 0 bottom / 100% 0.2rem;
+
+  label {
+    @include a11y-hidden;
+  }
 }
 
 .header__search-btn {

@@ -1,13 +1,5 @@
 @use "../abstracts/" as *;
 
-.a11y-hidden {
-  @include a11y-hidden;
-}
-
-body {
-  height: 100vh;
-}
-
 .detail__container {
   display: flex;
   position: relative;
@@ -54,6 +46,10 @@ body {
   aspect-ratio: 1;
   background: url("/images/ico_backspace.svg") no-repeat;
 
+  span {
+    @include a11y-hidden;
+  }
+
   &:hover {
     background: url("/images/ico_backspace_primary.svg") no-repeat;
   }
@@ -73,6 +69,10 @@ body {
   right: 16rem;
   width: 3rem;
   aspect-ratio: 1;
+
+  span {
+    @include a11y-hidden;
+  }
 
   &:hover {
     width: 3rem;
@@ -114,6 +114,10 @@ body {
   width: 3rem;
   aspect-ratio: 1;
   background: url("/images/ico_share.svg") no-repeat;
+
+  span {
+    @include a11y-hidden;
+  }
 
   &:hover {
     background: url("/images/ico_share_primary.svg") no-repeat;
