@@ -1,4 +1,4 @@
-import { NOIMG_URL, NO_DATA_SIGN } from "../constant/constant.js";
+import { NOIMG_URL, NO_DATA_SIGN } from "../../constant/constant.js";
 
 const renderMoviePoster = (movieTitle, posterUrl) => {
   return `

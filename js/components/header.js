@@ -1,5 +1,4 @@
-import { $ } from "./helper.js";
-import { showMask, hideMask } from "./helper.js";
+import { $, showMask, hideMask } from "../util/helper.js";
 
 export const getStorage = (key = "movie") => {
   let movieObj;
