@@ -1,6 +1,6 @@
 export const TopBtn = () => {
   const topBtn = document.createElement("button");
-  topBtn.className = "topBtn";
+  topBtn.className = "common__top-btn";
   topBtn.innerHTML = "▲ <br /> TOP";
   document.body.appendChild(topBtn);
 

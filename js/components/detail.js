@@ -23,7 +23,7 @@ export const Detail = async () => {
   // const $footer = ".footer__wrapper";
   // const footerUrl = "/pages/footer.html";
 
-  $(".btn-share").addEventListener("click", () => {
+  $(".detail__share-btn").addEventListener("click", () => {
     var currentURL = window.location.href;
 
     Kakao.Share.sendDefault({
@@ -58,11 +58,11 @@ export const Detail = async () => {
 
   // LightMode();
 
-  $(".btn-goback").addEventListener("click", () => {
+  $(".detail__goback-btn").addEventListener("click", () => {
     history.back();
   });
 
-  $(".btn-bookmark").addEventListener("click", async () => {
+  $(".detail__bookmark-btn").addEventListener("click", async () => {
     const bookMarkedMovieIds = await localApi.getItems(STORE_KEY_BOOKMARK);
 
     if (bookMarkedMovieIds) {
@@ -86,11 +86,11 @@ export const Detail = async () => {
       const isBookMarked = lstBookMarkedIds.includes(id);
       console.log(isBookMarked);
       if (isBookMarked) {
-        $(".btn-bookmark").classList.remove("not-bookmarked");
-        $(".btn-bookmark").classList.add("bookmarked");
+        $(".detail__bookmark-btn").classList.remove("not-bookmarked");
+        $(".detail__bookmark-btn").classList.add("bookmarked");
       } else {
-        $(".btn-bookmark").classList.remove("bookmarked");
-        $(".btn-bookmark").classList.add("not-bookmarked");
+        $(".detail__bookmark-btn").classList.remove("bookmarked");
+        $(".detail__bookmark-btn").classList.add("not-bookmarked");
       }
     }
   };

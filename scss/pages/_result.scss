@@ -28,18 +28,6 @@
   }
 }
 
-.search-bar__btn {
-  padding-right: 2rem;
-  & svg {
-    fill: $white;
-    width: 2rem;
-    height: 2rem;
-    .light & {
-      fill: $bgBlack;
-    }
-  }
-}
-
 .highlight {
   color: $secondary;
 }
