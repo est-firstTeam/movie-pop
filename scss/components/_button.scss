@@ -1,6 +1,78 @@
 @use "../abstracts/" as *;
 
-.slide__btn {
+// header 영역 버튼
+.header__search-btn {
+  width: 3rem;
+  height: 3rem;
+
+  padding-bottom: 1rem;
+  position: absolute;
+  color: $carouselGray10;
+  right: 1rem;
+  transition: all 0.2s;
+  z-index: 10;
+
+  background: url("/images/ico_search.svg") no-repeat;
+  background-size: cover;
+}
+
+.header__cancel-btn {
+  width: 3rem;
+  height: 3rem;
+
+  padding-top: 0.5rem;
+  display: block;
+  z-index: 100;
+
+  background: url("/images/ico_cancel.svg") no-repeat;
+  background-size: cover;
+}
+
+//Transition 부분 (아이콘)
+.header__input:focus + .header__search-submit,
+.header__input:valid + .header__search-submit {
+  font-size: 1.6rem;
+  right: 27rem;
+  color: $carouselGray10;
+  font-weight: bold;
+}
+// Transition 부분 (수평선)
+.header__search:focus-within {
+  width: 30rem;
+}
+
+.header__search-submit {
+  visibility: hidden;
+  width: 3rem;
+  height: 3rem;
+  color: $white;
+  padding-bottom: 2rem;
+  background-image: url("/images/ico_search.svg");
+  background-size: cover;
+  position: absolute;
+  color: $carouselGray10;
+  right: 1rem;
+  bottom: 2rem;
+  transition: all 0.2s;
+}
+
+.header__bookmark-btn {
+  display: inline-block;
+  width: min-content;
+  white-space: nowrap;
+
+  span {
+    color: $fontGray20;
+    font-size: 2rem;
+
+    &:hover {
+      color: $fontGray30;
+    }
+  }
+}
+
+// main 페이지 버튼
+.main__seedetail-btn {
   width: 16rem;
   background-color: $btnGray;
   color: $white;
@@ -41,7 +113,72 @@
   }
 }
 
-.topBtn {
+.new__swiper-btn-prev,
+.classic__swiper-btn-prev {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  background-color: $swiperBtn;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.new__swiper-btn-next,
+.classic__swiper-btn-next {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 1rem;
+  transform: translate(0, -50%);
+  width: 5rem;
+  height: 100%;
+  background-color: $swiperBtn;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  img {
+    width: 5rem;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.swiper-wrapper:hover .new__swiper-btn-prev,
+.swiper-wrapper:hover .new__swiper-btn-next {
+  opacity: 1;
+}
+
+.swiper-wrapper:hover .classic__swiper-btn-prev,
+.swiper-wrapper:hover .classic__swiper-btn-next {
+  opacity: 1;
+}
+
+// searchResult 페이지 버튼
+.search-bar-btn {
+  padding-right: 2rem;
+  & svg {
+    fill: $white;
+    width: 2rem;
+    height: 2rem;
+    .light & {
+      fill: $bgBlack;
+    }
+  }
+}
+
+// top 버튼
+.common__top-btn {
   display: none;
   position: fixed;
   bottom: 4rem;
@@ -69,14 +206,21 @@
   }
 }
 
-.lightBtn {
+// dark/ light 모드 버튼
+
+.common__lightMode-btn {
   position: fixed;
   bottom: 9rem;
   right: 4rem;
   width: 5rem;
   height: 5rem;
   background-color: $white;
+  background-image: url("/images/ico-darkmode.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0.1rem solid $bgBlack;
   border-radius: 50%;
+  cursor: pointer;
   z-index: 10;
 }
 
@@ -86,4 +230,63 @@
 
 .light {
   background-color: $white;
+}
+
+// detail 페이지 버튼
+
+.detail__share-btn {
+  position: absolute;
+  top: 0rem;
+  right: 22rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/images/ico_share.svg") no-repeat;
+
+  &:hover {
+    background: url("/images/ico_share_primary.svg") no-repeat;
+  }
+
+  .light & {
+    background: url("/images/ico_share_black.svg") no-repeat;
+
+    &:hover {
+      background: url("/images/ico_share_primary.svg") no-repeat;
+    }
+  }
+}
+
+.detail__bookmark-btn {
+  position: absolute;
+  top: 0rem;
+  right: 16rem;
+  width: 3rem;
+  aspect-ratio: 1;
+
+  &:hover {
+    width: 3rem;
+    aspect-ratio: 1;
+    background: url("/images/ico_bookmark_primary.svg") no-repeat center;
+    background-size: cover;
+  }
+}
+
+.detail__goback-btn {
+  position: absolute;
+  top: 0rem;
+  right: 9.7rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  background: url("/images/ico_backspace.svg") no-repeat;
+
+  &:hover {
+    background: url("/images/ico_backspace_primary.svg") no-repeat;
+  }
+
+  .light & {
+    background: url("/images/ico_backspace_black.svg") no-repeat;
+
+    &:hover {
+      background: url("/images/ico_backspace_primary.svg") no-repeat;
+    }
+  }
 }

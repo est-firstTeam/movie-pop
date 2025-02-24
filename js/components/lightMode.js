@@ -1,15 +1,8 @@
 export const LightMode = () => {
   const lightBtn = document.createElement("button");
 
-  lightBtn.className = "lightBtn";
+  lightBtn.className = "common__lightMode-btn";
   document.body.appendChild(lightBtn);
-  lightBtn.style.width = "50px";
-  lightBtn.style.height = "50px";
-  lightBtn.style.backgroundImage = "url('/images/ico-darkmode.svg')";
-  lightBtn.style.backgroundPosition = "center";
-  lightBtn.style.backgroundRepeat = "no-repeat";
-  lightBtn.style.border = "1px solid #141414";
-  lightBtn.style.cursor = "pointer";
 
   function applyTheme() {
     const body = document.querySelector("body");
