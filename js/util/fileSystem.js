@@ -5,7 +5,7 @@
     buildMovieData 함수와 titleConverter가 핵심입니다. (나머지 함수들은 json작업과 file작업을 위해 모듈화된 함수.)
 */
 
-import { getDataFromApi } from "../js/api";
+import { getDataFromApi } from "../api/api";
 
 const fs = require("fs");
 const path = require("path");

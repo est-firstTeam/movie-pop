@@ -1,4 +1,4 @@
-import renderMoviePoster from "./moviePoster.js";
+import renderMoviePoster from "../components/moviePoster.js";
 
 export const $ = (selector) => {
   return document.querySelector(selector);

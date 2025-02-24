@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie POP</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <link rel="icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie POP</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
-  <link rel="icon" href="/images/favicon.png" />
-  <link rel="stylesheet" href="/css/index.css" />
-</head>
-
-<body>
-  <div class="header__wrapper"></div>
-  <div class="loading__wrapper">
-    <div class="loading"></div>
-  </div>
-  <section class="section-result">
-    <form class="search-bar-wrapper">
-      <input class="search-bar__input" type="text" required />
-      <button class="search-bar__btn" type="submit">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fee098" class="bi bi-search"
-          viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-        </svg>
-      </button>
-    </form>
-    <div class="search-result">
-      <h2 class="search-result__title">result</h2>
-      <hr class="horizontal" />
-      <div class="search-result__cards"></div>
+  <body>
+    <div class="header__wrapper"></div>
+    <div class="loading__wrapper">
+      <div class="loading"></div>
     </div>
-  </section>
-  <section class="recommend">
-    <h2 class="recommend__title">RECOMMEND</h2>
-    <div class="recommend__content"></div>
-  </section>
-  <footer class="footer__wrapper"></footer>
-  <script type="module" src="/js/searchResult.js"></script>
-</body>
-
+    <section class="section-result">
+      <form class="search-bar-wrapper">
+        <input class="search-bar__input" type="text" required />
+        <button class="search-bar__btn" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="#fee098"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            />
+          </svg>
+        </button>
+      </form>
+      <div class="search-result">
+        <h2 class="search-result__title">result</h2>
+        <hr class="horizontal" />
+        <div class="search-result__cards"></div>
+      </div>
+    </section>
+    <section class="recommend">
+      <h2 class="recommend__title">RECOMMEND</h2>
+      <div class="recommend__content"></div>
+    </section>
+    <footer class="footer__wrapper"></footer>
+    <script type="module" src="/js/index.js"></script>
+  </body>
 </html>
