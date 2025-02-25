@@ -10,6 +10,7 @@ import { TopBtn } from "./components/topBtn.js";
 const init = async () => {
   LightMode();
   TopBtn();
+  headerScript();
 
   BookMark();
   Detail();
@@ -20,6 +21,5 @@ const init = async () => {
 (async () => {
   await loadHtml(".header__wrapper", "/pages/header.html");
   await loadHtml(".footer__wrapper", "/pages/footer.html");
-  headerScript();
   await init();
 })();

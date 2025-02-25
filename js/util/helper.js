@@ -14,7 +14,10 @@ export const setLoading = bodymovin.loadAnimation({
 });
 
 // 로딩 시작
-export const showLoading = () => setLoading.play();
+export const showLoading = () => {
+  $(".loading").style.display = "block";
+  setLoading.play();
+};
 
 // 로딩 끝
 export const finishLoading = () => {

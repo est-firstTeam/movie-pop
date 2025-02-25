@@ -1,19 +1,14 @@
 @use "../abstracts/" as *;
 
 // header 영역 버튼
-.header__search-btn {
+.header__open-search-form-btn {
   width: 3rem;
   height: 3rem;
-
-  padding-bottom: 1rem;
-  position: absolute;
+  margin-right: 2.4rem;
   color: $carouselGray10;
-  right: 1rem;
-  transition: all 0.2s;
-  z-index: 10;
-
   background: url("/images/ico_search.svg") no-repeat;
   background-size: cover;
+  transition: all 0.2s;
 }
 
 .header__cancel-btn {
@@ -28,31 +23,14 @@
   background-size: cover;
 }
 
-//Transition 부분 (아이콘)
-.header__input:focus + .header__search-submit,
-.header__input:valid + .header__search-submit {
-  font-size: 1.6rem;
-  right: 27rem;
-  color: $carouselGray10;
-  font-weight: bold;
-}
-// Transition 부분 (수평선)
-.header__search:focus-within {
-  width: 30rem;
-}
-
 .header__search-submit {
-  visibility: hidden;
   width: 3rem;
   height: 3rem;
   color: $white;
   padding-bottom: 2rem;
   background-image: url("/images/ico_search.svg");
   background-size: cover;
-  position: absolute;
   color: $carouselGray10;
-  right: 1rem;
-  bottom: 2rem;
   transition: all 0.2s;
 }
 
@@ -165,7 +143,7 @@
 }
 
 // searchResult 페이지 버튼
-.search-bar-btn {
+.search__searchbar-btn {
   padding-right: 2rem;
   & svg {
     fill: $white;

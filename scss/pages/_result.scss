@@ -1,6 +1,6 @@
 @use "../abstracts/" as *;
 
-.search-bar-wrapper {
+.search__form {
   display: flex;
   justify-content: space-between;
   margin: 5rem 15rem;
@@ -12,7 +12,7 @@
   }
 }
 
-.search-bar__input {
+.search__searchbar-input {
   line-height: 3rem;
   width: 100rem;
   font-size: 2rem;
@@ -32,7 +32,7 @@
   color: $secondary;
 }
 
-.search-result {
+.search__result-wrapper {
   margin-bottom: 5rem;
 }
 
@@ -67,7 +67,7 @@
   }
 }
 
-.search-result__cards {
+.search__result-movies {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 22rem));
 }

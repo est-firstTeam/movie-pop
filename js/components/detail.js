@@ -9,7 +9,6 @@ export const initKakao = () => {
   try {
     Kakao.init(config.KAKAO_API_KEY);
   } catch (e) {
-    console.log(e);
     return;
   }
 };
@@ -17,13 +16,14 @@ export const Detail = async () => {
   initKakao();
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
+  const shareBtn = $(".detail__share-btn");
   let movie; // 영화 전역 데이터
-  // const $header = ".header__wrapper";
-  // const headerUrl = "/pages/header.html";
-  // const $footer = ".footer__wrapper";
-  // const footerUrl = "/pages/footer.html";
 
-  $(".detail__share-btn").addEventListener("click", () => {
+  if (!shareBtn) {
+    return;
+  }
+
+  shareBtn.addEventListener("click", () => {
     var currentURL = window.location.href;
 
     Kakao.Share.sendDefault({
@@ -49,14 +49,6 @@ export const Detail = async () => {
       installTalk: true, // 카카오톡 미설치 시 설치 경로이동
     });
   });
-
-  // loadHtml($header, headerUrl).then(() => {
-  //   headerScript();
-  // });
-
-  // loadHtml($footer, footerUrl);
-
-  // LightMode();
 
   $(".detail__goback-btn").addEventListener("click", () => {
     history.back();
