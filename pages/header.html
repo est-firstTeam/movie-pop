@@ -7,14 +7,25 @@
   <a href="/pages/bookmark.html" class="header__bookmark-btn">
     <span>bookmarked movies</span>
   </a>
-  <div class="header__search">
-    <button type="button" class="header__search-btn" aria-label="open search"></button>
-    <label for="header__search_input"> Search for movies by title </label>
-    <form role="search">
-      <input id="header__search_input" class="header__input" type="text" required />
-      <button type="submit" class="header__search-submit" aria-label="search"></button>
+  <div class="header__search-wrapper">
+    <button
+      type="button"
+      class="header__open-search-form-btn"
+      aria-label="open search"
+    ></button>
+    <form role="search" class="header__search-form">
+      <button
+        type="submit"
+        class="header__search-submit"
+        aria-label="search"
+      ></button>
+      <input class="header__search-input" type="text" autofocus required />
+      <button
+        type="button"
+        class="header__cancel-btn"
+        aria-label="cancel search"
+      ></button>
     </form>
-    <button type="button" class="header__cancel-btn" aria-label="cancel search"></button>
   </div>
 </header>
 <script src="/js/header.js" type="module"></script>

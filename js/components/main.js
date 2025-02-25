@@ -5,24 +5,10 @@ export const Main = () => {
   const articles = $(".recommend__content");
   const swiperContainer = $(".new-swiper");
   const swiperContainer2 = $(".classic-swiper");
-  // const $header = ".header__wrapper";
-  // const headerUrl = "/pages/header.html";
-  // const $footer = ".footer__wrapper";
-  // const footerUrl = "/pages/footer.html";
-
-  // loadHtml($header, headerUrl).then(() => {
-  //   headerScript();
-  // });
-
-  // loadHtml($footer, footerUrl);
-
-  // TopBtn();
-
-  // LightMode();
 
   async function fetchData() {
     try {
-      const response = await fetch("./data/movieData.json");
+      const response = await fetch("../data/movieData.json");
       const data = await response.json();
 
       const randomMovie = getRandomMovie(data);
@@ -36,7 +22,6 @@ export const Main = () => {
       );
       renderMovieGrid(recommendMovies, articles);
     } catch (err) {
-      // 디펜시브 코딩 (실패 시 에러메세지 도출)
       console.error("Error!", err);
     }
   }
@@ -58,8 +43,8 @@ export const Main = () => {
   function renderMovies(data) {
     const newMovies = data.filter((movie) => parseInt(movie.Year) >= "2024");
     const classicMovies = data.filter((movie) => parseInt(movie.Year) < "2017");
-    console.log("new", newMovies);
-    console.log("classic", classicMovies);
+    // console.log("new", newMovies);
+    // console.log("classic", classicMovies);
 
     dataRenderSlider(newMovies, swiperContainer);
     dataRenderSlider(classicMovies, swiperContainer2);
@@ -95,6 +80,9 @@ export const Main = () => {
   const swiperEl = $(".new-swiper");
   const swiperEl2 = $(".classic-swiper");
 
+  if (!swiperEl || !swiperEl2) {
+    return;
+  }
   const params = {
     centeredSlides: false,
     slidesPerGroupSkip: 1,
