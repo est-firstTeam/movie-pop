@@ -6,7 +6,7 @@
   height: 3rem;
   margin-right: 2.4rem;
   color: $carouselGray10;
-  background: url("/images/ico_search.svg") no-repeat;
+  @include bg(ico_search);
   background-size: cover;
   transition: all 0.2s;
 }
@@ -18,8 +18,7 @@
   padding-top: 0.5rem;
   display: block;
   z-index: 100;
-
-  background: url("/images/ico_cancel.svg") no-repeat;
+  @include bg(ico_cancel);
   background-size: cover;
 }
 
@@ -28,7 +27,7 @@
   height: 3rem;
   color: $white;
   padding-bottom: 2rem;
-  background-image: url("/images/ico_search.svg");
+  @include bg(ico_search);
   background-size: cover;
   color: $carouselGray10;
   transition: all 0.2s;
@@ -69,7 +68,7 @@
       left: 12rem;
       top: 0.1rem;
       content: "";
-      background: url("../images/btn-arrow.svg") no-repeat;
+      @include bg(btn-arrow);
       width: 3rem;
       height: 2rem;
     }
@@ -192,10 +191,8 @@
   right: 4rem;
   width: 5rem;
   height: 5rem;
+  @include bgCenter(ico-darkmode);
   background-color: $white;
-  background-image: url("/images/ico-darkmode.svg");
-  background-position: center;
-  background-repeat: no-repeat;
   border: 0.1rem solid $bgBlack;
   border-radius: 50%;
   cursor: pointer;
@@ -218,17 +215,17 @@
   right: 22rem;
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/images/ico_share.svg") no-repeat;
+  @include bg(ico_share);
 
   &:hover {
-    background: url("/images/ico_share_primary.svg") no-repeat;
+    @include bg(ico_share_primary);
   }
 
   .light & {
-    background: url("/images/ico_share_black.svg") no-repeat;
+    @include bg(ico_share_black);
 
     &:hover {
-      background: url("/images/ico_share_primary.svg") no-repeat;
+      @include bg(ico_share_primary);
     }
   }
 }
@@ -243,7 +240,7 @@
   &:hover {
     width: 3rem;
     aspect-ratio: 1;
-    background: url("/images/ico_bookmark_primary.svg") no-repeat center;
+    @include bgCenter(ico_bookmark_primary);
     background-size: cover;
   }
 }
@@ -254,17 +251,17 @@
   right: 9.7rem;
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/images/ico_backspace.svg") no-repeat;
+  @include bg(ico_backspace);
 
   &:hover {
-    background: url("/images/ico_backspace_primary.svg") no-repeat;
+    @include bg(ico_backspace_primary);
   }
 
   .light & {
-    background: url("/images/ico_backspace_black.svg") no-repeat;
+    @include bg(ico_backspace_black);
 
     &:hover {
-      background: url("/images/ico_backspace_primary.svg") no-repeat;
+      @include bg(ico_backspace_primary);
     }
   }
 }

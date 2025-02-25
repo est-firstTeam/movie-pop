@@ -296,7 +296,7 @@ a {
      object-fit: cover;
 }
 
-.search-bar-wrapper {
+.search__form {
   display: flex;
   justify-content: space-between;
   margin: 5rem 15rem;
@@ -304,11 +304,11 @@ a {
   padding: 0.5rem;
   border-radius: 1rem;
 }
-.light .search-bar-wrapper {
+.light .search__form {
   border: 1px solid #141414;
 }
 
-.search-bar__input {
+.search__searchbar-input {
   line-height: 3rem;
   width: 100rem;
   font-size: 2rem;
@@ -317,10 +317,10 @@ a {
   border: none;
   color: #fee098;
 }
-.search-bar__input:focus {
+.search__searchbar-input:focus {
   outline: none;
 }
-.light .search-bar__input {
+.light .search__searchbar-input {
   color: #f85858;
 }
 
@@ -328,7 +328,7 @@ a {
   color: #fee098;
 }
 
-.search-result {
+.search__result-wrapper {
   margin-bottom: 5rem;
 }
 
@@ -363,7 +363,7 @@ a {
   color: #f85858;
 }
 
-.search-result__cards {
+.search__result-movies {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 22rem));
 }
@@ -388,17 +388,14 @@ hr {
   grid-template-columns: repeat(6, 1fr);
 }
 
-.header__search-btn {
+.header__open-search-form-btn {
   width: 3rem;
   height: 3rem;
-  padding-bottom: 1rem;
-  position: absolute;
+  margin-right: 2.4rem;
   color: #aaaaaa;
-  right: 1rem;
-  transition: all 0.2s;
-  z-index: 10;
   background: url("/images/ico_search.svg") no-repeat;
   background-size: cover;
+  transition: all 0.2s;
 }
 
 .header__cancel-btn {
@@ -411,30 +408,14 @@ hr {
   background-size: cover;
 }
 
-.header__input:focus + .header__search-submit,
-.header__input:valid + .header__search-submit {
-  font-size: 1.6rem;
-  right: 27rem;
-  color: #aaaaaa;
-  font-weight: bold;
-}
-
-.header__search:focus-within {
-  width: 30rem;
-}
-
 .header__search-submit {
-  visibility: hidden;
   width: 3rem;
   height: 3rem;
   color: #ffffff;
   padding-bottom: 2rem;
-  background-image: url("/images/ico_search.svg");
+  background: url("/images/ico_search.svg") no-repeat;
   background-size: cover;
-  position: absolute;
   color: #aaaaaa;
-  right: 1rem;
-  bottom: 2rem;
   transition: all 0.2s;
 }
 
@@ -472,7 +453,7 @@ hr {
   left: 12rem;
   top: 0.1rem;
   content: "";
-  background: url("../images/btn-arrow.svg") no-repeat;
+  background: url("/images/btn-arrow.svg") no-repeat;
   width: 3rem;
   height: 2rem;
 }
@@ -544,15 +525,15 @@ hr {
   opacity: 1;
 }
 
-.search-bar-btn {
+.search__searchbar-btn {
   padding-right: 2rem;
 }
-.search-bar-btn svg {
+.search__searchbar-btn svg {
   fill: #ffffff;
   width: 2rem;
   height: 2rem;
 }
-.light .search-bar-btn svg {
+.light .search__searchbar-btn svg {
   fill: #141414;
 }
 
@@ -589,10 +570,8 @@ hr {
   right: 4rem;
   width: 5rem;
   height: 5rem;
+  background: url("/images/ico-darkmode.svg") no-repeat center;
   background-color: #ffffff;
-  background-image: url("/images/ico-darkmode.svg");
-  background-position: center;
-  background-repeat: no-repeat;
   border: 0.1rem solid #141414;
   border-radius: 50%;
   cursor: pointer;
@@ -693,43 +672,55 @@ hr {
   width: 100%;
 }
 
-.header__search {
-  display: flex;
-  position: relative;
-  width: 0;
-  height: 5rem;
-  background: linear-gradient(90deg, #f85858, #fee098) no-repeat 0 bottom/100% 0.2rem;
+.header__search-input {
+  background: none;
+  border: none;
+  caret-color: #fee098;
+  color: #fee098;
+  font-size: 3rem;
 }
-.header__search label {
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  clip: rect(1px, 1px, 1px, 1px);
+.header__search-input:focus {
+  outline: none;
 }
 
-.header__input {
+.header__search-form {
   display: none;
+  gap: 0.8rem;
+  position: relative;
   font-size: 3rem;
   color: #fee098;
-  width: 20rem;
-  position: relative;
-  background: none;
-  z-index: 5;
-  line-height: 3rem;
-  caret-color: #fee098;
-  text-align: left;
-  margin-left: 4rem;
-  border: none;
+  border-bottom: none;
+  margin-right: 2.4rem;
 }
-.header__input:focus {
+.header__search-form::after {
+  content: "";
+  background: linear-gradient(90deg, #f85858, #fee098);
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  position: absolute;
+  bottom: -1.6rem;
+  animation: fadeInRight 0.1s ease-in-out;
+}
+.header__search-form:focus {
   outline: none;
 }
 
 .light header {
   background-color: #ffffff;
 }
-
+@keyframes fadeInRight {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
 .footer {
   display: inline-flex;
   margin-left: 10rem;
@@ -744,12 +735,12 @@ hr {
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  background-image: url("/images/ico_youtube.svg");
+  background: url("/images/ico_youtube.svg") no-repeat center;
   background-size: cover;
-  background-position: center;
 }
 .light .footer-link__icon {
-  background-image: url("/images/ico_youtube_lightmode.svg");
+  background: url("/images/ico_youtube_lightmode.svg") no-repeat;
+  background-size: cover;
   width: 3rem;
 }
 
@@ -757,11 +748,12 @@ hr {
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  background-image: url("/images/ico_github.svg");
+  background: url("/images/ico_github.svg") no-repeat center;
   background-size: cover;
 }
 .light .footer-link__icon2 {
-  background-image: url("/images/ico_github_lightmode.svg");
+  background: url("/images/ico_github_lightmode.svg") no-repeat;
+  background-size: cover;
   width: 3rem;
 }
 
@@ -937,7 +929,7 @@ hr {
   top: 0.5rem;
   right: 3.5rem;
   content: "";
-  background: url("../images/bgDot.svg") no-repeat;
+  background: url("/images/bgDot.svg") no-repeat;
   display: inline-block;
   width: 2rem;
   height: 2rem;

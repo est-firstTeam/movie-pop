@@ -35,3 +35,11 @@
   margin-bottom: 2.8rem;
   border: 0;
 }
+
+@mixin bg($image) {
+  background: url("/images/#{$image}.svg") no-repeat;
+}
+
+@mixin bgCenter($image) {
+  background: url("/images/#{$image}.svg") no-repeat center;
+}
