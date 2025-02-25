@@ -163,7 +163,7 @@
     top: 0.5rem;
     right: 3.5rem;
     content: "";
-    background: url("../images/bgDot.svg") no-repeat;
+    @include bg(bgDot);
     display: inline-block;
     width: 2rem;
     height: 2rem;

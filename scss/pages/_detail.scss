@@ -41,24 +41,24 @@
 .bookmarked {
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/images/ico_bookmark_filled.svg") no-repeat center;
+  @include bgCenter(ico_bookmark_filled);
   background-size: cover;
 }
 
 .not-bookmarked {
   width: 3rem;
   aspect-ratio: 1;
-  background: url("/images/ico_bookmark.svg") no-repeat center;
+  @include bgCenter(ico_bookmark);
   background-size: cover;
   .light & {
     width: 3rem;
     aspect-ratio: 1;
-    background: url("/images/ico_bookmark_black.svg") no-repeat center;
+    @include bgCenter(ico_bookmark_black);
     background-size: cover;
     &:hover {
       width: 3rem;
       aspect-ratio: 1;
-      background: url("/images/ico_bookmark_primary.svg") no-repeat center;
+      @include bgCenter(ico_bookmark_primary);
       background-size: cover;
     }
   }
