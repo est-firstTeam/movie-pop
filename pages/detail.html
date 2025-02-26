@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="movie detail page" />
+    <meta property="og:site_name" content="movie pop" />
+    <meta property="og:type" content="web" />
+    <meta
+      property="og:description"
+      content="Welcome to the movie introduction site"
+    />
+    <link rel="icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    <title>Movie POP</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="movie detail page" />
-  <meta property="og:site_name" content="movie pop" />
-  <meta property="og:type" content="web" />
-  <meta property="og:description" content="Welcome to the movie introduction site" />
-  <link rel="icon" href="/images/favicon.png" />
-  <link rel="stylesheet" href="/css/index.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script type="module" src="/js/index.js"></script>
-  <title>Movie POP</title>
-</head>
+  <body>
+    <div class="header__wrapper"></div>
+    <div class="loading__wrapper"></div>
+    <main class="detail__container">
+      <div class="loading"></div>
+      <button type="button" class="detail__goback-btn">
+        <span>go back</span>
+      </button>
+      <button type="button" class="detail__bookmark-btn not-bookmarked">
+        <span>book mark</span>
+      </button>
 
-<body>
-  <div class="header__wrapper"></div>
-  <div class="loading__wrapper"></div>
-  <main class="detail__container">
-    <div class="loading"></div>
-    <button type="button" class="detail__goback-btn">
-      <!-- <span>go back</span> -->
-    </button>
-    <button type="button" class="detail__bookmark-btn not-bookmarked">
-      <!-- <span>book mark</span> -->
-    </button>
+      <button type="button" class="detail__share-btn">
+        <span>share</span>
+      </button>
 
-    <button type="button" class="detail__share-btn">
-      <!-- <span>share</span> -->
-    </button>
-
-    <div class="detail__movie-info-wrapper"></div>
-  </main>
-  <footer class="footer__wrapper"></footer>
-</body>
-
+      <div class="detail__movie-info-wrapper"></div>
+    </main>
+    <footer class="footer__wrapper"></footer>
+  </body>
 </html>
