@@ -4,15 +4,24 @@ import renderMoviePoster from "./moviePoster.js";
 
 export const SearchResult = async () => {
   const loadingWrapper = $(".loading__wrapper");
+  const $searchResultWrapper = $(".search__result-wrapper");
   const $searchBarInput = $(".search__searchbar-input");
-  const $searchResultWrapper = $("search__resut-wrapper");
   const $searchResultMovies = $(".search__result-movies");
-  const $sectionResult = $(".section-result");
   const $searchForm = $(".search__form");
 
-  if (!$sectionResult || !$searchResultMovies || !$searchBarInput) {
+  if (
+    !loadingWrapper ||
+    !$searchResultWrapper ||
+    !$searchBarInput ||
+    !$searchResultMovies ||
+    !$searchForm
+  ) {
     return;
   }
+
+  const params = new URLSearchParams(window.location.search);
+  const searchWord = params.get("title");
+  $searchBarInput.placeholder = `The result of a search for ${searchWord}`;
 
   $searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -20,10 +29,6 @@ export const SearchResult = async () => {
     const searchValue = $searchBarInput.value;
     search(searchValue);
   });
-
-  const params = new URLSearchParams(window.location.search);
-  const searchWord = params.get("title");
-  $searchBarInput.placeholder = `The result of a search for ${searchWord}`;
 
   const search = async (word) => {
     try {
@@ -50,17 +55,16 @@ export const SearchResult = async () => {
         </div>
         `
           )
-          .join();
+          .join("");
       } else {
         $searchResultMovies.style.display = "flex";
         $searchResultMovies.style.justifyContent = "center";
         $searchResultMovies.innerHTML = `
         <h2 class="card-noresult__text">
-          There's no "<span>${searchWord}</span>"...
+          There's no "<span>${word}</span>"...
         </h2>`;
       }
     } catch (error) {
-      hideMask(loadingWrapper);
       console.log(error);
       $searchResultWrapper.innerHTML = `<p class="error-message">영화 정보를 불러오는 데 실패했습니다.</p>`;
     } finally {
