@@ -118,8 +118,10 @@
   transition: transform 0.2s;
 
   img {
+    width: 17rem;
     height: 25rem;
     margin-top: 2rem;
+    object-fit: contain;
   }
 
   &:hover {

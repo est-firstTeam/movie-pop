@@ -9,7 +9,6 @@ export const TopBtn = () => {
       top: 0,
       behavior: "smooth",
     });
-    console.log("click");
   });
 
   document.body.addEventListener("scroll", () => {
@@ -19,6 +18,4 @@ export const TopBtn = () => {
       topBtn.style.display = "none";
     }
   });
-
-}
-
+};
