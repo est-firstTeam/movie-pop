@@ -1,4 +1,4 @@
-import { $, showMask, hideMask } from "../util/helper.js";
+import { $, showLoading, finishLoading } from "../util/helper.js";
 import { fetchMoviesByTitle } from "../api/api.js";
 import renderMoviePoster from "./moviePoster.js";
 
@@ -32,7 +32,7 @@ export const SearchResult = async () => {
 
   const search = async (word) => {
     try {
-      showMask(loadingWrapper);
+      showLoading();
 
       const { movies, totalResults } = await fetchMoviesByTitle(word);
 
@@ -68,7 +68,7 @@ export const SearchResult = async () => {
       console.log(error);
       $searchResultWrapper.innerHTML = `<p class="error-message">영화 정보를 불러오는 데 실패했습니다.</p>`;
     } finally {
-      hideMask(loadingWrapper);
+      finishLoading();
     }
   };
   search(searchWord);

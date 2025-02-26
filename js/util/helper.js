@@ -14,14 +14,14 @@ export const setLoading = bodymovin.loadAnimation({
 });
 
 // 로딩 시작
-export const showLoading = () => {
+export const startLoading = () => {
   $(".loading").style.display = "block";
   setLoading.play();
 };
 
 // 로딩 끝
-export const finishLoading = () => {
-  setLoading.destroy();
+export const endLoading = () => {
+  setLoading.stop();
   $(".loading").style.display = "none";
 };
 
@@ -47,18 +47,30 @@ export function renderMovieGrid(data, container) {
     .join("");
 }
 
-export const showMask = (ele) => {
+export const showLoading = () => {
+  const $loadingWrapper = $(".loading__wrapper");
+  if (!$loadingWrapper) {
+    return;
+  }
+
+  $loadingWrapper.style.display = "block";
+
   const windowWidth = window.document.body.clientWidth;
   const windowHeight = window.document.body.clientHeight;
 
-  ele.style.width = `${windowWidth}px`;
-  ele.style.height = `${windowHeight}px`;
-  ele.style.display = "flex";
+  $loadingWrapper.style.width = `${windowWidth}px`;
+  $loadingWrapper.style.height = `${windowHeight}px`;
+  $loadingWrapper.style.display = "flex";
 
-  showLoading();
+  startLoading();
 };
 
-export const hideMask = (ele) => {
-  finishLoading();
-  ele.style.display = "none";
+export const finishLoading = () => {
+  const $loadingWrapper = $(".loading__wrapper");
+  if (!$loadingWrapper) {
+    return;
+  }
+
+  endLoading();
+  $loadingWrapper.style.display = "none";
 };
