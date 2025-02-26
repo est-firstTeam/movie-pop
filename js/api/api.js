@@ -19,11 +19,9 @@ export const fetchMoviesByTitle = async (title, year = "", page = 1) => {
     const response = await fetch(`${API_URL}${s}${y}${p}`);
     const json = await response.json();
     if (json.Response === "True") {
-      console.log(json);
-      const { Search: movies, totalResults } = json;
+      const { Search: movies } = json;
       return {
         movies,
-        totalResults,
       };
     }
     return json.Error;

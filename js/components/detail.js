@@ -76,7 +76,6 @@ export const Detail = async () => {
     if (bookMarkedMovieIds) {
       const lstBookMarkedIds = JSON.parse(bookMarkedMovieIds);
       const isBookMarked = lstBookMarkedIds.includes(id);
-      console.log(isBookMarked);
       if (isBookMarked) {
         $(".detail__bookmark-btn").classList.remove("not-bookmarked");
         $(".detail__bookmark-btn").classList.add("bookmarked");
