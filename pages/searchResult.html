@@ -3,21 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="search page" />
+    <meta property="og:site_name" content="movie pop" />
+    <meta property="og:type" content="web" />
+    <meta
+      property="og:description"
+      content="Welcome to the movie introduction site"
+    />
+    <meta property="og:url" content="https://movie-pop-neon.vercel.app" />
     <title>Movie POP</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
     <link rel="icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="/css/index.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    <script type="module" src="/js/index.js"></script>
   </head>
+
   <body>
     <div class="header__wrapper"></div>
-    <div class="loading__wrapper">
+    <div class="loading__wrapper"></div>
+    <main class="section-result">
       <div class="loading"></div>
-    </div>
-    <section class="section-result">
-      <form class="search-bar-wrapper">
-        <input class="search-bar__input" type="text" required />
-        <button class="search-bar__btn" type="submit">
+      <form class="search__form">
+        <input class="search__searchbar-input" type="text" required />
+        <button class="search__searchbar-btn" type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -32,19 +40,12 @@
           </svg>
         </button>
       </form>
-      <div class="search-result">
+      <div class="search__result-wrapper">
         <h2 class="search-result__title">result</h2>
         <hr class="horizontal" />
-        <div class="search-result__cards"></div>
+        <div class="search__result-movies"></div>
       </div>
-    </section>
-    <section class="recommend">
-      <h2 class="recommend__title">RECOMMEND</h2>
-      <div class="recommend__content"></div>
-    </section>
+    </main>
     <footer class="footer__wrapper"></footer>
-    <script src="/js/lightMode.js"></script>
-    <script src="/js/topBtn.js"></script>
-    <script type="module" src="/js/searchResult.js"></script>
   </body>
 </html>

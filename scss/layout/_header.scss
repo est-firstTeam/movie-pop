@@ -17,103 +17,74 @@
     width: 100%;
   }
 }
+.header__search-input {
+  background: none;
+  border: none;
+  caret-color: $secondary;
+  color: $secondary;
+  font-size: 3rem;
 
-.header__search {
-  display: flex;
-  position: relative;
-  width: 0;
-  height: 5rem;
-  background: $mainGradientcolor no-repeat 0 bottom / 100% 0.2rem;
+  &:focus {
+    outline: none;
+  }
 }
-
-.header__search-btn {
-  width: 3rem;
-  height: 3rem;
-
-  padding-bottom: 1rem;
-  position: absolute;
-  color: $carouselGray10;
-  right: 1rem;
-  transition: all 0.2s;
-  z-index: 10;
-
-  background: url("/images/ico_search.svg") no-repeat;
-  background-size: cover;
-}
-
-.header__cancel-btn {
-  width: 3rem;
-  height: 3rem;
-
-  padding-top: 0.5rem;
-  display: block;
-  z-index: 100;
-
-  background: url("/images/ico_cancel.svg") no-repeat;
-  background-size: cover;
-}
-
-.header__input {
+.header__search-form {
   display: none;
+  gap: 0.8rem;
+  position: relative;
   font-size: 3rem;
   color: $secondary;
-  width: 20rem;
-  position: relative;
-  background: none;
-  z-index: 5;
-  line-height: 3rem;
-  caret-color: $secondary;
-  text-align: left;
-  margin-left: 4rem;
-  border: none;
+  border-bottom: none;
+  margin-right: 2.4rem;
+
+  &::after {
+    content: "";
+    background: $mainGradientcolor;
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    position: absolute;
+    bottom: -1.6rem;
+    animation: fadeInRight 0.1s ease-in-out;
+  }
+
   &:focus {
     outline: none;
   }
 }
 
-//Transition 부분 (아이콘)
-.header__input:focus + .header__search-submit,
-.header__input:valid + .header__search-submit {
-  font-size: 1.6rem;
-  right: 27rem;
-  color: $carouselGray10;
-  font-weight: bold;
-}
-// Transition 부분 (수평선)
-.header__search:focus-within {
-  width: 30rem;
-}
-
-.header__search-submit {
-  visibility: hidden;
-  width: 3rem;
-  height: 3rem;
-  color: $white;
-  padding-bottom: 2rem;
-  background-image: url("/images/ico_search.svg");
-  background-size: cover;
-  position: absolute;
-  color: $carouselGray10;
-  right: 1rem;
-  bottom: 2rem;
-  transition: all 0.2s;
-}
-
 .light header {
   background-color: $white;
 }
-
-.header__btn-bookmark {
-  display: inline-block;
-  width: min-content;
-  white-space: nowrap;
-
-  span {
-    color: $fontGray20;
-    font-size: 2rem;
-
-    &:hover {
-      color: $fontGray30;
-    }
+@-webkit-keyframes fadeInRight {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
   }
 }

@@ -76,57 +76,6 @@
   position: relative;
 }
 
-.new__swiper-btn-prev,
-.classic__swiper-btn-prev {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 1rem;
-  transform: translate(0, -50%);
-  width: 5rem;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 10;
-  background-color: $swiperBtn;
-  img {
-    width: 5rem;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-}
-
-.new__swiper-btn-next,
-.classic__swiper-btn-next {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  right: 1rem;
-  transform: translate(0, -50%);
-  width: 5rem;
-  height: 100%;
-  background-color: $swiperBtn;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  img {
-    width: 5rem;
-    &:hover {
-      transform: scale(1.2);
-    }
-  }
-}
-
-.swiper-wrapper:hover .new__swiper-btn-prev,
-.swiper-wrapper:hover .new__swiper-btn-next {
-  opacity: 1;
-}
-
-.swiper-wrapper:hover .classic__swiper-btn-prev,
-.swiper-wrapper:hover .classic__swiper-btn-next {
-  opacity: 1;
-}
-
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -169,8 +118,10 @@
   transition: transform 0.2s;
 
   img {
+    width: 17rem;
     height: 25rem;
     margin-top: 2rem;
+    object-fit: contain;
   }
 
   &:hover {
@@ -214,7 +165,7 @@
     top: 0.5rem;
     right: 3.5rem;
     content: "";
-    background: url("../images/bgDot.svg") no-repeat;
+    @include bg(bgDot);
     display: inline-block;
     width: 2rem;
     height: 2rem;
