@@ -24,19 +24,19 @@ export const SearchResult = async () => {
   const searchWord = titleValue ? titleValue : $searchBarInput; // 쿼리파람 또는 input의 검색어
   $searchBarInput.placeholder = `The result of a search for ${searchWord}`;
 
+  let currentPage = 1; // 현재 페이지
+  let isFetching = false; // 데이터를 가져오는지 확인중
+  let hasMore = true; // 데이터가 더 있는지 확인하는 변수
+
   $searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const searchValue = $searchBarInput.value;
     console.log(searchValue);
     $searchResultMovies.innerHTML = ""; // 초기화
-    let currentPage = 1; // 초기화
+    currentPage = 1; // 초기화
     search(searchValue, true, false);
   });
-
-  let currentPage = 1; // 현재 페이지
-  let isFetching = false; // 데이터를 가져오는지 확인중
-  let hasMore = true; // 데이터가 더 있는지 확인하는 변수
 
   document.body.addEventListener("scroll", () => {
     if (isFetching || !hasMore) {
