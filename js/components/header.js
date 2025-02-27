@@ -20,7 +20,6 @@ export const headerScript = async () => {
     $openSearchFormBtn.style.display = "flex";
   });
 
-  // TODO debouncing 적용
   // 검색 submit
   $searchWrapper.addEventListener("submit", async (event) => {
     event.preventDefault();
