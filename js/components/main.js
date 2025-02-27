@@ -2,6 +2,13 @@ import { $, renderMovieGrid } from "../util/helper.js";
 import renderMoviePoster from "./moviePoster.js";
 
 export const Main = () => {
+  const $slideContent = $(".slide__content");
+
+  if (
+    !$slideContent
+  ) {
+    return;
+  }
   const articles = $(".recommend__content");
   const swiperContainer = $(".new-swiper");
   const swiperContainer2 = $(".classic-swiper");
