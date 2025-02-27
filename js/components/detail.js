@@ -13,6 +13,17 @@ export const initKakao = () => {
   }
 };
 export const Detail = async () => {
+
+  const loadingWrapper = $(".loading__wrapper");
+  const detailMovieInfoWrapper = $(".detail__movie-info-wrapper");
+
+  if (
+    !loadingWrapper ||
+    !detailMovieInfoWrapper
+  ) {
+    return;
+  }
+
   initKakao();
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
