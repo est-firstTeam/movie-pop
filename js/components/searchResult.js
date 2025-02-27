@@ -28,7 +28,10 @@ export const SearchResult = async () => {
     e.preventDefault();
 
     const searchValue = $searchBarInput.value;
-    search(searchValue);
+    console.log(searchValue);
+    $searchResultMovies.innerHTML = ""; // 초기화
+    let currentPage = 1; // 초기화
+    search(searchValue, true, false);
   });
 
   let currentPage = 1; // 현재 페이지
@@ -92,7 +95,6 @@ export const SearchResult = async () => {
           <h2 class="card-noresult__text">
             There's no "<span>${word}</span>"...
           </h2>`;
-          console.log("end!!!!!!");
         }
       }
     } catch (error) {
